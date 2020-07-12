@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28307.960
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "North", "North\North.csproj", "{D92E48BE-6522-4A48-AC3F-07020A2C1D01}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{10AC0965-6946-448F-8C7B-9F87DE4666AD}"
+	ProjectSection(SolutionItems) = preProject
+		North2020Script.sql = North2020Script.sql
+		readme.md = readme.md
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{D92E48BE-6522-4A48-AC3F-07020A2C1D01}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D92E48BE-6522-4A48-AC3F-07020A2C1D01}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D92E48BE-6522-4A48-AC3F-07020A2C1D01}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D92E48BE-6522-4A48-AC3F-07020A2C1D01}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {242CA456-223F-4F7D-B950-0B94F48F7A6D}
+	EndGlobalSection
+EndGlobal
