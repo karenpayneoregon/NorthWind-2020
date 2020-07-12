@@ -18,11 +18,11 @@ namespace North.Classes
                 using (var context = new NorthwindContext())
                 {
                     return await context.Customers.AsNoTracking()
-                        .Include(c => c.Contact)
-                        .ThenInclude(xx => xx.ContactDevices)
-                        .ThenInclude(xx => xx.PhoneTypeIdentifierNavigation)
-                        .Include(c => c.ContactTypeIdentifierNavigation)
-                        .Include(c => c.CountryIdentifierNavigation)
+                        .Include(customer => customer.Contact)
+                        .ThenInclude(contact => contact.ContactDevices)
+                        .ThenInclude(contactDevices => contactDevices.PhoneTypeIdentifierNavigation)
+                        .Include(customer => customer.ContactTypeIdentifierNavigation)
+                        .Include(customer => customer.CountryIdentifierNavigation)
                         .Select(customer => new CustomerItem()
                         {
                             CustomerIdentifier = customer.CustomerIdentifier,
@@ -39,7 +39,7 @@ namespace North.Classes
                             LastName = customer.Contact.LastName,
                             ContactTitle = customer.ContactTypeIdentifierNavigation.ContactTitle,
                             OfficePhoneNumber = customer.Contact.ContactDevices
-                                .FirstOrDefault(x => x.PhoneTypeIdentifier == 3).PhoneNumber
+                                .FirstOrDefault(contactDevices => contactDevices.PhoneTypeIdentifier == 3).PhoneNumber
                         }).ToListAsync();
 
 
