@@ -137,22 +137,32 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Classes\CategoryItem.cs" />
+    <Compile Include="Classes\CategoryTestOperations.cs" />
     <Compile Include="Classes\ContactTestOperations.cs" />
     <Compile Include="Classes\ContactItem.cs" />
     <Compile Include="Classes\CustomerItem.cs" />
     <Compile Include="Classes\CustomersTestOperations.cs" />
+    <Compile Include="Classes\ProductItem.cs" />
+    <Compile Include="Classes\ProductsTestOperations.cs" />
     <Compile Include="Contexts\NorthwindContext.cs" />
-    <Compile Include="ContactsTestForm.cs">
+    <Compile Include="Forms\ContactsTestForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ContactsTestForm.Designer.cs">
+    <Compile Include="Forms\ContactsTestForm.Designer.cs">
       <DependentUpon>ContactsTestForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="CustomersTestForm.cs">
+    <Compile Include="Forms\CustomersTestForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="CustomersTestForm.Designer.cs">
+    <Compile Include="Forms\CustomersTestForm.Designer.cs">
       <DependentUpon>CustomersTestForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\ProductsTestForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\ProductsTestForm.Designer.cs">
+      <DependentUpon>ProductsTestForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Models\BusinessEntityPhone.cs" />
     <Compile Include="Models\Categories.cs" />
@@ -170,11 +180,14 @@
     <Compile Include="Models\Suppliers.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="ContactsTestForm.resx">
+    <EmbeddedResource Include="Forms\ContactsTestForm.resx">
       <DependentUpon>ContactsTestForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="CustomersTestForm.resx">
+    <EmbeddedResource Include="Forms\CustomersTestForm.resx">
       <DependentUpon>CustomersTestForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\ProductsTestForm.resx">
+      <DependentUpon>ProductsTestForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -184,6 +197,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <None Include="efpt.config.json" />
     <None Include="packages.config" />
@@ -200,7 +214,12 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <None Include="Resources\Loading_Blue_16x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Open_16x.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="..\packages\Microsoft.Data.SqlClient.SNI.1.0.19235.1\build\net46\Microsoft.Data.SqlClient.SNI.targets" Condition="Exists('..\packages\Microsoft.Data.SqlClient.SNI.1.0.19235.1\build\net46\Microsoft.Data.SqlClient.SNI.targets')" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
