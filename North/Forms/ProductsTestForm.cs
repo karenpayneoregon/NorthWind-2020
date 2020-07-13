@@ -17,10 +17,11 @@ namespace North.Forms
         {
             InitializeComponent();
 
-            //ProductsDataGridView.AutoGenerateColumns = false;
+            ProductsDataGridView.AutoGenerateColumns = false;
 
             Shown += ProductsTestForm_Shown;
         }
+
 
         private async void  ProductsTestForm_Shown(object sender, EventArgs e)
         {
@@ -36,7 +37,16 @@ namespace North.Forms
             }
 
             var categoryIdentifier = ((CategoryItem) CategoryComboBox.SelectedItem).CategoryID;
+
             ProductsDataGridView.DataSource = ProductsTestOperations.GetProductsByCategory(categoryIdentifier);
+
+            for (int rowIndex = 0; rowIndex < ProductsDataGridView.Rows.Count; rowIndex++)
+            {
+                if (((ProductItem)ProductsDataGridView.Rows[rowIndex].DataBoundItem).Discontinued)
+                {
+                    ProductsDataGridView.Rows[rowIndex].DefaultCellStyle.ForeColor = Color.Red;
+                }
+            }
 
         }
     }

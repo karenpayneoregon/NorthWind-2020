@@ -43,7 +43,7 @@
             this.Column10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column11 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column12 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column13 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.DiscountinuedColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.Column14 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.ProductsDataGridView)).BeginInit();
             this.SuspendLayout();
@@ -74,7 +74,7 @@
             this.Column10,
             this.Column11,
             this.Column12,
-            this.Column13,
+            this.DiscountinuedColumn,
             this.Column14});
             this.ProductsDataGridView.Location = new System.Drawing.Point(15, 48);
             this.ProductsDataGridView.Name = "ProductsDataGridView";
@@ -170,13 +170,13 @@
             this.Column12.HeaderText = "Reorder level";
             this.Column12.Name = "Column12";
             // 
-            // Column13
+            // DiscountinuedColumn
             // 
-            this.Column13.DataPropertyName = "Discontinued";
-            this.Column13.HeaderText = "Discontinued";
-            this.Column13.Name = "Column13";
-            this.Column13.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.Column13.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.DiscountinuedColumn.DataPropertyName = "Discontinued";
+            this.DiscountinuedColumn.HeaderText = "Discontinued";
+            this.DiscountinuedColumn.Name = "DiscountinuedColumn";
+            this.DiscountinuedColumn.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.DiscountinuedColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
             // 
             // Column14
             // 
@@ -219,7 +219,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Column10;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column11;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column12;
-        private System.Windows.Forms.DataGridViewCheckBoxColumn Column13;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn DiscountinuedColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column14;
     }
 }

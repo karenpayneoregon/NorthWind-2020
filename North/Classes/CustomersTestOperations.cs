@@ -10,6 +10,25 @@ namespace North.Classes
 {
     public class CustomersTestOperations
     {
+        public static async Task<List<CustomerItem>> GetCustomerItemsForComboBox()
+        {
+            return await Task.Run(async () =>
+            {
+
+                using (var context = new NorthwindContext())
+                {
+                    return await context.Customers.AsNoTracking()
+                        .Select(customer => new CustomerItem()
+                        {
+                            CustomerIdentifier = customer.CustomerIdentifier,
+                            CompanyName = customer.CompanyName,
+                        }).ToListAsync();
+
+
+                }
+            });
+        }
+
         public static async Task<List<CustomerItem>> GetCustomers()
         {
             return await Task.Run(async () =>
