@@ -200,6 +200,11 @@ namespace North.Contexts
                     .WithMany(p => p.Employees)
                     .HasForeignKey(d => d.CountryIdentifier)
                     .HasConstraintName("FK_Employees_Countries");
+
+                entity.HasOne(d => d.ReportsToNavigation)
+                    .WithMany(p => p.InverseReportsToNavigation)
+                    .HasForeignKey(d => d.ReportsTo)
+                    .HasConstraintName("FK_Employees_Employees");
             });
 
             modelBuilder.Entity<OrderDetails>(entity =>

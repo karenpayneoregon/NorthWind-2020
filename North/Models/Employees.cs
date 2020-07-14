@@ -8,6 +8,7 @@ namespace North.Models
     {
         public Employees()
         {
+            InverseReportsToNavigation = new HashSet<Employees>();
             Orders = new HashSet<Orders>();
         }
 
@@ -30,6 +31,8 @@ namespace North.Models
 
         public virtual ContactType ContactTypeIdentifierNavigation { get; set; }
         public virtual Countries CountryIdentifierNavigation { get; set; }
+        public virtual Employees ReportsToNavigation { get; set; }
+        public virtual ICollection<Employees> InverseReportsToNavigation { get; set; }
         public virtual ICollection<Orders> Orders { get; set; }
     }
 }

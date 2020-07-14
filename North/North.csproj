@@ -169,6 +169,13 @@
     <Compile Include="Forms\CustomersTestForm.Designer.cs">
       <DependentUpon>CustomersTestForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\EmployeeTestForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\EmployeeTestForm.Designer.cs">
+      <DependentUpon>EmployeeTestForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Classes\EmployeeWithManager.cs" />
     <Compile Include="Forms\OrdersTestForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -205,6 +212,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\CustomersTestForm.resx">
       <DependentUpon>CustomersTestForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\EmployeeTestForm.resx">
+      <DependentUpon>EmployeeTestForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\OrdersTestForm.resx">
       <DependentUpon>OrdersTestForm.cs</DependentUpon>
