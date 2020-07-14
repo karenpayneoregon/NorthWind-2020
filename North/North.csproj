@@ -137,18 +137,26 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Classes\Categories.cs" />
     <Compile Include="Classes\CategoryItem.cs" />
     <Compile Include="Classes\CategoryTestOperations.cs" />
     <Compile Include="Classes\ContactTestOperations.cs" />
     <Compile Include="Classes\ContactItem.cs" />
     <Compile Include="Classes\CustomerItem.cs" />
     <Compile Include="Classes\CustomersTestOperations.cs" />
+    <Compile Include="Classes\Helpers\ImageHelpers.cs" />
     <Compile Include="Classes\OrderDetailItem.cs" />
     <Compile Include="Classes\OrderItem.cs" />
     <Compile Include="Classes\OrdersTestOperation.cs" />
     <Compile Include="Classes\ProductItem.cs" />
     <Compile Include="Classes\ProductsTestOperations.cs" />
     <Compile Include="Contexts\NorthwindContext.cs" />
+    <Compile Include="Forms\CategoryImagesTestForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\CategoryImagesTestForm.Designer.cs">
+      <DependentUpon>CategoryImagesTestForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\ContactsTestForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -189,6 +197,9 @@
     <Compile Include="Models\Suppliers.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Forms\CategoryImagesTestForm.resx">
+      <DependentUpon>CategoryImagesTestForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\ContactsTestForm.resx">
       <DependentUpon>ContactsTestForm.cs</DependentUpon>
     </EmbeddedResource>
