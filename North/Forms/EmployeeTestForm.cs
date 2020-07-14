@@ -34,6 +34,7 @@ namespace North.Forms
                 using (var context = new NorthwindContext())
                 {
                     employeeWithManagers = await context.Employees
+                        .AsNoTracking()
                         .Include(employee => 
                             employee.InverseReportsToNavigation)
                         .Select(emp => new EmployeeWithManager

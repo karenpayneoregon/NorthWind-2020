@@ -21,7 +21,8 @@ namespace North
         public ContactsTestForm()
         {
             InitializeComponent();
-            //Shown += Form1_Shown;
+            CustomersDemoButton.Enabled = false;
+            Shown += Form1_Shown;
         }
         /// <summary>
         /// Get all contacts 
@@ -33,6 +34,7 @@ namespace North
 
             var contactItemList = ContactTestOperations.GetContactsAsync();
             ContactsListBox.DataSource = await contactItemList;
+            CustomersDemoButton.Enabled = true;
             ContactsListBox.SelectedIndexChanged += ListBox1_SelectedIndexChanged;
             DisplayCurrentContact();
         }
@@ -59,11 +61,17 @@ namespace North
             HomePhoneTextBox.Text = currentContactItem.HomePhone;
             CellPhoneNumber.Text = currentContactItem.CellPhone;
         }
-
-        private void button1_Click(object sender, EventArgs e)
+        /// <summary>
+        /// Example for article
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private async void CustomersDemoButton_Click(object sender, EventArgs e)
         {
-            CustomersTestOperations.GetCustomers();
-            
+            var test = await CustomersTestOperations.GetCustomers();
+            var test1 = await CustomersTestOperations.GetCustomersAsync();
+            Console.WriteLine();
+
         }
     }
 

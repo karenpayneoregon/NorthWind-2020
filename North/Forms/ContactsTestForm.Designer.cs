@@ -37,7 +37,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
+            this.CustomersDemoButton = new System.Windows.Forms.Button();
             this.label5 = new System.Windows.Forms.Label();
             this.HomePhoneTextBox = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
@@ -116,15 +116,15 @@
             this.label4.TabIndex = 10;
             this.label4.Text = "Office phone";
             // 
-            // button1
+            // CustomersDemoButton
             // 
-            this.button1.Location = new System.Drawing.Point(259, 268);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 11;
-            this.button1.Text = "button1";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.CustomersDemoButton.Location = new System.Drawing.Point(436, 409);
+            this.CustomersDemoButton.Name = "CustomersDemoButton";
+            this.CustomersDemoButton.Size = new System.Drawing.Size(119, 23);
+            this.CustomersDemoButton.TabIndex = 11;
+            this.CustomersDemoButton.Text = "Customers demo";
+            this.CustomersDemoButton.UseVisualStyleBackColor = true;
+            this.CustomersDemoButton.Click += new System.EventHandler(this.CustomersDemoButton_Click);
             // 
             // label5
             // 
@@ -167,7 +167,7 @@
             this.Controls.Add(this.CellPhoneNumber);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.HomePhoneTextBox);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.CustomersDemoButton);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
@@ -196,7 +196,7 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button CustomersDemoButton;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.TextBox HomePhoneTextBox;
         private System.Windows.Forms.Label label6;

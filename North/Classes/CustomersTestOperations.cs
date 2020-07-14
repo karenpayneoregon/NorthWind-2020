@@ -28,7 +28,10 @@ namespace North.Classes
                 }
             });
         }
-
+        /// <summary>
+        /// Conventional loading of entities
+        /// </summary>
+        /// <returns></returns>
         public static async Task<List<CustomerItem>> GetCustomers()
         {
             return await Task.Run(async () =>
@@ -65,5 +68,24 @@ namespace North.Classes
                 }
             });
         }
+        /// <summary>
+        /// Example of using projections
+        /// </summary>
+        /// <returns></returns>
+        public static async Task<List<CustomerItem>> GetCustomersAsync()
+        {
+
+            return await Task.Run(async () =>
+            {
+
+                using (var context = new NorthwindContext())
+                {
+                    return await context.Customers.AsNoTracking().Select(CustomerItem.Projection).ToListAsync();
+                }
+
+            });
+
+        }
+
     }
 }
