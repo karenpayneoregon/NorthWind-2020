@@ -142,6 +142,8 @@
     <Compile Include="Classes\CategoryTestOperations.cs" />
     <Compile Include="Classes\ContactTestOperations.cs" />
     <Compile Include="Classes\ContactItem.cs" />
+    <Compile Include="Classes\CountryItem.cs" />
+    <Compile Include="Classes\CountryTestOperations.cs" />
     <Compile Include="Classes\CustomerItem.cs" />
     <Compile Include="Classes\CustomersTestOperations.cs" />
     <Compile Include="Classes\Helpers\ImageHelpers.cs" />
@@ -162,6 +164,12 @@
     </Compile>
     <Compile Include="Forms\ContactsTestForm.Designer.cs">
       <DependentUpon>ContactsTestForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\CountryTestForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\CountryTestForm.Designer.cs">
+      <DependentUpon>CountryTestForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\CustomersTestForm.cs">
       <SubType>Form</SubType>
@@ -209,6 +217,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\ContactsTestForm.resx">
       <DependentUpon>ContactsTestForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\CountryTestForm.resx">
+      <DependentUpon>CountryTestForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\CustomersTestForm.resx">
       <DependentUpon>CustomersTestForm.cs</DependentUpon>

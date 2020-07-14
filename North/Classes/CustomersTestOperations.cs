@@ -32,7 +32,7 @@ namespace North.Classes
         /// Conventional loading of entities
         /// </summary>
         /// <returns></returns>
-        public static async Task<List<CustomerItem>> GetCustomers()
+        public static async Task<List<CustomerItem>> GetCustomersAsync()
         {
             return await Task.Run(async () =>
             {
@@ -72,7 +72,7 @@ namespace North.Classes
         /// Example of using projections
         /// </summary>
         /// <returns></returns>
-        public static async Task<List<CustomerItem>> GetCustomersAsync()
+        public static async Task<List<CustomerItem>> GetCustomersWithProjectionAsync()
         {
 
             return await Task.Run(async () =>

@@ -68,8 +68,8 @@ namespace North
         /// <param name="e"></param>
         private async void CustomersDemoButton_Click(object sender, EventArgs e)
         {
-            var test = await CustomersTestOperations.GetCustomers();
-            var test1 = await CustomersTestOperations.GetCustomersAsync();
+            var test = await CustomersTestOperations.GetCustomersAsync();
+            var test1 = await CustomersTestOperations.GetCustomersWithProjectionAsync();
             Console.WriteLine();
 
         }

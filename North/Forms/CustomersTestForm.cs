@@ -24,7 +24,7 @@ namespace North
 
         private async void CustomersTestForm_Shown(object sender, EventArgs e)
         {
-            var customerItems = await CustomersTestOperations.GetCustomers();
+            var customerItems = await CustomersTestOperations.GetCustomersAsync();
             CustomersDataGridView.DataSource = customerItems;
         }
     }
