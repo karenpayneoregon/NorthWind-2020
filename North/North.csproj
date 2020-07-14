@@ -152,6 +152,8 @@
     <Compile Include="Classes\OrdersTestOperation.cs" />
     <Compile Include="Classes\ProductItem.cs" />
     <Compile Include="Classes\ProductsTestOperations.cs" />
+    <Compile Include="Classes\Suppliers.cs" />
+    <Compile Include="Classes\SuppliersTestOperations.cs" />
     <Compile Include="Contexts\NorthwindContext.cs" />
     <Compile Include="Forms\CategoryImagesTestForm.cs">
       <SubType>Form</SubType>
@@ -196,6 +198,12 @@
     <Compile Include="Forms\ProductsTestForm.Designer.cs">
       <DependentUpon>ProductsTestForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\SuppliersTestForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\SuppliersTestForm.Designer.cs">
+      <DependentUpon>SuppliersTestForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Models\BusinessEntityPhone.cs" />
     <Compile Include="Models\Categories.cs" />
     <Compile Include="Models\ContactDevices.cs" />
@@ -232,6 +240,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\ProductsTestForm.resx">
       <DependentUpon>ProductsTestForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\SuppliersTestForm.resx">
+      <DependentUpon>SuppliersTestForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
