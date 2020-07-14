@@ -4,7 +4,6 @@ Microsoft created [Northwind database](https://github.com/Microsoft/sql-server-s
 
 For demonstrating working with the new model a C# Windows form project uses [Microsoft Entity Framework Core](https://docs.microsoft.com/en-us/ef/core/) 3.x to present data. 
 
-Currently presented, customers and contacts, more will be added shortly.
 
 ![ef](assets/Microsoft1.png)
 
