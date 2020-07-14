@@ -4,6 +4,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata;
 using North.Models;
+using static System.Configuration.ConfigurationManager;
 
 namespace North.Contexts
 {
@@ -37,8 +38,13 @@ namespace North.Contexts
         {
             if (!optionsBuilder.IsConfigured)
             {
-#warning To protect potentially sensitive information in your connection string, you should move it out of source code. See http://go.microsoft.com/fwlink/?LinkId=723263 for guidance on storing connection strings.
-                optionsBuilder.UseSqlServer("Data Source=.\\SQLEXPRESS;Initial Catalog=NorthWind2020;Integrated Security=True");
+                var connectionString =
+                    $"Data Source={AppSettings["DatabaseServer"]};" +
+                    $"Initial Catalog={AppSettings["NorthWinCatalog"]};" +
+                    "Integrated Security=True";
+
+                optionsBuilder.UseSqlServer(connectionString);
+
             }
         }
 

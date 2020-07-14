@@ -36,7 +36,7 @@ namespace North.Forms
                 return;
             }
 
-            var categoryIdentifier = ((CategoryItem) CategoryComboBox.SelectedItem).CategoryID;
+            var categoryIdentifier = ((CategoryItem) CategoryComboBox.SelectedItem).CategoryId;
 
             ProductsDataGridView.DataSource = ProductsTestOperations.GetProductsByCategory(categoryIdentifier);
 

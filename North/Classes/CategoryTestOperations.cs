@@ -21,9 +21,10 @@ namespace North.Classes
                             .AsNoTracking()
                             .Select(cat => new CategoryItem()
                             {
-                                CategoryID = cat.CategoryID,
+                                CategoryId = cat.CategoryID,
                                 CategoryName = cat.CategoryName
-                            }).ToListAsync();
+                            })
+                            .ToListAsync();
                     }
                 }
             );

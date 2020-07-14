@@ -2,7 +2,7 @@
 {
     public class CategoryItem
     {
-        public int CategoryID { get; set; }
+        public int CategoryId { get; set; }
         public string CategoryName { get; set; }
         public override string ToString() => CategoryName;
     }
