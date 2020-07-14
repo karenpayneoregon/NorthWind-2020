@@ -6,6 +6,8 @@ For demonstrating working with the new model a C# Windows form project uses [Mic
 
 Currently presented, customers and contacts, more will be added shortly.
 
+![ef](assets/Microsoft1.png)
+
 ### Important
 Current code samples are not production ready, these codes samples are to validate the database model translates properly to code hence the work "test" in form names.
 
