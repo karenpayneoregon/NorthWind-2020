@@ -17,7 +17,7 @@ namespace North
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new SuppliersTestForm());
+            Application.Run(new ContactsEditTestForm());
         }
     }
 }

@@ -143,6 +143,7 @@
     <Compile Include="Classes\CategoryTestOperations.cs" />
     <Compile Include="Classes\ContactTestOperations.cs" />
     <Compile Include="Classes\ContactItem.cs" />
+    <Compile Include="Classes\ContactType.cs" />
     <Compile Include="Classes\CountryItem.cs" />
     <Compile Include="Classes\CountryTestOperations.cs" />
     <Compile Include="Classes\CustomerItem.cs" />
@@ -161,6 +162,12 @@
     </Compile>
     <Compile Include="Forms\CategoryImagesTestForm.Designer.cs">
       <DependentUpon>CategoryImagesTestForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\ContactsEditTestForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\ContactsEditTestForm.Designer.cs">
+      <DependentUpon>ContactsEditTestForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\ContactsTestForm.cs">
       <SubType>Form</SubType>
@@ -205,6 +212,7 @@
     <Compile Include="Forms\SuppliersTestForm.Designer.cs">
       <DependentUpon>SuppliersTestForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="LanguageExtensions\ControlExtensions.cs" />
     <Compile Include="Models\BusinessEntityPhone.cs" />
     <Compile Include="Models\Categories.cs" />
     <Compile Include="Models\ContactDevices.cs" />
@@ -223,6 +231,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Forms\CategoryImagesTestForm.resx">
       <DependentUpon>CategoryImagesTestForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\ContactsEditTestForm.resx">
+      <DependentUpon>ContactsEditTestForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\ContactsTestForm.resx">
       <DependentUpon>ContactsTestForm.cs</DependentUpon>
@@ -277,6 +288,8 @@
     <None Include="Resources\Open_16x.png" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\Save_16x.png" />
+    <None Include="Resources\Exit_16x.png" />
     <Content Include="SQL\ContactDevices.sql" />
     <Content Include="SQL\Customers.sql" />
     <Content Include="SQL\EmployeeReportsToChange.sql" />
