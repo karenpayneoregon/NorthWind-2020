@@ -67,22 +67,6 @@ namespace North.Forms
             LastNameTextBox.DataBindings.Add("Text", _contactBindingSource, "LastName");
 
             ContactTypeComboBox.SelectedIndex = ContactTypeComboBox.FindString(_contact.ContactTypeIdentifierNavigation.ContactTitle);
-
-            /*
-             * For development only as the majority of contacts are not in ContactDevices table yet.
-             * We can argue the point that this will happen in the wild so there will be at least one
-             * in this state for demonstration only as this code sample is meant to be simple editing. 
-             */
-            if (_contact.ContactDevices.Count >0)
-            {
-                OfficePhoneTextBox.Text =
-                    _contact.ContactDevices.FirstOrDefault(contactDevices => contactDevices.PhoneTypeIdentifier == 3)
-                        ?.PhoneNumber ?? "(none)";
-            }
-            else
-            {
-                Console.WriteLine(_contact.ContactId);
-            }
             
         }
 
