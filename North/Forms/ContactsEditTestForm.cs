@@ -24,6 +24,7 @@ namespace North.Forms
             InitializeComponent();
 
             Shown += ContactsEditTestForm_Shown;
+            Closing += ContactsEditTestForm_Closing;
         }
         
         private async void ContactsEditTestForm_Shown(object sender, EventArgs e)
@@ -50,9 +51,16 @@ namespace North.Forms
                 textBox.DataBindings.Clear();
             }
         }
-
+        /// <summary>
+        /// Call method below, see comments
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void ContactsComboBox_SelectedIndexChanged(object sender, EventArgs e) => ContactChanged();
 
+        /// <summary>
+        /// Setup contact properties in various controls
+        /// </summary>
         private async void ContactChanged()
         {
             _contact = await ContactTestOperations.GetContactEditAsync(
@@ -69,7 +77,11 @@ namespace North.Forms
                 ContactTypeComboBox.FindString(_contact.ContactTypeIdentifierNavigation.ContactTitle);
             
         }
-
+        /// <summary>
+        /// Handle updating the contact type manually as there is no data binding
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void ContactTypeComboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
             _contact.ContactTypeIdentifier = ((ContactType)ContactTypeComboBox.SelectedItem)
@@ -92,16 +104,31 @@ namespace North.Forms
                 MessageBox.Show(ex.Message);
             }
         }
-
+        /// <summary>
+        /// Close/cancel, first see if there are any changes and
+        /// if there are prompt to stay or lose changes
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void CancelButton_Click(object sender, EventArgs e)
         {
             if (ContactTestOperations.Context.ChangeTracker.HasChanges())
             {
+                var changedContactNames = ContactTestOperations.Context.GetChangedContactsToContactEditForm();
                 if (Question("There are changes, do you want to leave?"))
                 {
                     Close();
                 }
             }
         }
+        private void ContactsEditTestForm_Closing(object sender, CancelEventArgs e)
+        {
+            if (ContactTestOperations.Context.ChangeTracker.HasChanges())
+            {
+                var changedContactNames = ContactTestOperations.Context.GetChangedContactsToContactEditForm();
+                e.Cancel = !Question("There are changes, do you want to leave?");
+            }
+        }
+
     }
 }
