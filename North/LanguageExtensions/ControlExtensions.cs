@@ -8,6 +8,7 @@ namespace North.LanguageExtensions
 {
     /// <summary>
     /// Collection of language extenstion methods for working with form controls.
+    /// NOTE: Best place for this class is in a class project so that it is reusable.
     /// </summary>
     public static class ControlExtensions
     {

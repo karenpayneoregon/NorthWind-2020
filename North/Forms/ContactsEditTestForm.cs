@@ -29,13 +29,17 @@ namespace North.Forms
         {
             ContactsComboBox.DataSource = await ContactTestOperations.GetContactsForControlAsync();
             ContactTypeComboBox.DataSource = ContactTestOperations.GetContactTypes();
+
             ContactsComboBox.SelectedIndexChanged += ContactsComboBox_SelectedIndexChanged;
             ContactTypeComboBox.SelectedIndexChanged += ContactTypeComboBox_SelectedIndexChanged;
 
             ActiveControl = ContactsComboBox;
 
         }
-
+        /// <summary>
+        /// Can not bind twice so we need to remove bindings if there are bindings which
+        /// there are passed the first time selecting a contact
+        /// </summary>
         private void RemoveControlBindings()
         {
             foreach (var textBox in this.TextBoxList().Where(textBox => textBox.DataBindings.Count > 0))
@@ -44,7 +48,14 @@ namespace North.Forms
             }
         }
 
-        private async void ContactsComboBox_SelectedIndexChanged(object sender, EventArgs e)
+        private void ContactsComboBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+            ContactChanged();
+
+        }
+
+        private async void ContactChanged()
         {
             _contact = await ContactTestOperations.GetContactEditAsync(((Contacts)ContactsComboBox.SelectedItem).ContactId);
 
@@ -56,7 +67,23 @@ namespace North.Forms
             LastNameTextBox.DataBindings.Add("Text", _contactBindingSource, "LastName");
 
             ContactTypeComboBox.SelectedIndex = ContactTypeComboBox.FindString(_contact.ContactTypeIdentifierNavigation.ContactTitle);
-           
+
+            /*
+             * For development only as the majority of contacts are not in ContactDevices table yet.
+             * We can argue the point that this will happen in the wild so there will be at least one
+             * in this state for demonstration only as this code sample is meant to be simple editing. 
+             */
+            if (_contact.ContactDevices.Count >0)
+            {
+                OfficePhoneTextBox.Text =
+                    _contact.ContactDevices.FirstOrDefault(contactDevices => contactDevices.PhoneTypeIdentifier == 3)
+                        ?.PhoneNumber ?? "(none)";
+            }
+            else
+            {
+                Console.WriteLine(_contact.ContactId);
+            }
+            
         }
 
         private void ContactTypeComboBox_SelectedIndexChanged(object sender, EventArgs e)

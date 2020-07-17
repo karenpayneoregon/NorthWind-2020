@@ -38,7 +38,12 @@ namespace North.Classes
                 }
             });
         }
+
+        /// <summary>
+        /// Cheap way to avoid attaching to another DbContext for changes in the ContactEditTestForm.
+        /// </summary>
         public static NorthwindContext Context = new NorthwindContext();
+
         public static async Task<Contacts> GetContactEditAsync(int contactIdentifier)
         {
             return await Task.Run(async () =>
@@ -51,7 +56,10 @@ namespace North.Classes
                     .FirstOrDefaultAsync(contact => contact.ContactId == contactIdentifier);
             });
         }
-
+        /// <summary>
+        /// Sole purpose is to populate a control e.g. ListBox or ComboBox etc.
+        /// </summary>
+        /// <returns></returns>
         public static async Task<List<Contacts>> GetContactsForControlAsync() 
         {
             return await Task.Run(async () =>
@@ -70,7 +78,7 @@ namespace North.Classes
         {
             using (var context = new NorthwindContext())
             {
-                return context.ContactType.ToList();
+                return context.ContactType.AsNoTracking().ToList();
             }
         }
     }
