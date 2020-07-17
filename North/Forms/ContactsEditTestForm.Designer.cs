@@ -39,11 +39,13 @@
             this.label6 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.button2 = new System.Windows.Forms.Button();
+            this.CancelButton = new System.Windows.Forms.Button();
             this.SaveButton = new System.Windows.Forms.Button();
             this.LastNameTextBox = new System.Windows.Forms.TextBox();
             this.ContactTypeComboBox = new System.Windows.Forms.ComboBox();
             this.ContactsComboBox = new System.Windows.Forms.ComboBox();
+            this.label7 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // CellPhoneNumber
@@ -135,16 +137,17 @@
             this.label4.TabIndex = 24;
             this.label4.Text = "Office phone";
             // 
-            // button2
+            // CancelButton
             // 
-            this.button2.Image = global::North.Properties.Resources.Exit_16x;
-            this.button2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button2.Location = new System.Drawing.Point(246, 276);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 23);
-            this.button2.TabIndex = 8;
-            this.button2.Text = " Cancel";
-            this.button2.UseVisualStyleBackColor = true;
+            this.CancelButton.Image = global::North.Properties.Resources.Exit_16x;
+            this.CancelButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.CancelButton.Location = new System.Drawing.Point(246, 276);
+            this.CancelButton.Name = "CancelButton";
+            this.CancelButton.Size = new System.Drawing.Size(75, 23);
+            this.CancelButton.TabIndex = 8;
+            this.CancelButton.Text = " Cancel";
+            this.CancelButton.UseVisualStyleBackColor = true;
+            this.CancelButton.Click += new System.EventHandler(this.CancelButton_Click);
             // 
             // SaveButton
             // 
@@ -183,15 +186,34 @@
             this.ContactsComboBox.Size = new System.Drawing.Size(225, 21);
             this.ContactsComboBox.TabIndex = 31;
             // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(41, 18);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(49, 13);
+            this.label7.TabIndex = 32;
+            this.label7.Text = "Contacts";
+            // 
+            // label8
+            // 
+            this.label8.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.label8.Location = new System.Drawing.Point(21, 50);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(300, 1);
+            this.label8.TabIndex = 33;
+            // 
             // ContactsEditTestForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(344, 313);
+            this.Controls.Add(this.label8);
+            this.Controls.Add(this.label7);
             this.Controls.Add(this.ContactsComboBox);
             this.Controls.Add(this.ContactTypeComboBox);
             this.Controls.Add(this.LastNameTextBox);
-            this.Controls.Add(this.button2);
+            this.Controls.Add(this.CancelButton);
             this.Controls.Add(this.SaveButton);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.CellPhoneNumber);
@@ -226,9 +248,11 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Button SaveButton;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button CancelButton;
         private System.Windows.Forms.TextBox LastNameTextBox;
         private System.Windows.Forms.ComboBox ContactTypeComboBox;
         private System.Windows.Forms.ComboBox ContactsComboBox;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label label8;
     }
 }

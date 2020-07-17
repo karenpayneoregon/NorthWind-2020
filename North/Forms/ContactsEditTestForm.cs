@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using North.Classes;
 using North.LanguageExtensions;
 using North.Models;
+using static North.Classes.Helpers.Dialogs;
 
 namespace North.Forms
 {
@@ -33,6 +34,8 @@ namespace North.Forms
             ContactsComboBox.SelectedIndexChanged += ContactsComboBox_SelectedIndexChanged;
             ContactTypeComboBox.SelectedIndexChanged += ContactTypeComboBox_SelectedIndexChanged;
 
+            ContactChanged();
+
             ActiveControl = ContactsComboBox;
 
         }
@@ -48,16 +51,12 @@ namespace North.Forms
             }
         }
 
-        private void ContactsComboBox_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-            ContactChanged();
-
-        }
+        private void ContactsComboBox_SelectedIndexChanged(object sender, EventArgs e) => ContactChanged();
 
         private async void ContactChanged()
         {
-            _contact = await ContactTestOperations.GetContactEditAsync(((Contacts)ContactsComboBox.SelectedItem).ContactId);
+            _contact = await ContactTestOperations.GetContactEditAsync(
+                ((Contacts)ContactsComboBox.SelectedItem).ContactId);
 
             _contactBindingSource.DataSource = _contact;
 
@@ -66,18 +65,43 @@ namespace North.Forms
             FirstNameTextBox.DataBindings.Add("Text", _contactBindingSource, "FirstName");
             LastNameTextBox.DataBindings.Add("Text", _contactBindingSource, "LastName");
 
-            ContactTypeComboBox.SelectedIndex = ContactTypeComboBox.FindString(_contact.ContactTypeIdentifierNavigation.ContactTitle);
+            ContactTypeComboBox.SelectedIndex = 
+                ContactTypeComboBox.FindString(_contact.ContactTypeIdentifierNavigation.ContactTitle);
             
         }
 
         private void ContactTypeComboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
-            _contact.ContactTypeIdentifier = ((ContactType)ContactTypeComboBox.SelectedItem).ContactTypeIdentifier;
+            _contact.ContactTypeIdentifier = ((ContactType)ContactTypeComboBox.SelectedItem)
+                .ContactTypeIdentifier;
         }
-
+        /// <summary>
+        /// Save changes for any updates. Optionally create a variable to capture
+        /// the count on ContactTestOperations.Context.SaveChanges();
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void SaveCurrentContactButton_Click(object sender, EventArgs e)
         {
-            ContactTestOperations.Context.SaveChanges();
+            try
+            {
+                ContactTestOperations.Context.SaveChanges();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void CancelButton_Click(object sender, EventArgs e)
+        {
+            if (ContactTestOperations.Context.ChangeTracker.HasChanges())
+            {
+                if (Question("There are changes, do you want to leave?"))
+                {
+                    Close();
+                }
+            }
         }
     }
 }

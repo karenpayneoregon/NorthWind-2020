@@ -148,6 +148,7 @@
     <Compile Include="Classes\CountryTestOperations.cs" />
     <Compile Include="Classes\CustomerItem.cs" />
     <Compile Include="Classes\CustomersTestOperations.cs" />
+    <Compile Include="Classes\Helpers\Dialogs.cs" />
     <Compile Include="Classes\Helpers\ImageHelpers.cs" />
     <Compile Include="Classes\OrderDetailItem.cs" />
     <Compile Include="Classes\OrderItem.cs" />

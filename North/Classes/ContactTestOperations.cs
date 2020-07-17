@@ -68,8 +68,6 @@ namespace North.Classes
                 using (var context = new NorthwindContext())
                 {
                     return await context.Contacts.AsNoTracking().ToListAsync();
-
-
                 }
             });
         }
