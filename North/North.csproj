@@ -138,14 +138,17 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Classes\Base\BaseEntity.cs" />
     <Compile Include="Classes\Categories.cs" />
     <Compile Include="Classes\CategoryItem.cs" />
     <Compile Include="Classes\CategoryTestOperations.cs" />
+    <Compile Include="Classes\Components\SortableBindingList.cs" />
     <Compile Include="Classes\ContactTestOperations.cs" />
     <Compile Include="Classes\ContactItem.cs" />
     <Compile Include="Classes\ContactType.cs" />
     <Compile Include="Classes\CountryItem.cs" />
     <Compile Include="Classes\CountryTestOperations.cs" />
+    <Compile Include="Classes\CustomerEntity.cs" />
     <Compile Include="Classes\CustomerItem.cs" />
     <Compile Include="Classes\CustomersTestOperations.cs" />
     <Compile Include="Classes\Helpers\ConnectionHelper.cs" />
@@ -183,6 +186,12 @@
     <Compile Include="Forms\CountryTestForm.Designer.cs">
       <DependentUpon>CountryTestForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\CustomersDataGridViewTestForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\CustomersDataGridViewTestForm.Designer.cs">
+      <DependentUpon>CustomersDataGridViewTestForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\CustomersTestForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -215,6 +224,7 @@
       <DependentUpon>SuppliersTestForm.cs</DependentUpon>
     </Compile>
     <Compile Include="LanguageExtensions\ControlExtensions.cs" />
+    <Compile Include="LanguageExtensions\ExceptionExtensions.cs" />
     <Compile Include="Models\BusinessEntityPhone.cs" />
     <Compile Include="Models\Categories.cs" />
     <Compile Include="Models\ContactDevices.cs" />
@@ -242,6 +252,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\CountryTestForm.resx">
       <DependentUpon>CountryTestForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\CustomersDataGridViewTestForm.resx">
+      <DependentUpon>CustomersDataGridViewTestForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\CustomersTestForm.resx">
       <DependentUpon>CustomersTestForm.cs</DependentUpon>
