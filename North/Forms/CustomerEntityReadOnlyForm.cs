@@ -45,7 +45,7 @@ namespace North.Forms
         private async void ViewContactButton_Click(object sender, EventArgs e)
         {
             var contactForm = new ContactSingleViewForm(
-                await ContactTestOperations.GetContactForViewAsync(_customerEntity.ContactIdentifier));
+                await ContactTestOperations.GetSingleContactByIdentifierAsync(_customerEntity.ContactIdentifier));
 
             try
             {

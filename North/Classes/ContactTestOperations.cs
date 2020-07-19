@@ -9,10 +9,46 @@ using North.Models;
 
 namespace North.Classes
 {
+    /// <summary>
+    /// Operations dealing with contacts
+    /// </summary>
     public class ContactTestOperations
     {
 
+        /// <summary>
+        /// Get all contacts with relations
+        /// </summary>
+        /// <returns></returns>
         public static async Task<List<ContactItem>> GetContactsAsync()
+        {
+            return await Task.Run(async () =>
+            {
+
+                using (var context = new NorthwindContext())
+                {
+                    return await context.Contacts
+                        .AsNoTracking()
+                        .Include(contact => contact.ContactTypeIdentifierNavigation)
+                        .Include(c => c.ContactDevices)
+                        .ThenInclude(contactDevices => contactDevices.PhoneTypeIdentifierNavigation)
+                        .Select(contact => new ContactItem
+                        {
+                            Id = contact.ContactId,
+                            ContactName = contact.FirstName + " " + contact.LastName,
+                            ContactType = contact.ContactTypeIdentifierNavigation.ContactTitle,
+                            OfficePhone = contact.ContactDevices.FirstOrDefault(contactDevices => contactDevices.PhoneTypeIdentifier == 3).PhoneNumber ?? "(none)",
+                            CellPhone = contact.ContactDevices.FirstOrDefault(contactDevices => contactDevices.PhoneTypeIdentifier == 2).PhoneNumber ?? "(none)",
+                            HomePhone = contact.ContactDevices.FirstOrDefault(contactDevices => contactDevices.PhoneTypeIdentifier == 1).PhoneNumber ?? "(none)"
+                        }).ToListAsync();
+                }
+            });
+        }
+        /// <summary>
+        /// Get a single contact
+        /// </summary>
+        /// <param name="contactIdentifier"></param>
+        /// <returns>Contact from contact id</returns>
+        public static async Task<ContactItem> GetSingleContactByIdentifierAsync(int? contactIdentifier)
         {
 
             return await Task.Run(async () =>
@@ -33,8 +69,7 @@ namespace North.Classes
                             OfficePhone = contact.ContactDevices.FirstOrDefault(contactDevices => contactDevices.PhoneTypeIdentifier == 3).PhoneNumber ?? "(none)",
                             CellPhone = contact.ContactDevices.FirstOrDefault(contactDevices => contactDevices.PhoneTypeIdentifier == 2).PhoneNumber ?? "(none)",
                             HomePhone = contact.ContactDevices.FirstOrDefault(contactDevices => contactDevices.PhoneTypeIdentifier == 1).PhoneNumber ?? "(none)"
-                        }).ToListAsync();
-
+                        }).FirstOrDefaultAsync(contactItem => contactItem.Id == contactIdentifier);
                 }
             });
         }
@@ -43,12 +78,15 @@ namespace North.Classes
         /// Cheap way to avoid attaching to another DbContext for changes in the ContactEditTestForm.
         /// </summary>
         public static NorthwindContext Context = new NorthwindContext();
-
+        /// <summary>
+        /// Get contact for editing
+        /// </summary>
+        /// <param name="contactIdentifier"></param>
+        /// <returns></returns>
         public static async Task<Contacts> GetContactEditAsync(int contactIdentifier)
         {
             return await Task.Run(async () =>
             {
-
                 return await Context.Contacts
                     .Include(contact => contact.ContactTypeIdentifierNavigation)
                     .Include(c => c.ContactDevices)
@@ -64,7 +102,6 @@ namespace North.Classes
         {
             return await Task.Run(async () =>
             {
-
                 using (var context = new NorthwindContext())
                 {
                     return await context.Contacts.AsNoTracking().ToListAsync();
@@ -91,6 +128,10 @@ namespace North.Classes
                 }
             });
         }
+        /// <summary>
+        /// Get all contact types
+        /// </summary>
+        /// <returns>List of all contact types</returns>
         public static List<ContactType> GetContactTypes()
         {
             using (var context = new NorthwindContext())
