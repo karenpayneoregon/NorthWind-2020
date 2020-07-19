@@ -142,6 +142,7 @@
     <Compile Include="Classes\Categories.cs" />
     <Compile Include="Classes\CategoryItem.cs" />
     <Compile Include="Classes\CategoryTestOperations.cs" />
+    <Compile Include="Classes\CompanyItem.cs" />
     <Compile Include="Classes\Components\SortableBindingList.cs" />
     <Compile Include="Classes\ContactTestOperations.cs" />
     <Compile Include="Classes\ContactItem.cs" />
@@ -150,6 +151,7 @@
     <Compile Include="Classes\CountryTestOperations.cs" />
     <Compile Include="Classes\CustomerEntity.cs" />
     <Compile Include="Classes\CustomerItem.cs" />
+    <Compile Include="Classes\Customers.cs" />
     <Compile Include="Classes\CustomersTestOperations.cs" />
     <Compile Include="Classes\Helpers\ConnectionHelper.cs" />
     <Compile Include="Classes\Helpers\Dialogs.cs" />
@@ -161,6 +163,10 @@
     <Compile Include="Classes\ProductsTestOperations.cs" />
     <Compile Include="Classes\Suppliers.cs" />
     <Compile Include="Classes\SuppliersTestOperations.cs" />
+    <Compile Include="Classes\Validators\EntityValidationResult.cs" />
+    <Compile Include="Classes\Validators\EntityValidator.cs" />
+    <Compile Include="Classes\Validators\ValidationHelper.cs" />
+    <Compile Include="Classes\Validators\ValidatorExtensions.cs" />
     <Compile Include="Contexts\NorthwindContext.cs" />
     <Compile Include="Forms\CategoryImagesTestForm.cs">
       <SubType>Form</SubType>
@@ -174,6 +180,12 @@
     <Compile Include="Forms\ContactsEditTestForm.Designer.cs">
       <DependentUpon>ContactsEditTestForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\ContactSingleViewForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\ContactSingleViewForm.Designer.cs">
+      <DependentUpon>ContactSingleViewForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\ContactsTestForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -185,6 +197,12 @@
     </Compile>
     <Compile Include="Forms\CountryTestForm.Designer.cs">
       <DependentUpon>CountryTestForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\CustomerEntityReadOnlyForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\CustomerEntityReadOnlyForm.Designer.cs">
+      <DependentUpon>CustomerEntityReadOnlyForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\CustomersDataGridViewTestForm.cs">
       <SubType>Form</SubType>
@@ -224,7 +242,10 @@
       <DependentUpon>SuppliersTestForm.cs</DependentUpon>
     </Compile>
     <Compile Include="LanguageExtensions\ControlExtensions.cs" />
+    <Compile Include="LanguageExtensions\DataGridViewExtensions.cs" />
     <Compile Include="LanguageExtensions\ExceptionExtensions.cs" />
+    <Compile Include="LanguageExtensions\SortableBindingListExtensions.cs" />
+    <Compile Include="LanguageExtensions\StringExtensions.cs" />
     <Compile Include="Models\BusinessEntityPhone.cs" />
     <Compile Include="Models\Categories.cs" />
     <Compile Include="Models\ContactDevices.cs" />
@@ -247,11 +268,17 @@
     <EmbeddedResource Include="Forms\ContactsEditTestForm.resx">
       <DependentUpon>ContactsEditTestForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\ContactSingleViewForm.resx">
+      <DependentUpon>ContactSingleViewForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\ContactsTestForm.resx">
       <DependentUpon>ContactsTestForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\CountryTestForm.resx">
       <DependentUpon>CountryTestForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\CustomerEntityReadOnlyForm.resx">
+      <DependentUpon>CustomerEntityReadOnlyForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\CustomersDataGridViewTestForm.resx">
       <DependentUpon>CustomersDataGridViewTestForm.cs</DependentUpon>

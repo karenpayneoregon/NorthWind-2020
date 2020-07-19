@@ -1,10 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 using North.Contexts;
+using North.Models;
 
 namespace North.Classes
 {
@@ -60,8 +63,7 @@ namespace North.Classes
                             FirstName = customer.Contact.FirstName,
                             LastName = customer.Contact.LastName,
                             ContactTitle = customer.ContactTypeIdentifierNavigation.ContactTitle,
-                            OfficePhoneNumber = customer.Contact.ContactDevices
-                                .FirstOrDefault(contactDevices => contactDevices.PhoneTypeIdentifier == 3).PhoneNumber
+                            OfficePhoneNumber = customer.Contact.ContactDevices.FirstOrDefault(contactDevices => contactDevices.PhoneTypeIdentifier == 3).PhoneNumber
                         }).ToListAsync();
 
 
@@ -77,15 +79,40 @@ namespace North.Classes
 
             return await Task.Run(async () =>
             {
-
                 using (var context = new NorthwindContext())
                 {
                     return await context.Customers.AsNoTracking().Select(CustomerItem.Projection).ToListAsync();
                 }
+            });
+        }
 
+        public static NorthwindContext Context = new NorthwindContext();
+        public static async Task<List<CustomerEntity>> AllCustomersForDataGridViewAsync()
+        {
+
+            return await Task.Run(async () =>
+            {
+                List<CustomerEntity> customerItemsList = await Context.Customers.Select(Customers.Projection).ToListAsync();
+                return customerItemsList.OrderBy((customer) => customer.CompanyName).ToList();
             });
 
         }
+        public static List<Countries> CountryList()
+        {
+            using (var context = new NorthwindContext())
+            {
+                return context.Countries.ToList();
+            }
+        }
 
+        public static List<ContactType> ContactTypeList()
+        {
+            using (var context = new NorthwindContext())
+            {
+                return context.ContactType.AsNoTracking().ToList();
+            }
+        }
+
+        public static Customers CustomerFirstOrDefault(int customerIdentifier) => Context.Customers.FirstOrDefault(customer => customer.CustomerIdentifier == customerIdentifier);
     }
 }

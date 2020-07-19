@@ -71,7 +71,26 @@ namespace North.Classes
                 }
             });
         }
-
+        /// <summary>
+        /// Get contact by contact identifier for view form
+        /// </summary>
+        /// <param name="contactIdentifier">A valid contact identifier</param>
+        /// <returns></returns>
+        public static async Task<Contacts> GetContactForViewAsync(int? contactIdentifier)
+        {
+            return await Task.Run(async () =>
+            {
+                using (var context = new NorthwindContext())
+                {
+                    return await context.Contacts
+                        .AsNoTracking()
+                        .Include(contact => contact.ContactTypeIdentifierNavigation)
+                        .Include(c => c.ContactDevices)
+                        .ThenInclude(contactDevices => contactDevices.PhoneTypeIdentifierNavigation)
+                        .FirstOrDefaultAsync(c => c.ContactId == contactIdentifier);
+                }
+            });
+        }
         public static List<ContactType> GetContactTypes()
         {
             using (var context = new NorthwindContext())
