@@ -14,6 +14,7 @@ using North.Classes.Components;
 using North.Classes.Validators;
 using North.LanguageExtensions;
 using North.Models;
+using static North.Classes.Helpers.Dialogs;
 
 namespace North.Forms
 {
@@ -57,9 +58,11 @@ namespace North.Forms
             SaveChangesButton.Enabled = true;
 
             CustomersDataGridView.CellValueChanged += CustomersDataGridView_CellValueChanged;
+            CustomersDataGridView.UserDeletingRow += CustomersDataGridView_UserDeletingRow;
             _customerView.ListChanged += _customerView_ListChanged;
 
         }
+
 
         private void _customerView_ListChanged(object sender, ListChangedEventArgs e)
         {
@@ -185,5 +188,53 @@ namespace North.Forms
         {
             Console.WriteLine(CustomersTestOperations.Context.SaveChanges());
         }
+        /// <summary>
+        /// In this case removal of a customer means we need cascading rule to
+        /// orders and order details. A better idea is to perform a soft delete
+        /// which keeps the customer history but also means outside of the app
+        /// all queries will need to filter out inactive customers. In code
+        /// Entity Framework core can perform a globe filter on active/inactive
+        /// customers.
+        ///
+        /// See the following Microsoft TechNet article for implementing
+        /// a globe filter with Entity Framework Core.
+        /// 
+        /// https://social.technet.microsoft.com/wiki/contents/articles/53834.entity-framework-core-3-x-global-query-filters-c.aspx
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void DeleteCustomerBindingNavigatorButton_Click(object sender, EventArgs e)
+        {
+            if (_customerView.Count <= 0) return;
+
+            CustomerEntity customer = _customerView.CurrentCustomer(_customerBindingSource.Position);
+
+            if (Question($"Remove {customer.CompanyName}"))
+            {
+                MessageBox.Show(@"Removal goes here");
+            }
+            else
+            {
+                MessageBox.Show(@"Removal aborted");
+            }
+
+        }
+        private void CustomersDataGridView_UserDeletingRow(object sender, DataGridViewRowCancelEventArgs e)
+        {
+            if (_customerView.Count <= 0) return;
+
+            CustomerEntity customer = _customerView.CurrentCustomer(_customerBindingSource.Position);
+
+            if (Question($"Remove {customer.CompanyName}"))
+            {
+                MessageBox.Show(@"Removal goes here");
+            }
+            else
+            {
+                e.Cancel = true;
+                MessageBox.Show(@"Removal aborted");
+            }
+        }
+
     }
 }
