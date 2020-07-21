@@ -91,8 +91,10 @@
             // 
             // ContactIdTextBox
             // 
+            this.ContactIdTextBox.BackColor = System.Drawing.Color.LightYellow;
             this.ContactIdTextBox.Location = new System.Drawing.Point(96, 63);
             this.ContactIdTextBox.Name = "ContactIdTextBox";
+            this.ContactIdTextBox.ReadOnly = true;
             this.ContactIdTextBox.Size = new System.Drawing.Size(225, 20);
             this.ContactIdTextBox.TabIndex = 0;
             // 
