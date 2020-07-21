@@ -104,7 +104,7 @@ namespace North.Classes
             {
                 using (var context = new NorthwindContext())
                 {
-                    return await context.Contacts.AsNoTracking().ToListAsync();
+                    return await context.Contacts.AsNoTracking().OrderBy(contact => contact.LastName).ToListAsync();
                 }
             });
         }

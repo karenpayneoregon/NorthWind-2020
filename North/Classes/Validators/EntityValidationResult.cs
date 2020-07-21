@@ -10,7 +10,7 @@ namespace DataValidationWindowsForms.Classes
         public bool HasError => Errors.Count > 0;
         public EntityValidationResult(IList<ValidationResult> errors = null)
         {
-            this.Errors = errors ?? new List<ValidationResult>();
+            Errors = errors ?? new List<ValidationResult>();
         }
     }
 }
