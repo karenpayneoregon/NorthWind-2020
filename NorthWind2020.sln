@@ -19,6 +19,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NorthWithFoldersAnnotations
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NorthWithConfiguration", "NorthWithConfiguration\NorthWithConfiguration.csproj", "{D973311B-E9FD-48D4-B976-7F70372D43FB}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NorthOlderModel", "NorthOlderModel\NorthOlderModel.csproj", "{3D44BEBB-A6AC-47A8-B5B6-6E18AAF10786}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -45,6 +47,10 @@ Global
 		{D973311B-E9FD-48D4-B976-7F70372D43FB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D973311B-E9FD-48D4-B976-7F70372D43FB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D973311B-E9FD-48D4-B976-7F70372D43FB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3D44BEBB-A6AC-47A8-B5B6-6E18AAF10786}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3D44BEBB-A6AC-47A8-B5B6-6E18AAF10786}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3D44BEBB-A6AC-47A8-B5B6-6E18AAF10786}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3D44BEBB-A6AC-47A8-B5B6-6E18AAF10786}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
