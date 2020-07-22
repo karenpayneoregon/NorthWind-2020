@@ -1,0 +1,79 @@
+﻿{
+   "ContextClassName": "NorthwindContext",
+   "ContextNamespace": null,
+   "DefaultDacpacSchema": null,
+   "DoNotCombineNamespace": false,
+   "IdReplace": false,
+   "IncludeConnectionString": true,
+   "ModelNamespace": null,
+   "OutputContextPath": "Contexts",
+   "OutputPath": "Models",
+   "ProjectRootNamespace": "NorthWithFolders",
+   "SelectedHandlebarsLanguage": 0,
+   "SelectedToBeGenerated": 0,
+   "Tables": [
+      {
+         "HasPrimaryKey": true,
+         "Name": "[dbo].[BusinessEntityPhone]"
+      },
+      {
+         "HasPrimaryKey": true,
+         "Name": "[dbo].[Categories]"
+      },
+      {
+         "HasPrimaryKey": true,
+         "Name": "[dbo].[ContactDevices]"
+      },
+      {
+         "HasPrimaryKey": true,
+         "Name": "[dbo].[Contacts]"
+      },
+      {
+         "HasPrimaryKey": true,
+         "Name": "[dbo].[ContactType]"
+      },
+      {
+         "HasPrimaryKey": true,
+         "Name": "[dbo].[Countries]"
+      },
+      {
+         "HasPrimaryKey": true,
+         "Name": "[dbo].[Customers]"
+      },
+      {
+         "HasPrimaryKey": true,
+         "Name": "[dbo].[Employees]"
+      },
+      {
+         "HasPrimaryKey": true,
+         "Name": "[dbo].[OrderDetails]"
+      },
+      {
+         "HasPrimaryKey": true,
+         "Name": "[dbo].[Orders]"
+      },
+      {
+         "HasPrimaryKey": true,
+         "Name": "[dbo].[PhoneType]"
+      },
+      {
+         "HasPrimaryKey": true,
+         "Name": "[dbo].[Products]"
+      },
+      {
+         "HasPrimaryKey": true,
+         "Name": "[dbo].[Shippers]"
+      },
+      {
+         "HasPrimaryKey": true,
+         "Name": "[dbo].[Suppliers]"
+      }
+   ],
+   "UseDatabaseNames": false,
+   "UseDbContextSplitting": false,
+   "UseFluentApiOnly": true,
+   "UseHandleBars": false,
+   "UseInflector": false,
+   "UseLegacyPluralizer": false,
+   "UseSpatial": false
+}
