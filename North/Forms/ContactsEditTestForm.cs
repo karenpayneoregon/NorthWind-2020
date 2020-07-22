@@ -7,6 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Metadata;
 using North.Classes;
 using North.LanguageExtensions;
 using North.Models;
@@ -23,8 +25,8 @@ namespace North.Forms
         {
             InitializeComponent();
 
-            Shown += ContactsEditTestForm_Shown;
-            Closing += ContactsEditTestForm_Closing;
+            //Shown += ContactsEditTestForm_Shown;
+            //Closing += ContactsEditTestForm_Closing;
         }
         
         private async void ContactsEditTestForm_Shown(object sender, EventArgs e)
@@ -174,14 +176,7 @@ namespace North.Forms
         /// <param name="e"></param>
         private void CancelButton_Click(object sender, EventArgs e)
         {
-            if (ContactTestOperations.Context.ChangeTracker.HasChanges())
-            {
-                var changedContactNames = ContactTestOperations.Context.GetChangedContactsToContactEditForm();
-                if (Question("There are changes, do you want to leave?"))
-                {
-                    Close();
-                }
-            }
+            Close();
         }
         private void ContactsEditTestForm_Closing(object sender, CancelEventArgs e)
         {
@@ -191,6 +186,5 @@ namespace North.Forms
                 e.Cancel = !Question("There are changes, do you want to leave?");
             }
         }
-
     }
 }

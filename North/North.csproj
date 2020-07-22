@@ -249,6 +249,12 @@
     <Compile Include="Forms\ProductsTestForm.Designer.cs">
       <DependentUpon>ProductsTestForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\PropertyGetCommentForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\PropertyGetCommentForm.Designer.cs">
+      <DependentUpon>PropertyGetCommentForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\SuppliersTestForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -308,6 +314,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\ProductsTestForm.resx">
       <DependentUpon>ProductsTestForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\PropertyGetCommentForm.resx">
+      <DependentUpon>PropertyGetCommentForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\SuppliersTestForm.resx">
       <DependentUpon>SuppliersTestForm.cs</DependentUpon>
