@@ -14,6 +14,9 @@ namespace NorthWithConfiguration.Contexts.Configuration
             builder.Property(e => e.QuantityPerUnit).HasMaxLength(20);
             builder.Property(e => e.UnitPrice).HasColumnType("money");
 
+            // https://docs.microsoft.com/en-us/ef/core/querying/filters
+            builder.HasQueryFilter(prod => prod.Discontinued == false);
+
             builder.HasOne(d => d.Category)
                 .WithMany(p => p.Products)
                 .HasForeignKey(d => d.CategoryId)

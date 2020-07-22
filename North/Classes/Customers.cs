@@ -33,6 +33,7 @@ namespace North.Models
                     FirstName = customer.Contact.FirstName,
                     LastName = customer.Contact.LastName,
                     ContactIdentifier = Convert.ToInt32(customer.ContactId),
+                    Contacts = customer.Contact,
                     CountryIdentifier = customer.CountryIdentifier
                 };
             }

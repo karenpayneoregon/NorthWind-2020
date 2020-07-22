@@ -21,6 +21,7 @@ namespace North.Classes
         private string _postalCode;
         private int? _countryIdentifier;
         private string _countyName;
+        private Contacts _contacts;
 
         public int CustomerIdentifier
         {
@@ -48,6 +49,16 @@ namespace North.Classes
             set
             {
                 _contactIdentifier = value;
+                OnPropertyChanged();
+            }
+        }
+
+        public Contacts Contacts
+        {
+            get => _contacts;
+            set
+            {
+                _contacts = value;
                 OnPropertyChanged();
             }
         }

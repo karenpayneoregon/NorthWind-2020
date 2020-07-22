@@ -19,6 +19,7 @@ Coming shortly
 ### See also
 
 - [Get the sample databases](https://docs.microsoft.com/en-us/dotnet/framework/data/adonet/sql/linq/downloading-sample-databases)
+- [Entity Framework Core/Windows Forms tips and tricks](https://social.technet.microsoft.com/wiki/contents/articles/53635.entity-framework-corewindows-forms-tips-and-tricks.aspx)
 
 ### Current model
 

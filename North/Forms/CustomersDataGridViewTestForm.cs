@@ -27,6 +27,8 @@ namespace North.Forms
             InitializeComponent();
 
             CustomersDataGridView.AutoGenerateColumns = false;
+            toolTip1.SetToolTip(CurrentCustomerDetails,"View customer information\nUsing multiple dialogs.");
+
             Shown += CustomersDataGridViewTestForm_Shown;
         }
 
@@ -63,7 +65,12 @@ namespace North.Forms
 
         }
 
-
+        /// <summary>
+        /// Performs simple validation and setting property values so on any changes
+        /// they are updated immediately.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void _customerView_ListChanged(object sender, ListChangedEventArgs e)
         {
             if (e.PropertyDescriptor != null)
@@ -91,6 +98,16 @@ namespace North.Forms
                     if (customerItem != null)
                     {
 
+                        /*
+                         * Did contact first or last name change?
+                         * If so we need to update the contact.
+                         */
+                        if (e.PropertyDescriptor.DisplayName == "FirstName" || e.PropertyDescriptor.DisplayName == "LastName")
+                        {
+                            customerItem.Contact.FirstName = currentCustomer.FirstName;
+                            customerItem.Contact.LastName = currentCustomer.LastName;
+                        }
+                        
                         var customerEntry = CustomersTestOperations.Context.Entry(customerItem);
                         customerEntry.CurrentValues.SetValues(currentCustomer);
 

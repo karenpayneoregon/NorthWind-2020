@@ -45,7 +45,6 @@
             this.CustomersBindingNavigator = new System.Windows.Forms.BindingNavigator(this.components);
             this.bindingNavigatorAddNewItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorCountItem = new System.Windows.Forms.ToolStripLabel();
-            this.DeleteCustomerBindingNavigatorButton = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorMoveFirstItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorMovePreviousItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorSeparator = new System.Windows.Forms.ToolStripSeparator();
@@ -54,6 +53,8 @@
             this.bindingNavigatorMoveNextItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorMoveLastItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorSeparator2 = new System.Windows.Forms.ToolStripSeparator();
+            this.DeleteCustomerBindingNavigatorButton = new System.Windows.Forms.ToolStripButton();
+            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.CustomersDataGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.CustomersBindingNavigator)).BeginInit();
@@ -204,16 +205,6 @@
             this.bindingNavigatorCountItem.Text = "of {0}";
             this.bindingNavigatorCountItem.ToolTipText = "Total number of items";
             // 
-            // DeleteCustomerBindingNavigatorButton
-            // 
-            this.DeleteCustomerBindingNavigatorButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.DeleteCustomerBindingNavigatorButton.Image = ((System.Drawing.Image)(resources.GetObject("DeleteCustomerBindingNavigatorButton.Image")));
-            this.DeleteCustomerBindingNavigatorButton.Name = "DeleteCustomerBindingNavigatorButton";
-            this.DeleteCustomerBindingNavigatorButton.RightToLeftAutoMirrorImage = true;
-            this.DeleteCustomerBindingNavigatorButton.Size = new System.Drawing.Size(23, 22);
-            this.DeleteCustomerBindingNavigatorButton.Text = "Delete";
-            this.DeleteCustomerBindingNavigatorButton.Click += new System.EventHandler(this.DeleteCustomerBindingNavigatorButton_Click);
-            // 
             // bindingNavigatorMoveFirstItem
             // 
             this.bindingNavigatorMoveFirstItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
@@ -274,6 +265,20 @@
             this.bindingNavigatorSeparator2.Name = "bindingNavigatorSeparator2";
             this.bindingNavigatorSeparator2.Size = new System.Drawing.Size(6, 25);
             // 
+            // DeleteCustomerBindingNavigatorButton
+            // 
+            this.DeleteCustomerBindingNavigatorButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.DeleteCustomerBindingNavigatorButton.Image = ((System.Drawing.Image)(resources.GetObject("DeleteCustomerBindingNavigatorButton.Image")));
+            this.DeleteCustomerBindingNavigatorButton.Name = "DeleteCustomerBindingNavigatorButton";
+            this.DeleteCustomerBindingNavigatorButton.RightToLeftAutoMirrorImage = true;
+            this.DeleteCustomerBindingNavigatorButton.Size = new System.Drawing.Size(23, 22);
+            this.DeleteCustomerBindingNavigatorButton.Text = "Delete";
+            this.DeleteCustomerBindingNavigatorButton.Click += new System.EventHandler(this.DeleteCustomerBindingNavigatorButton_Click);
+            // 
+            // toolTip1
+            // 
+            this.toolTip1.IsBalloon = true;
+            // 
             // CustomersDataGridViewTestForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -321,5 +326,6 @@
         private System.Windows.Forms.ToolStripButton bindingNavigatorMoveLastItem;
         private System.Windows.Forms.ToolStripSeparator bindingNavigatorSeparator2;
         private System.Windows.Forms.Button SaveChangesButton;
+        private System.Windows.Forms.ToolTip toolTip1;
     }
 }

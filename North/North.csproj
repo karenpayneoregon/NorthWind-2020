@@ -264,6 +264,7 @@
     </Compile>
     <Compile Include="LanguageExtensions\ControlExtensions.cs" />
     <Compile Include="LanguageExtensions\DataGridViewExtensions.cs" />
+    <Compile Include="LanguageExtensions\DbContextExtensions.cs" />
     <Compile Include="LanguageExtensions\ExceptionExtensions.cs" />
     <Compile Include="LanguageExtensions\SortableBindingListExtensions.cs" />
     <Compile Include="LanguageExtensions\StringExtensions.cs" />

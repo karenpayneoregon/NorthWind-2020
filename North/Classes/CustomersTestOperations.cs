@@ -87,12 +87,20 @@ namespace North.Classes
         }
 
         public static NorthwindContext Context = new NorthwindContext();
+        /// <summary>
+        /// Get customer data including contact for editing
+        /// </summary>
+        /// <returns></returns>
         public static async Task<List<CustomerEntity>> AllCustomersForDataGridViewAsync()
         {
 
             return await Task.Run(async () =>
             {
-                List<CustomerEntity> customerItemsList = await Context.Customers.Select(Customers.Projection).ToListAsync();
+                List<CustomerEntity> customerItemsList = await Context.Customers
+                    .Include(customer => customer.Contact)
+                    .Select(Customers.Projection)
+                    .ToListAsync();
+
                 return customerItemsList.OrderBy((customer) => customer.CompanyName).ToList();
             });
 
@@ -101,7 +109,7 @@ namespace North.Classes
         {
             using (var context = new NorthwindContext())
             {
-                return context.Countries.ToList();
+                return context.Countries.AsNoTracking().ToList();
             }
         }
 
