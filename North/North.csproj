@@ -167,6 +167,20 @@
     <Compile Include="Classes\Validators\EntityValidator.cs" />
     <Compile Include="Classes\Validators\ValidationHelper.cs" />
     <Compile Include="Classes\Validators\ValidatorExtensions.cs" />
+    <Compile Include="Contexts\Configuration\BusinessEntityPhoneConfiguration.cs" />
+    <Compile Include="Contexts\Configuration\CategoriesConfiguration.cs" />
+    <Compile Include="Contexts\Configuration\ContactDevicesConfiguration.cs" />
+    <Compile Include="Contexts\Configuration\ContactsConfiguration.cs" />
+    <Compile Include="Contexts\Configuration\ContactTypeConfiguration.cs" />
+    <Compile Include="Contexts\Configuration\CountriesConfiguration.cs" />
+    <Compile Include="Contexts\Configuration\CustomersConfiguration.cs" />
+    <Compile Include="Contexts\Configuration\EmployeesConfiguration.cs" />
+    <Compile Include="Contexts\Configuration\OrderDetailsConfiguration.cs" />
+    <Compile Include="Contexts\Configuration\OrdersConfiguration.cs" />
+    <Compile Include="Contexts\Configuration\PhoneTypeConfiguration.cs" />
+    <Compile Include="Contexts\Configuration\ProductsConfiguration.cs" />
+    <Compile Include="Contexts\Configuration\ShippersConfiguration.cs" />
+    <Compile Include="Contexts\Configuration\SuppliersConfiguration.cs" />
     <Compile Include="Contexts\NorthwindContext.cs" />
     <Compile Include="Forms\CategoryImagesTestForm.cs">
       <SubType>Form</SubType>
@@ -308,6 +322,7 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <None Include="Contexts\Configuration\readme.md" />
     <None Include="efpt.config.json" />
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
@@ -332,6 +347,7 @@
   <ItemGroup>
     <None Include="Resources\Save_16x.png" />
     <None Include="Resources\Exit_16x.png" />
+    <Content Include="Contexts\NorthwindContextOriginal.txt" />
     <Content Include="SQL\ContactDevices.sql" />
     <Content Include="SQL\Customers.sql" />
     <Content Include="SQL\EmployeeReportsToChange.sql" />
