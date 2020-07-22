@@ -237,6 +237,7 @@
       <DependentUpon>EmployeeTestForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Classes\EmployeeWithManager.cs" />
+    <Compile Include="Classes\ModelComment.cs" />
     <Compile Include="Forms\OrdersTestForm.cs">
       <SubType>Form</SubType>
     </Compile>

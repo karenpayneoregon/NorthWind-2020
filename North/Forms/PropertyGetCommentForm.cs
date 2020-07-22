@@ -28,28 +28,32 @@ namespace North.Forms
             listView1.FullRowSelect = true;
             Shown += PropertyGetCommentForm_Shown;
         }
-
+        /// <summary>
+        /// In the case of Customers all properties have comments, change to Contacts
+        /// which does not have comments for all properties
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void PropertyGetCommentForm_Shown(object sender, EventArgs e)
         {
             IEntityType entityType = ContactTestOperations.Context.Model.FindEntityType(typeof(Customers));
-
-            IEnumerable<IProperty> properties = entityType.GetProperties();
-
-            foreach (IProperty itemProperty in properties)
+            var modelComments = entityType.GetProperties().Select(property => new ModelComment
             {
-                var comment = entityType.FindProperty(itemProperty.Name).GetComment();
-                if (string.IsNullOrWhiteSpace(comment))
-                {
-                    comment = "None";
-                }
+                Name = property.Name,
+                Comment = property.GetComment()
+            });
 
-                listView1.Items.Add(new ListViewItem(new[] { itemProperty.Name, comment }));
+            foreach (var modelComment in modelComments)
+            {
+                listView1.Items.Add(new ListViewItem(new[] { modelComment.Name, modelComment.Comment ?? "(none)" }));
             }
 
             listView1.AutoResizeColumns(ColumnHeaderAutoResizeStyle.HeaderSize);
             listView1.FocusedItem = listView1.Items[0];
             listView1.Items[0].Selected = true;
             ActiveControl = listView1;
+
+
         }
     }
 }
