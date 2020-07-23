@@ -23,6 +23,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NorthOlderModel", "NorthOld
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BindingListView", "BindingListView\BindingListView.csproj", "{75AF36A8-7797-4023-B183-5B63D448420A}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Class projects", "Class projects", "{C29C5404-3DB7-4ABA-95E5-8FA362D59D64}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Permutations", "Permutations", "{D6A23707-D4A6-4932-B1DE-DF374565F405}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -60,6 +64,14 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{CC3DEC79-DAD0-4891-8798-C7B4E8042B09} = {D6A23707-D4A6-4932-B1DE-DF374565F405}
+		{FF26B1E6-4CB1-40B7-A9A4-F93B8EBEF273} = {D6A23707-D4A6-4932-B1DE-DF374565F405}
+		{E3F85453-5098-4F64-97D4-2612B25A1BC5} = {D6A23707-D4A6-4932-B1DE-DF374565F405}
+		{D973311B-E9FD-48D4-B976-7F70372D43FB} = {D6A23707-D4A6-4932-B1DE-DF374565F405}
+		{3D44BEBB-A6AC-47A8-B5B6-6E18AAF10786} = {D6A23707-D4A6-4932-B1DE-DF374565F405}
+		{75AF36A8-7797-4023-B183-5B63D448420A} = {C29C5404-3DB7-4ABA-95E5-8FA362D59D64}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {242CA456-223F-4F7D-B950-0B94F48F7A6D}

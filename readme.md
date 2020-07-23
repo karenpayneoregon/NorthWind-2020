@@ -8,7 +8,7 @@ For demonstrating working with the new model a C# Windows form project uses [Mic
 ![ef](assets/Microsoft1.png)
 
 ### Important
-Current code samples are not production ready, these codes samples are to validate the database model translates properly to code hence the work "test" in form names.
+Current code samples are not production ready, these codes samples are to validate the database model translates properly to code hence the work "test" in form names. There are several aspects like save data when filtering not coded as much of these code samples are conceptual/starters for developers to work through.
 
 ### Simplified model
 A simplified model can be [found here](https://github.com/karenpayneoregon/NorthWind2020-scripts/blob/master/README.md) (better than the original) for those developers who want a minor upgrade such as tables with no spaces in their name and proper primary keys.

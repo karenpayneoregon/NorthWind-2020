@@ -223,9 +223,10 @@ namespace North.Forms
         private void CurrentCustomerDetails_Click(object sender, EventArgs e)
         {
             
+            CustomerEntity customerEntity;
+
             try
             {
-                CustomerEntity customerEntity = new CustomerEntity();
                 customerEntity = _filtered ? _customerViewFilter.CurrentCustomer(_customerBindingSource.Position) : _customerView.CurrentCustomer(_customerBindingSource.Position);
 
                 var displayCustomerForm = new CustomerEntityReadOnlyForm(customerEntity);
