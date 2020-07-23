@@ -55,6 +55,7 @@
             this.bindingNavigatorSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.DeleteCustomerBindingNavigatorButton = new System.Windows.Forms.ToolStripButton();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
+            this.CompanyNameStartsWithTextBox = new System.Windows.Forms.TextBox();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.CustomersDataGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.CustomersBindingNavigator)).BeginInit();
@@ -63,6 +64,7 @@
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.CompanyNameStartsWithTextBox);
             this.panel1.Controls.Add(this.SaveChangesButton);
             this.panel1.Controls.Add(this.CurrentCustomerDetails);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
@@ -110,7 +112,7 @@
             this.CustomersDataGridView.Location = new System.Drawing.Point(0, 25);
             this.CustomersDataGridView.Name = "CustomersDataGridView";
             this.CustomersDataGridView.Size = new System.Drawing.Size(870, 369);
-            this.CustomersDataGridView.TabIndex = 1;
+            this.CustomersDataGridView.TabIndex = 0;
             // 
             // CompanyNameColumn
             // 
@@ -279,6 +281,15 @@
             // 
             this.toolTip1.IsBalloon = true;
             // 
+            // CompanyNameStartsWithTextBox
+            // 
+            this.CompanyNameStartsWithTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.CompanyNameStartsWithTextBox.Enabled = false;
+            this.CompanyNameStartsWithTextBox.Location = new System.Drawing.Point(702, 21);
+            this.CompanyNameStartsWithTextBox.Name = "CompanyNameStartsWithTextBox";
+            this.CompanyNameStartsWithTextBox.Size = new System.Drawing.Size(156, 20);
+            this.CompanyNameStartsWithTextBox.TabIndex = 2;
+            // 
             // CustomersDataGridViewTestForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -291,6 +302,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Customers DataGridView Test";
             this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.CustomersDataGridView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.CustomersBindingNavigator)).EndInit();
             this.CustomersBindingNavigator.ResumeLayout(false);
@@ -327,5 +339,6 @@
         private System.Windows.Forms.ToolStripSeparator bindingNavigatorSeparator2;
         private System.Windows.Forms.Button SaveChangesButton;
         private System.Windows.Forms.ToolTip toolTip1;
+        private System.Windows.Forms.TextBox CompanyNameStartsWithTextBox;
     }
 }

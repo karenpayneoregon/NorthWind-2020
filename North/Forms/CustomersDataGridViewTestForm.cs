@@ -15,13 +15,17 @@ using North.Classes.Validators;
 using North.LanguageExtensions;
 using North.Models;
 using static North.Classes.Helpers.Dialogs;
+using static North.LanguageExtensions.CueBannerTextCode;
 
 namespace North.Forms
 {
     public partial class CustomersDataGridViewTestForm : Form
     {
         private SortableBindingList<CustomerEntity> _customerView;
+        private SortableBindingList<CustomerEntity> _customerViewFilter;
         private BindingSource _customerBindingSource = new BindingSource();
+        private bool _filtered = false;
+
         public CustomersDataGridViewTestForm()
         {
             InitializeComponent();
@@ -30,6 +34,35 @@ namespace North.Forms
             toolTip1.SetToolTip(CurrentCustomerDetails,"View customer information\nUsing multiple dialogs.");
 
             Shown += CustomersDataGridViewTestForm_Shown;
+            CompanyNameStartsWithTextBox.TextChanged += CompanyNameStartsWithTextBox_TextChanged;
+            SetCueText(CompanyNameStartsWithTextBox," company starts with");
+        }
+
+        private void CompanyNameStartsWithTextBox_TextChanged(object sender, EventArgs e)
+        {
+            if (string.IsNullOrWhiteSpace(CompanyNameStartsWithTextBox.Text))
+            {
+                _customerBindingSource.DataSource = _customerView;
+                _filtered = false;
+            }
+            else
+            {
+                try
+                {
+                    var filter = CompanyNameStartsWithTextBox.Text.Trim();
+                    _customerViewFilter = new SortableBindingList<CustomerEntity>(_customerView.Where(customerEntity =>
+                        customerEntity.CompanyName.ToLower().StartsWith(filter)).ToList());
+
+                    _customerBindingSource.DataSource = _customerViewFilter;
+
+                    _filtered = true;
+
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine(ex.Message);
+                }
+            }
         }
 
         private async void CustomersDataGridViewTestForm_Shown(object sender, EventArgs e)
@@ -58,6 +91,7 @@ namespace North.Forms
             CustomersBindingNavigator.BindingSource = _customerBindingSource;
             CurrentCustomerDetails.Enabled = true;
             SaveChangesButton.Enabled = true;
+            CompanyNameStartsWithTextBox.Enabled = true;
 
             CustomersDataGridView.CellValueChanged += CustomersDataGridView_CellValueChanged;
             CustomersDataGridView.UserDeletingRow += CustomersDataGridView_UserDeletingRow;
@@ -188,19 +222,33 @@ namespace North.Forms
 
         private void CurrentCustomerDetails_Click(object sender, EventArgs e)
         {
-            CustomerEntity customerEntity = _customerView.CurrentCustomer(_customerBindingSource.Position);
-            var displayCustomerForm = new CustomerEntityReadOnlyForm(customerEntity);
-
+            
             try
             {
-                displayCustomerForm.ShowDialog();
+                CustomerEntity customerEntity = new CustomerEntity();
+                customerEntity = _filtered ? _customerViewFilter.CurrentCustomer(_customerBindingSource.Position) : _customerView.CurrentCustomer(_customerBindingSource.Position);
+
+                var displayCustomerForm = new CustomerEntityReadOnlyForm(customerEntity);
+
+                try
+                {
+                    displayCustomerForm.ShowDialog();
+                }
+                finally
+                {
+                    displayCustomerForm.Dispose();
+                }
             }
-            finally
+            catch (Exception ex)
             {
-                displayCustomerForm.Dispose();
+                Console.WriteLine(ex.Message);
             }
         }
-
+        /// <summary>
+        /// Note not rigged up to save when filtered
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void SaveChangesButton_Click(object sender, EventArgs e)
         {
             Console.WriteLine(CustomersTestOperations.Context.SaveChanges());
@@ -252,6 +300,5 @@ namespace North.Forms
                 MessageBox.Show(@"Removal aborted");
             }
         }
-
     }
 }

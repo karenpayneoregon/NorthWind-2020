@@ -182,6 +182,7 @@
     <Compile Include="Contexts\Configuration\ShippersConfiguration.cs" />
     <Compile Include="Contexts\Configuration\SuppliersConfiguration.cs" />
     <Compile Include="Contexts\NorthwindContext.cs" />
+    <Compile Include="LanguageExtensions\CueBannerTextCode.cs" />
     <Compile Include="Forms\CategoryImagesTestForm.cs">
       <SubType>Form</SubType>
     </Compile>
