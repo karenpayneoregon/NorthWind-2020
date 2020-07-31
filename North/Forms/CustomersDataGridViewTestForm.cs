@@ -246,7 +246,8 @@ namespace North.Forms
             }
         }
         /// <summary>
-        /// Note not rigged up to save when filtered
+        /// Note not rigged up to save when filtered as there are two BindingList while there
+        /// is a solution it's a matter of juggling between the two BindingList.
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>

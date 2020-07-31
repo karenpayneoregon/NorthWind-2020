@@ -14,7 +14,7 @@ Current code samples are not production ready, these codes samples are to valida
 A simplified model can be [found here](https://github.com/karenpayneoregon/NorthWind2020-scripts/blob/master/README.md) (better than the original) for those developers who want a minor upgrade such as tables with no spaces in their name and proper primary keys.
 
 ### Microsoft TechNet article
-Coming shortly
+Unknown
 
 ### See also
 
