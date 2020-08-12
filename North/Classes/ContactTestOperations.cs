@@ -148,11 +148,11 @@ namespace North.Classes
         /// after reverse engineering it will not be reflected in the code
         /// found in configuration under the context folder.
         /// </summary>
-        public static List<SqlColumn> PropertyGetColumnDescriptions(string modeName)
+        public static List<SqlColumn> PropertyGetColumnDescriptions(string modelName)
         {
             Type type = Context.Model.GetEntityTypes()
                 .Select(entityType => entityType.ClrType)
-                .FirstOrDefault(x => x.Name == modeName);
+                .FirstOrDefault(x => x.Name == modelName);
 
             var sqlColumnsList = new List<SqlColumn>();
 
@@ -182,15 +182,15 @@ namespace North.Classes
         /// <summary>
         /// Get selected model primary key
         /// </summary>
-        /// <param name="modeName"></param>
+        /// <param name="modelName"></param>
         /// <returns></returns>
-        public static string GetPrimaryKeyDemo(string modeName)
+        public static string GetPrimaryKeyDemo(string modelName)
         {
             var identifier = "";
 
             Type type = Context.Model.GetEntityTypes()
                 .Select(entityType => entityType.ClrType)
-                .FirstOrDefault(x => x.Name == modeName);
+                .FirstOrDefault(x => x.Name == modelName);
 
 
             foreach (var key in Context.Model.FindEntityType(type).GetKeys())
