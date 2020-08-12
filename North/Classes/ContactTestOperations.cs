@@ -146,28 +146,32 @@ namespace North.Classes
         /// </summary>
         public static List<SqlColumn> IPropertyGetColumnDescriptions(string modeName)
         {
-            Type entityType = Context.Model.GetEntityTypes().Select(t => t.ClrType)
+            Type type = Context.Model.GetEntityTypes().Select(entityType => entityType.ClrType)
                 .FirstOrDefault(x => x.Name == modeName);
 
-            List<SqlColumn> sqlColumnsList = new List<SqlColumn>();
+            var sqlColumnsList = new List<SqlColumn>();
 
-            IEnumerable<IProperty> properties = Context.Model.FindEntityType(entityType).GetProperties();
+            IEnumerable<IProperty> properties = Context.Model.FindEntityType(type).GetProperties();
 
             foreach (IProperty itemProperty in properties)
             {
                 var sqlColumn = new SqlColumn() {Name = itemProperty.Name };
+                var comment = Context.Model.FindEntityType(type).FindProperty(itemProperty.Name).GetComment();
 
-                var comment = Context.Model.FindEntityType(entityType).FindProperty(itemProperty.Name).GetComment();
                 sqlColumn.Description = string.IsNullOrWhiteSpace(comment) ? itemProperty.Name : comment;
                 sqlColumnsList.Add(sqlColumn);
+
             }
 
             return sqlColumnsList;
         }
-
+        /// <summary>
+        /// List of model names
+        /// </summary>
+        /// <returns></returns>
         public static List<string> ModelNameList()
         {
-            return Context.Model.GetEntityTypes().Select(t => t.ClrType).Select(x => x.Name).ToList();
+            return Context.Model.GetEntityTypes().Select(entityType => entityType.ClrType).Select(type => type.Name).ToList();
         }
     }
 }
