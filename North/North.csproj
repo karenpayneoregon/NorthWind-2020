@@ -162,6 +162,7 @@
     <Compile Include="Classes\OrdersTestOperation.cs" />
     <Compile Include="Classes\ProductItem.cs" />
     <Compile Include="Classes\ProductsTestOperations.cs" />
+    <Compile Include="Classes\SqlColumn.cs" />
     <Compile Include="Classes\Suppliers.cs" />
     <Compile Include="Classes\SuppliersTestOperations.cs" />
     <Compile Include="Classes\Validators\EntityValidationResult.cs" />
@@ -183,6 +184,12 @@
     <Compile Include="Contexts\Configuration\ShippersConfiguration.cs" />
     <Compile Include="Contexts\Configuration\SuppliersConfiguration.cs" />
     <Compile Include="Contexts\NorthwindContext.cs" />
+    <Compile Include="Forms\ModelPropertyDescriptionForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\ModelPropertyDescriptionForm.Designer.cs">
+      <DependentUpon>ModelPropertyDescriptionForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="LanguageExtensions\CueBannerTextCode.cs" />
     <Compile Include="Forms\CategoryImagesTestForm.cs">
       <SubType>Form</SubType>
@@ -312,6 +319,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\EmployeeTestForm.resx">
       <DependentUpon>EmployeeTestForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\ModelPropertyDescriptionForm.resx">
+      <DependentUpon>ModelPropertyDescriptionForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\OrdersTestForm.resx">
       <DependentUpon>OrdersTestForm.cs</DependentUpon>

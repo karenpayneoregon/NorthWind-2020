@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Metadata;
 using North.Contexts;
 using North.Models;
 
@@ -138,6 +139,35 @@ namespace North.Classes
             {
                 return context.ContactType.AsNoTracking().ToList();
             }
+        }
+        /// <summary>
+        /// Raw example to obtain "Description" information for a column in
+        /// a SQL-Server table.
+        /// </summary>
+        public static List<SqlColumn> IPropertyGetColumnDescriptions(string modeName)
+        {
+            Type entityType = Context.Model.GetEntityTypes().Select(t => t.ClrType)
+                .FirstOrDefault(x => x.Name == modeName);
+
+            List<SqlColumn> sqlColumnsList = new List<SqlColumn>();
+
+            IEnumerable<IProperty> properties = Context.Model.FindEntityType(entityType).GetProperties();
+
+            foreach (IProperty itemProperty in properties)
+            {
+                var sqlColumn = new SqlColumn() {Name = itemProperty.Name };
+
+                var comment = Context.Model.FindEntityType(entityType).FindProperty(itemProperty.Name).GetComment();
+                sqlColumn.Description = string.IsNullOrWhiteSpace(comment) ? itemProperty.Name : comment;
+                sqlColumnsList.Add(sqlColumn);
+            }
+
+            return sqlColumnsList;
+        }
+
+        public static List<string> ModelNameList()
+        {
+            return Context.Model.GetEntityTypes().Select(t => t.ClrType).Select(x => x.Name).ToList();
         }
     }
 }
