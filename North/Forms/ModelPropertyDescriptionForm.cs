@@ -19,16 +19,19 @@ namespace North.Forms
             Shown += ExperimentsForm_Shown;
         }
 
-        private void ExperimentsForm_Shown(object sender, EventArgs e)
+        private async void ExperimentsForm_Shown(object sender, EventArgs e)
         {
             ModelNamesListBox.SelectedIndexChanged += ModelNamesListBox_SelectedIndexChanged;
-            ModelNamesListBox.DataSource = ContactTestOperations.ModelNameList();
+            var modelNames = await ContactTestOperations.ModelNameList();
+            ModelNamesListBox.DataSource = modelNames;
         }
 
         private void ModelNamesListBox_SelectedIndexChanged(object sender, EventArgs e)
         {
             ColumnDescriptionsListView.Items.Clear();
-            var results = ContactTestOperations.IPropertyGetColumnDescriptions(ModelNamesListBox.Text);
+
+            var results = ContactTestOperations.PropertyGetColumnDescriptions(ModelNamesListBox.Text);
+
             foreach (var sqlColumn in results)
             {
                 ColumnDescriptionsListView.Items.Add(new ListViewItem(sqlColumn.ItemArray));
@@ -38,10 +41,7 @@ namespace North.Forms
             ColumnDescriptionsListView.FocusedItem = ColumnDescriptionsListView.Items[0];
             ColumnDescriptionsListView.Items[0].Selected = true;
 
-        }
-
-        private void IPropertyButton_Click(object sender, EventArgs e)
-        {
+            identifierLabel.Text = $"Key: {ContactTestOperations.GetPrimaryKeyDemo(ModelNamesListBox.Text)}";
 
         }
     }

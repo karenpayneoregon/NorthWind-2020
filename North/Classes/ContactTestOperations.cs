@@ -143,14 +143,20 @@ namespace North.Classes
         /// <summary>
         /// Raw example to obtain "Description" information for a column in
         /// a SQL-Server table.
+        ///
+        /// Note if the value for description in a column definition changes
+        /// after reverse engineering it will not be reflected in the code
+        /// found in configuration under the context folder.
         /// </summary>
-        public static List<SqlColumn> IPropertyGetColumnDescriptions(string modeName)
+        public static List<SqlColumn> PropertyGetColumnDescriptions(string modeName)
         {
-            Type type = Context.Model.GetEntityTypes().Select(entityType => entityType.ClrType)
+            Type type = Context.Model.GetEntityTypes()
+                .Select(entityType => entityType.ClrType)
                 .FirstOrDefault(x => x.Name == modeName);
 
             var sqlColumnsList = new List<SqlColumn>();
 
+            // ReSharper disable once AssignNullToNotNullAttribute
             IEnumerable<IProperty> properties = Context.Model.FindEntityType(type).GetProperties();
 
             foreach (IProperty itemProperty in properties)
@@ -169,9 +175,40 @@ namespace North.Classes
         /// List of model names
         /// </summary>
         /// <returns></returns>
-        public static List<string> ModelNameList()
+        public static async Task<List<string>> ModelNameList()
         {
-            return Context.Model.GetEntityTypes().Select(entityType => entityType.ClrType).Select(type => type.Name).ToList();
+            return await Task.Run(() =>Context.Model.GetEntityTypes().Select(entityType => entityType.ClrType).Select(type => type.Name).ToList());
+        }
+        /// <summary>
+        /// Get selected model primary key
+        /// </summary>
+        /// <param name="modeName"></param>
+        /// <returns></returns>
+        public static string GetPrimaryKeyDemo(string modeName)
+        {
+            var identifier = "";
+
+            Type type = Context.Model.GetEntityTypes()
+                .Select(entityType => entityType.ClrType)
+                .FirstOrDefault(x => x.Name == modeName);
+
+
+            foreach (var key in Context.Model.FindEntityType(type).GetKeys())
+            {
+                foreach (var property in key.Properties)
+                {
+                    identifier = property.Name;
+
+                    // get more defined
+                    //if (property.ValueGenerated == ValueGenerated.OnAdd)
+                    //{
+                    //    identifier = property.Name;
+                    //}
+                }
+            }
+
+            return string.IsNullOrWhiteSpace(identifier) ? "none" : identifier;
+
         }
     }
 }

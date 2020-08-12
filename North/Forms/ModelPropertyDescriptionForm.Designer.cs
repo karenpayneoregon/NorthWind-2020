@@ -33,6 +33,7 @@
             this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.identifierLabel = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -69,26 +70,37 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.identifierLabel);
             this.groupBox1.Controls.Add(this.ColumnDescriptionsListView);
             this.groupBox1.Controls.Add(this.ModelNamesListBox);
             this.groupBox1.Location = new System.Drawing.Point(13, 17);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(536, 373);
+            this.groupBox1.Size = new System.Drawing.Size(536, 414);
             this.groupBox1.TabIndex = 3;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Column descriptions";
+            // 
+            // identifierLabel
+            // 
+            this.identifierLabel.AutoSize = true;
+            this.identifierLabel.Location = new System.Drawing.Point(211, 377);
+            this.identifierLabel.Name = "identifierLabel";
+            this.identifierLabel.Size = new System.Drawing.Size(122, 13);
+            this.identifierLabel.TabIndex = 3;
+            this.identifierLabel.Text = "Primary key place holder";
             // 
             // ModelPropertyDescriptionForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(561, 402);
+            this.ClientSize = new System.Drawing.Size(561, 443);
             this.Controls.Add(this.groupBox1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "ModelPropertyDescriptionForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Get model column descriptions";
             this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -99,5 +111,6 @@
         private System.Windows.Forms.ColumnHeader columnHeader1;
         private System.Windows.Forms.ColumnHeader columnHeader2;
         private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.Label identifierLabel;
     }
 }
