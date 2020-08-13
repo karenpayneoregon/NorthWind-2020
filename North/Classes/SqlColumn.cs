@@ -5,6 +5,8 @@ namespace North.Classes
     public class SqlColumn
     {
         public bool IsPrimaryKey { get; set; }
+        public bool IsForeignKey { get; set; }
+        public bool IsNullable { get; set; }
         /// <summary>
         /// Column/property name
         /// </summary>
@@ -16,7 +18,16 @@ namespace North.Classes
         /// <summary>
         /// Used for populating a ListView or other control
         /// </summary>
-        public string[] ItemArray => new[] {Convert.ToString(IsPrimaryKey  == true ? "Yes" : ""), Name, Description};
+        public string[] ItemArray => new[]
+        {
+            Convert.ToString(IsPrimaryKey ? "Yes" : ""),
+            Convert.ToString(IsForeignKey ? "Yes" : ""),
+            Name,
+            Description,
+            Convert.ToString(IsNullable ? "Yes" : "")
+        };
+
+
         public override string ToString() => Name;
 
     }

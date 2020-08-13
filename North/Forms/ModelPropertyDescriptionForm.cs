@@ -16,6 +16,7 @@ namespace North.Forms
         public ModelPropertyDescriptionForm()
         {
             InitializeComponent();
+            columnHeader1.DisplayIndex = 1;
             Shown += ExperimentsForm_Shown;
         }
 

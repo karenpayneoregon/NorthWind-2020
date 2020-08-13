@@ -30,10 +30,12 @@
         {
             this.ModelNamesListBox = new System.Windows.Forms.ListBox();
             this.ColumnDescriptionsListView = new System.Windows.Forms.ListView();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.columnHeader4 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader5 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader6 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -49,17 +51,38 @@
             // 
             this.ColumnDescriptionsListView.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.columnHeader4,
+            this.columnHeader1,
             this.columnHeader5,
-            this.columnHeader6});
+            this.columnHeader6,
+            this.columnHeader2});
             this.ColumnDescriptionsListView.FullRowSelect = true;
             this.ColumnDescriptionsListView.HideSelection = false;
             this.ColumnDescriptionsListView.Location = new System.Drawing.Point(205, 22);
             this.ColumnDescriptionsListView.MultiSelect = false;
             this.ColumnDescriptionsListView.Name = "ColumnDescriptionsListView";
-            this.ColumnDescriptionsListView.Size = new System.Drawing.Size(336, 339);
+            this.ColumnDescriptionsListView.Size = new System.Drawing.Size(444, 339);
             this.ColumnDescriptionsListView.TabIndex = 2;
             this.ColumnDescriptionsListView.UseCompatibleStateImageBehavior = false;
             this.ColumnDescriptionsListView.View = System.Windows.Forms.View.Details;
+            // 
+            // columnHeader4
+            // 
+            this.columnHeader4.Text = "Key";
+            // 
+            // columnHeader1
+            // 
+            this.columnHeader1.DisplayIndex = 3;
+            this.columnHeader1.Text = "Foreign key";
+            // 
+            // columnHeader5
+            // 
+            this.columnHeader5.DisplayIndex = 1;
+            this.columnHeader5.Text = "Property";
+            // 
+            // columnHeader6
+            // 
+            this.columnHeader6.DisplayIndex = 2;
+            this.columnHeader6.Text = "Comment";
             // 
             // groupBox1
             // 
@@ -67,28 +90,20 @@
             this.groupBox1.Controls.Add(this.ModelNamesListBox);
             this.groupBox1.Location = new System.Drawing.Point(13, 17);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(561, 414);
+            this.groupBox1.Size = new System.Drawing.Size(655, 414);
             this.groupBox1.TabIndex = 3;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Column descriptions";
             // 
-            // columnHeader4
+            // columnHeader2
             // 
-            this.columnHeader4.Text = "Key";
-            // 
-            // columnHeader5
-            // 
-            this.columnHeader5.Text = "Property";
-            // 
-            // columnHeader6
-            // 
-            this.columnHeader6.Text = "Comment";
+            this.columnHeader2.Text = "Nullable";
             // 
             // ModelPropertyDescriptionForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(586, 443);
+            this.ClientSize = new System.Drawing.Size(680, 443);
             this.Controls.Add(this.groupBox1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "ModelPropertyDescriptionForm";
@@ -106,5 +121,7 @@
         private System.Windows.Forms.ColumnHeader columnHeader4;
         private System.Windows.Forms.ColumnHeader columnHeader5;
         private System.Windows.Forms.ColumnHeader columnHeader6;
+        private System.Windows.Forms.ColumnHeader columnHeader1;
+        private System.Windows.Forms.ColumnHeader columnHeader2;
     }
 }

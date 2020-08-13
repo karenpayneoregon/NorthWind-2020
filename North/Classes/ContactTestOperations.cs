@@ -166,14 +166,19 @@ namespace North.Classes
                 var comment = Context.Model.FindEntityType(type).FindProperty(itemProperty.Name).GetComment();
 
                 sqlColumn.Description = string.IsNullOrWhiteSpace(comment) ? itemProperty.Name : comment;
-
-                if (keys.Count() >0)
-                {
-                    if (keys.FirstOrDefault().Properties[0].Name == itemProperty.Name)
-                    {
-                        sqlColumn.IsPrimaryKey = true;
-                    }
-                }
+                
+                //itemProperty.IsForeignKey()
+                sqlColumn.IsPrimaryKey = itemProperty.IsKey();
+                sqlColumn.IsForeignKey = itemProperty.IsForeignKey();
+                sqlColumn.IsNullable = itemProperty.IsColumnNullable();
+                
+                //if (keys.Count() >0)
+                //{
+                //    if (keys.FirstOrDefault().Properties[0].Name == itemProperty.Name)
+                //    {
+                //        sqlColumn.IsPrimaryKey = true;
+                //    }
+                //}
 
                 sqlColumnsList.Add(sqlColumn);
 
