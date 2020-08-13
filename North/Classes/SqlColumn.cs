@@ -1,7 +1,10 @@
-﻿namespace North.Classes
+﻿using System;
+
+namespace North.Classes
 {
     public class SqlColumn
     {
+        public bool IsPrimaryKey { get; set; }
         /// <summary>
         /// Column/property name
         /// </summary>
@@ -13,7 +16,7 @@
         /// <summary>
         /// Used for populating a ListView or other control
         /// </summary>
-        public string[] ItemArray => new[] {Name, Description};
+        public string[] ItemArray => new[] {Convert.ToString(IsPrimaryKey  == true ? "Yes" : ""), Name, Description};
         public override string ToString() => Name;
 
     }

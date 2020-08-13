@@ -158,6 +158,7 @@ namespace North.Classes
 
             // ReSharper disable once AssignNullToNotNullAttribute
             IEnumerable<IProperty> properties = Context.Model.FindEntityType(type).GetProperties();
+            var keys = Context.Model.FindEntityType(type).GetKeys();
 
             foreach (IProperty itemProperty in properties)
             {
@@ -165,11 +166,21 @@ namespace North.Classes
                 var comment = Context.Model.FindEntityType(type).FindProperty(itemProperty.Name).GetComment();
 
                 sqlColumn.Description = string.IsNullOrWhiteSpace(comment) ? itemProperty.Name : comment;
+
+                if (keys.Count() >0)
+                {
+                    if (keys.FirstOrDefault().Properties[0].Name == itemProperty.Name)
+                    {
+                        sqlColumn.IsPrimaryKey = true;
+                    }
+                }
+
                 sqlColumnsList.Add(sqlColumn);
 
             }
 
             return sqlColumnsList;
+
         }
         /// <summary>
         /// List of model names

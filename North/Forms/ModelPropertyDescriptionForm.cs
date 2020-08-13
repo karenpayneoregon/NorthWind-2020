@@ -41,8 +41,6 @@ namespace North.Forms
             ColumnDescriptionsListView.FocusedItem = ColumnDescriptionsListView.Items[0];
             ColumnDescriptionsListView.Items[0].Selected = true;
 
-            identifierLabel.Text = $"Key: {ContactTestOperations.GetPrimaryKeyDemo(ModelNamesListBox.Text)}";
-
         }
     }
 }

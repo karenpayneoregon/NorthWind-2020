@@ -30,10 +30,10 @@
         {
             this.ModelNamesListBox = new System.Windows.Forms.ListBox();
             this.ColumnDescriptionsListView = new System.Windows.Forms.ListView();
-            this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.identifierLabel = new System.Windows.Forms.Label();
+            this.columnHeader4 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader5 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader6 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -48,59 +48,53 @@
             // ColumnDescriptionsListView
             // 
             this.ColumnDescriptionsListView.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-            this.columnHeader1,
-            this.columnHeader2});
+            this.columnHeader4,
+            this.columnHeader5,
+            this.columnHeader6});
             this.ColumnDescriptionsListView.FullRowSelect = true;
             this.ColumnDescriptionsListView.HideSelection = false;
             this.ColumnDescriptionsListView.Location = new System.Drawing.Point(205, 22);
             this.ColumnDescriptionsListView.MultiSelect = false;
             this.ColumnDescriptionsListView.Name = "ColumnDescriptionsListView";
-            this.ColumnDescriptionsListView.Size = new System.Drawing.Size(303, 339);
+            this.ColumnDescriptionsListView.Size = new System.Drawing.Size(336, 339);
             this.ColumnDescriptionsListView.TabIndex = 2;
             this.ColumnDescriptionsListView.UseCompatibleStateImageBehavior = false;
             this.ColumnDescriptionsListView.View = System.Windows.Forms.View.Details;
             // 
-            // columnHeader1
-            // 
-            this.columnHeader1.Text = "Column";
-            // 
-            // columnHeader2
-            // 
-            this.columnHeader2.Text = "Description";
-            // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.identifierLabel);
             this.groupBox1.Controls.Add(this.ColumnDescriptionsListView);
             this.groupBox1.Controls.Add(this.ModelNamesListBox);
             this.groupBox1.Location = new System.Drawing.Point(13, 17);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(536, 414);
+            this.groupBox1.Size = new System.Drawing.Size(561, 414);
             this.groupBox1.TabIndex = 3;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Column descriptions";
             // 
-            // identifierLabel
+            // columnHeader4
             // 
-            this.identifierLabel.AutoSize = true;
-            this.identifierLabel.Location = new System.Drawing.Point(211, 377);
-            this.identifierLabel.Name = "identifierLabel";
-            this.identifierLabel.Size = new System.Drawing.Size(122, 13);
-            this.identifierLabel.TabIndex = 3;
-            this.identifierLabel.Text = "Primary key place holder";
+            this.columnHeader4.Text = "Key";
+            // 
+            // columnHeader5
+            // 
+            this.columnHeader5.Text = "Property";
+            // 
+            // columnHeader6
+            // 
+            this.columnHeader6.Text = "Comment";
             // 
             // ModelPropertyDescriptionForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(561, 443);
+            this.ClientSize = new System.Drawing.Size(586, 443);
             this.Controls.Add(this.groupBox1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "ModelPropertyDescriptionForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Get model column descriptions";
             this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -108,9 +102,9 @@
         #endregion
         private System.Windows.Forms.ListBox ModelNamesListBox;
         private System.Windows.Forms.ListView ColumnDescriptionsListView;
-        private System.Windows.Forms.ColumnHeader columnHeader1;
-        private System.Windows.Forms.ColumnHeader columnHeader2;
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.Label identifierLabel;
+        private System.Windows.Forms.ColumnHeader columnHeader4;
+        private System.Windows.Forms.ColumnHeader columnHeader5;
+        private System.Windows.Forms.ColumnHeader columnHeader6;
     }
 }
