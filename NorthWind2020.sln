@@ -31,6 +31,10 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Front ends", "Front ends", 
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AnnotationsDemos", "AnnotationsDemos\AnnotationsDemos.csproj", "{83E635A6-4A56-46B5-899D-4FC1026E5B26}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Validation samples", "Validation samples", "{31D6A25F-6E33-4B92-85E3-D0D2AAA2DB79}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ValidationMocked", "ValidationMocked\ValidationMocked.csproj", "{9DF80C3F-9AE6-4FBE-81B7-3C3B00B101B2}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -69,6 +73,10 @@ Global
 		{83E635A6-4A56-46B5-899D-4FC1026E5B26}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{83E635A6-4A56-46B5-899D-4FC1026E5B26}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{83E635A6-4A56-46B5-899D-4FC1026E5B26}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9DF80C3F-9AE6-4FBE-81B7-3C3B00B101B2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9DF80C3F-9AE6-4FBE-81B7-3C3B00B101B2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9DF80C3F-9AE6-4FBE-81B7-3C3B00B101B2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9DF80C3F-9AE6-4FBE-81B7-3C3B00B101B2}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -82,6 +90,7 @@ Global
 		{75AF36A8-7797-4023-B183-5B63D448420A} = {C29C5404-3DB7-4ABA-95E5-8FA362D59D64}
 		{90E8F10B-B53B-4A7B-808F-A207C862D5AF} = {D6A23707-D4A6-4932-B1DE-DF374565F405}
 		{83E635A6-4A56-46B5-899D-4FC1026E5B26} = {90E8F10B-B53B-4A7B-808F-A207C862D5AF}
+		{9DF80C3F-9AE6-4FBE-81B7-3C3B00B101B2} = {31D6A25F-6E33-4B92-85E3-D0D2AAA2DB79}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {242CA456-223F-4F7D-B950-0B94F48F7A6D}
