@@ -11,6 +11,10 @@ namespace TimeLibrary.Classes
 {
     public class MovieOperations
     {
+        /// <summary>
+        /// Get all available movies
+        /// </summary>
+        /// <returns></returns>
         public static async Task<List<Movies>> GetMovies()
         {
             return await Task.Run(async () =>
@@ -20,6 +24,19 @@ namespace TimeLibrary.Classes
                     return await context.Movies.AsNoTracking().ToListAsync();
                 }
             });
+        }
+        /// <summary>
+        /// Add new movie
+        /// </summary>
+        /// <param name="movies"></param>
+        /// <returns></returns>
+        public static bool AddMovie(Movies movies)
+        {
+            using (var context = new DateTimeContext())
+            {
+                context.Attach(movies).State = EntityState.Added;
+                return context.SaveChanges() == 1;
+            }
         }
     }
 }
