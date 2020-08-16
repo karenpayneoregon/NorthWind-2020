@@ -1,0 +1,39 @@
+﻿{
+   "ContextClassName": "DateTimeContext",
+   "ContextNamespace": null,
+   "DefaultDacpacSchema": null,
+   "IncludeConnectionString": true,
+   "ModelNamespace": null,
+   "OutputContextPath": "Contexts",
+   "OutputPath": "Models",
+   "ProjectRootNamespace": "TimeLibrary",
+   "SelectedHandlebarsLanguage": 0,
+   "SelectedToBeGenerated": 0,
+   "Tables": [
+      {
+         "HasPrimaryKey": true,
+         "Name": "[dbo].[Events]"
+      },
+      {
+         "HasPrimaryKey": true,
+         "Name": "[dbo].[Movies]"
+      },
+      {
+         "HasPrimaryKey": true,
+         "Name": "[dbo].[Room]"
+      },
+      {
+         "HasPrimaryKey": true,
+         "Name": "[dbo].[TimeTable]"
+      }
+   ],
+   "UseDatabaseNames": false,
+   "UseDbContextSplitting": true,
+   "UseFluentApiOnly": false,
+   "UseHandleBars": false,
+   "UseInflector": false,
+   "UseLegacyPluralizer": false,
+   "UseNodaTime": false,
+   "UseSpatial": false,
+   "UseStoredProcedures": false
+}

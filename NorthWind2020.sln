@@ -35,6 +35,19 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Validation samples", "Valid
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ValidationMocked", "ValidationMocked\ValidationMocked.csproj", "{9DF80C3F-9AE6-4FBE-81B7-3C3B00B101B2}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Working with time", "Working with time", "{73F83EE4-A4E9-4728-8A2D-B0B8BB83A3B7}"
+	ProjectSection(SolutionItems) = preProject
+		TimeReadme.md = TimeReadme.md
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TimeLibrary", "TimeLibrary\TimeLibrary.csproj", "{8C5FC4CF-1A5B-47D4-8021-709B3FAC5F63}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TimeLibraryCore", "TimeLibraryCore\TimeLibraryCore.csproj", "{99B94BE5-33B5-4984-A603-EE9E7C71FBBF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TimeUnitTestProject", "TimeUnitTestProject\TimeUnitTestProject.csproj", "{46BE1AEA-3BDD-479A-A91F-FE506E1895F7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WorkingWithTimeUsingMovies", "WorkingWithTimeUsingMovies\WorkingWithTimeUsingMovies.csproj", "{A59BDA4B-AE46-4AA1-A7A6-E54130E188E4}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -77,6 +90,22 @@ Global
 		{9DF80C3F-9AE6-4FBE-81B7-3C3B00B101B2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9DF80C3F-9AE6-4FBE-81B7-3C3B00B101B2}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9DF80C3F-9AE6-4FBE-81B7-3C3B00B101B2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8C5FC4CF-1A5B-47D4-8021-709B3FAC5F63}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8C5FC4CF-1A5B-47D4-8021-709B3FAC5F63}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8C5FC4CF-1A5B-47D4-8021-709B3FAC5F63}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8C5FC4CF-1A5B-47D4-8021-709B3FAC5F63}.Release|Any CPU.Build.0 = Release|Any CPU
+		{99B94BE5-33B5-4984-A603-EE9E7C71FBBF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{99B94BE5-33B5-4984-A603-EE9E7C71FBBF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{99B94BE5-33B5-4984-A603-EE9E7C71FBBF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{99B94BE5-33B5-4984-A603-EE9E7C71FBBF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{46BE1AEA-3BDD-479A-A91F-FE506E1895F7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{46BE1AEA-3BDD-479A-A91F-FE506E1895F7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{46BE1AEA-3BDD-479A-A91F-FE506E1895F7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{46BE1AEA-3BDD-479A-A91F-FE506E1895F7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A59BDA4B-AE46-4AA1-A7A6-E54130E188E4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A59BDA4B-AE46-4AA1-A7A6-E54130E188E4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A59BDA4B-AE46-4AA1-A7A6-E54130E188E4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A59BDA4B-AE46-4AA1-A7A6-E54130E188E4}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -91,6 +120,10 @@ Global
 		{90E8F10B-B53B-4A7B-808F-A207C862D5AF} = {D6A23707-D4A6-4932-B1DE-DF374565F405}
 		{83E635A6-4A56-46B5-899D-4FC1026E5B26} = {90E8F10B-B53B-4A7B-808F-A207C862D5AF}
 		{9DF80C3F-9AE6-4FBE-81B7-3C3B00B101B2} = {31D6A25F-6E33-4B92-85E3-D0D2AAA2DB79}
+		{8C5FC4CF-1A5B-47D4-8021-709B3FAC5F63} = {73F83EE4-A4E9-4728-8A2D-B0B8BB83A3B7}
+		{99B94BE5-33B5-4984-A603-EE9E7C71FBBF} = {73F83EE4-A4E9-4728-8A2D-B0B8BB83A3B7}
+		{46BE1AEA-3BDD-479A-A91F-FE506E1895F7} = {73F83EE4-A4E9-4728-8A2D-B0B8BB83A3B7}
+		{A59BDA4B-AE46-4AA1-A7A6-E54130E188E4} = {73F83EE4-A4E9-4728-8A2D-B0B8BB83A3B7}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {242CA456-223F-4F7D-B950-0B94F48F7A6D}
