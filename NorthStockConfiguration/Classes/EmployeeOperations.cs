@@ -22,20 +22,23 @@ namespace NorthStockConfiguration.Classes
                         return await context.Employees.AsNoTracking()
                             .ToListAsync();
                     }
+
                 }
             );
         }
         /// <summary>
         /// Update a single employee
         /// </summary>
-        /// <param name="employee"></param>
+        /// <param name="employee">Valid employee</param>
         /// <returns></returns>
         public static bool Update(Employees employee)
         {
             using (var context = new NorthwindContext())
             {
+
                 context.Attach(employee).State = EntityState.Modified;
                 return context.SaveChanges() == 1;
+
             }
         }
     }

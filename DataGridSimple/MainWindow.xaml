@@ -12,7 +12,7 @@
             <ColumnDefinition Width="163*"/>
             <ColumnDefinition Width="8*"/>
         </Grid.ColumnDefinitions>
-        <DataGrid x:Name="EmployeeGrid" AutoGenerateColumns="False" HorizontalAlignment="Left" Height="204" Margin="21,10,0,0" VerticalAlignment="Top" Width="455">
+        <DataGrid x:Name="EmployeeGrid" SelectedIndex="0" Loaded="EmployeeGrid_OnLoaded" AutoGenerateColumns="False" HorizontalAlignment="Left" Height="204" Margin="21,10,0,0" VerticalAlignment="Top" Width="455">
 
             <DataGrid.Resources>
                 <BooleanToVisibilityConverter x:Key="BooleanToVisibilityConverter"/>

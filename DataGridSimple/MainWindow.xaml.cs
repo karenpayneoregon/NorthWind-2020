@@ -17,6 +17,7 @@ using Microsoft.EntityFrameworkCore;
 using NorthStockConfiguration;
 using NorthStockConfiguration.Classes;
 using static System.Windows.WindowStartupLocation;
+using static DataGridSimple.Classes.CommonDialogs;
 
 namespace DataGridSimple
 {
@@ -30,24 +31,52 @@ namespace DataGridSimple
             WindowStartupLocation = CenterScreen;
         }
 
+        /// <summary>
+        /// Load employees, note in xaml that only a select few properties are loaded
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private async void Grid_Loaded(object sender, RoutedEventArgs e)
         {
             var employeeList = await EmployeeOperations.GetEmployeeListAsync();
             EmployeeGrid.ItemsSource = employeeList;
         }
-
+        /// <summary>
+        /// Provides ability to update current employee in the data grid
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void ButtonCurrent_OnClick(object sender, RoutedEventArgs e)
         {
-            var employee = EmployeeGrid.SelectedItem as Employees;
-            if (!EmployeeOperations.Update(employee))
-            {
-                MessageBox.Show("Update failed");
-            }
-        }
 
+            if (Question("Update current employee?"))
+            {
+                var employee = EmployeeGrid.SelectedItem as Employees;
+                if (!EmployeeOperations.Update(employee))
+                {
+                    MessageBox.Show("Update failed");
+                }
+            }
+
+        }
+        /// <summary>
+        /// Close application
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void ExitButton_Click(object sender, RoutedEventArgs e)
         {
             Application.Current.Shutdown();
+        }
+        /// <summary>
+        /// Focus DataGrid, highlight first row
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void EmployeeGrid_OnLoaded(object sender, RoutedEventArgs e)
+        {
+            EmployeeGrid.MoveFocus(new TraversalRequest(FocusNavigationDirection.Next));
+            EmployeeGrid.Focus();
         }
     }
 }
