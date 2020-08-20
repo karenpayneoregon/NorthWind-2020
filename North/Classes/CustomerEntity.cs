@@ -85,12 +85,12 @@ namespace North.Classes
 
         public string ContactName => $"{FirstName} {LastName}";
 
-        public int ContactTypeIdentifier
+        public int? ContactTypeIdentifier
         {
             get => _contactTypeIdentifier;
             set
             {
-                _contactTypeIdentifier = value;
+                _contactTypeIdentifier = (int) value;
                 OnPropertyChanged();
             }
         }
@@ -160,10 +160,6 @@ namespace North.Classes
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
-
-        public static implicit operator CustomerEntity(Customers v)
-        {
-            throw new NotImplementedException();
-        }
+      
     }
 }

@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using DataValidationWindowsForms.Classes;
 using LanguageExtensions;
+using Microsoft.EntityFrameworkCore.ChangeTracking;
 using North.Classes;
 using North.Classes.Components;
 using North.Classes.Validators;
@@ -29,6 +30,8 @@ namespace North.Forms
         public CustomersDataGridViewTestForm()
         {
             InitializeComponent();
+
+            _hasValidationErrors = false;
 
             CustomersDataGridView.AutoGenerateColumns = false;
             toolTip1.SetToolTip(CurrentCustomerDetails,"View customer information\nUsing multiple dialogs.");
@@ -99,6 +102,8 @@ namespace North.Forms
 
         }
 
+        private bool _hasValidationErrors;
+
         /// <summary>
         /// Performs simple validation and setting property values so on any changes
         /// they are updated immediately.
@@ -141,15 +146,16 @@ namespace North.Forms
                             customerItem.Contact.FirstName = currentCustomer.FirstName;
                             customerItem.Contact.LastName = currentCustomer.LastName;
                         }
-                        
-                        var customerEntry = CustomersTestOperations.Context.Entry(customerItem);
+
+                        var test1 = currentCustomer.CompanyName;
+
+                        EntityEntry<Customers> customerEntry = CustomersTestOperations.Context.Entry(customerItem);
                         customerEntry.CurrentValues.SetValues(currentCustomer);
 
                         //
                         // Setup validation on current row data
                         //
-                        var validation = ValidationHelper.ValidateEntity(customerItem);
-                        
+                        var validation = ValidationHelper.ValidateEntity(currentCustomer);
 
                         //
                         // If there are validation error present them to the user
@@ -172,18 +178,17 @@ namespace North.Forms
                             // (there are other ways to deal with this but are dependent on business logic)
                             //
                             customerEntry.CurrentValues.SetValues(originalCustomer);
-                            _customerView[_customerBindingSource.Position] = originalCustomer;
-
+                            _customerView[_customerBindingSource.Position] = CustomersTestOperations.CustomerByIdentifier(originalCustomer.CustomerIdentifier);
+                            _hasValidationErrors = true;
                         }
                         else
                         {
+                            _hasValidationErrors = false;
                             CustomersTestOperations.Context.SaveChanges();
                         }
                     }
                 }
-
             }
-
         }
         /// <summary>
         /// Handle properties in DataGridViewComboBox columns
@@ -217,7 +222,11 @@ namespace North.Forms
                 customerEntity.ContactTitle = CustomersDataGridView.Rows[e.RowIndex].Cells["ContactTitleColumn"].FormattedValue?.ToString();
             }
 
-            Console.WriteLine(CustomersTestOperations.Context.SaveChanges());
+            if (!_hasValidationErrors)
+            {
+                Console.WriteLine(CustomersTestOperations.Context.SaveChanges());
+            }
+            
         }
 
         private void CurrentCustomerDetails_Click(object sender, EventArgs e)

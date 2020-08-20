@@ -105,6 +105,15 @@ namespace North.Classes
             });
 
         }
+
+        public static CustomerEntity CustomerByIdentifier(int identifier)
+        {
+            using (var context = new NorthwindContext())
+            {
+                return context.Customers.Select(Customers.Projection).FirstOrDefault(custEntity => custEntity.CustomerIdentifier == identifier);
+            }
+        }
+
         public static List<Countries> CountryList()
         {
             using (var context = new NorthwindContext())
