@@ -140,53 +140,7 @@ namespace North.Classes
                 return context.ContactType.AsNoTracking().ToList();
             }
         }
-        /// <summary>
-        /// Raw example to obtain "Description" information for a column in
-        /// a SQL-Server table.
-        ///
-        /// Note if the value for description in a column definition changes
-        /// after reverse engineering it will not be reflected in the code
-        /// found in configuration under the context folder.
-        /// </summary>
-        public static List<SqlColumn> PropertyGetColumnDescriptions(string modelName)
-        {
-            Type type = Context.Model.GetEntityTypes()
-                .Select(entityType => entityType.ClrType)
-                .FirstOrDefault(x => x.Name == modelName);
 
-            var sqlColumnsList = new List<SqlColumn>();
-
-            // ReSharper disable once AssignNullToNotNullAttribute
-            IEnumerable<IProperty> properties = Context.Model.FindEntityType(type).GetProperties();
-            var keys = Context.Model.FindEntityType(type).GetKeys();
-
-            foreach (IProperty itemProperty in properties)
-            {
-                var sqlColumn = new SqlColumn() {Name = itemProperty.Name };
-                var comment = Context.Model.FindEntityType(type).FindProperty(itemProperty.Name).GetComment();
-
-                sqlColumn.Description = string.IsNullOrWhiteSpace(comment) ? itemProperty.Name : comment;
-                
-                //itemProperty.IsForeignKey()
-                sqlColumn.IsPrimaryKey = itemProperty.IsKey();
-                sqlColumn.IsForeignKey = itemProperty.IsForeignKey();
-                sqlColumn.IsNullable = itemProperty.IsColumnNullable();
-                
-                //if (keys.Count() >0)
-                //{
-                //    if (keys.FirstOrDefault().Properties[0].Name == itemProperty.Name)
-                //    {
-                //        sqlColumn.IsPrimaryKey = true;
-                //    }
-                //}
-
-                sqlColumnsList.Add(sqlColumn);
-
-            }
-
-            return sqlColumnsList;
-
-        }
         /// <summary>
         /// List of model names
         /// </summary>

@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using North.Classes;
+using North.LanguageExtensions;
 
 namespace North.Forms
 {
@@ -31,7 +32,7 @@ namespace North.Forms
         {
             ColumnDescriptionsListView.Items.Clear();
 
-            var results = ContactTestOperations.PropertyGetColumnDescriptions(ModelNamesListBox.Text);
+            var results = ContactTestOperations.Context.GetEntityProperties(ModelNamesListBox.Text);
 
             foreach (var sqlColumn in results)
             {
