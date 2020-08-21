@@ -17,7 +17,7 @@ namespace North.Contexts.Configuration
 
             builder.Property(e => e.EmployeeID).ValueGeneratedNever();
 
-            builder.Property(e => e.Address).HasMaxLength(60);
+            builder.Property(e => e.Address).HasMaxLength(60).HasComment("Street"); 
 
             builder.Property(e => e.BirthDate).HasColumnType("datetime");
 

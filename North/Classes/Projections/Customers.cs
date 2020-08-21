@@ -7,6 +7,7 @@ using System.Text;
 using System.Threading.Tasks;
 using North.Classes;
 
+// ReSharper disable once CheckNamespace - must be this namespace
 namespace North.Models
 {
     public partial class Customers

@@ -3,7 +3,7 @@ using System.Linq;
 using System.Linq.Expressions;
 using North.Models;
 
-namespace North.Classes
+namespace North.Classes.Projections
 {
     public class CustomerItem
     {

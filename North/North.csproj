@@ -150,8 +150,8 @@
     <Compile Include="Classes\CountryItem.cs" />
     <Compile Include="Classes\CountryTestOperations.cs" />
     <Compile Include="Classes\CustomerEntity.cs" />
-    <Compile Include="Classes\CustomerItem.cs" />
-    <Compile Include="Classes\Customers.cs" />
+    <Compile Include="Classes\Projections\CustomerItem.cs" />
+    <Compile Include="Classes\Projections\Customers.cs" />
     <Compile Include="Classes\CustomersTestOperations.cs" />
     <Compile Include="Classes\EmployeeTestOperations.cs" />
     <Compile Include="Classes\Helpers\ConnectionHelper.cs" />
@@ -184,6 +184,7 @@
     <Compile Include="Contexts\Configuration\ShippersConfiguration.cs" />
     <Compile Include="Contexts\Configuration\SuppliersConfiguration.cs" />
     <Compile Include="Contexts\NorthwindContext.cs" />
+    <Compile Include="LanguageExtensions\ExperimentExtensions.cs" />
     <Compile Include="Forms\ModelPropertyDescriptionForm.cs">
       <SubType>Form</SubType>
     </Compile>
