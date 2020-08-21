@@ -7,6 +7,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "North", "North\North.csproj
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{10AC0965-6946-448F-8C7B-9F87DE4666AD}"
 	ProjectSection(SolutionItems) = preProject
+		GetKeys.sql = GetKeys.sql
 		North2020Script.sql = North2020Script.sql
 		readme.md = readme.md
 	EndProjectSection
