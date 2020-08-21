@@ -65,8 +65,10 @@
             // 
             // CustomerIdentifierTextBox
             // 
+            this.CustomerIdentifierTextBox.BackColor = System.Drawing.SystemColors.Window;
             this.CustomerIdentifierTextBox.Location = new System.Drawing.Point(161, 28);
             this.CustomerIdentifierTextBox.Name = "CustomerIdentifierTextBox";
+            this.CustomerIdentifierTextBox.ReadOnly = true;
             this.CustomerIdentifierTextBox.Size = new System.Drawing.Size(193, 20);
             this.CustomerIdentifierTextBox.TabIndex = 1;
             // 
@@ -81,8 +83,10 @@
             // 
             // CompanyNameTextBox
             // 
+            this.CompanyNameTextBox.BackColor = System.Drawing.SystemColors.Window;
             this.CompanyNameTextBox.Location = new System.Drawing.Point(161, 59);
             this.CompanyNameTextBox.Name = "CompanyNameTextBox";
+            this.CompanyNameTextBox.ReadOnly = true;
             this.CompanyNameTextBox.Size = new System.Drawing.Size(193, 20);
             this.CompanyNameTextBox.TabIndex = 3;
             // 
@@ -97,8 +101,10 @@
             // 
             // ContactIdentifierTextBox
             // 
+            this.ContactIdentifierTextBox.BackColor = System.Drawing.SystemColors.Window;
             this.ContactIdentifierTextBox.Location = new System.Drawing.Point(161, 90);
             this.ContactIdentifierTextBox.Name = "ContactIdentifierTextBox";
+            this.ContactIdentifierTextBox.ReadOnly = true;
             this.ContactIdentifierTextBox.Size = new System.Drawing.Size(193, 20);
             this.ContactIdentifierTextBox.TabIndex = 5;
             // 
@@ -113,8 +119,10 @@
             // 
             // ContactFullNameTextBox
             // 
+            this.ContactFullNameTextBox.BackColor = System.Drawing.SystemColors.Window;
             this.ContactFullNameTextBox.Location = new System.Drawing.Point(161, 121);
             this.ContactFullNameTextBox.Name = "ContactFullNameTextBox";
+            this.ContactFullNameTextBox.ReadOnly = true;
             this.ContactFullNameTextBox.Size = new System.Drawing.Size(193, 20);
             this.ContactFullNameTextBox.TabIndex = 7;
             // 
@@ -129,8 +137,10 @@
             // 
             // ContactTypeIdentifierTextBox
             // 
+            this.ContactTypeIdentifierTextBox.BackColor = System.Drawing.SystemColors.Window;
             this.ContactTypeIdentifierTextBox.Location = new System.Drawing.Point(161, 152);
             this.ContactTypeIdentifierTextBox.Name = "ContactTypeIdentifierTextBox";
+            this.ContactTypeIdentifierTextBox.ReadOnly = true;
             this.ContactTypeIdentifierTextBox.Size = new System.Drawing.Size(193, 20);
             this.ContactTypeIdentifierTextBox.TabIndex = 9;
             // 
@@ -145,8 +155,10 @@
             // 
             // ContactTitleTextBox
             // 
+            this.ContactTitleTextBox.BackColor = System.Drawing.SystemColors.Window;
             this.ContactTitleTextBox.Location = new System.Drawing.Point(161, 183);
             this.ContactTitleTextBox.Name = "ContactTitleTextBox";
+            this.ContactTitleTextBox.ReadOnly = true;
             this.ContactTitleTextBox.Size = new System.Drawing.Size(193, 20);
             this.ContactTitleTextBox.TabIndex = 11;
             // 
@@ -161,8 +173,10 @@
             // 
             // StreetTextBox
             // 
+            this.StreetTextBox.BackColor = System.Drawing.SystemColors.Window;
             this.StreetTextBox.Location = new System.Drawing.Point(161, 214);
             this.StreetTextBox.Name = "StreetTextBox";
+            this.StreetTextBox.ReadOnly = true;
             this.StreetTextBox.Size = new System.Drawing.Size(193, 20);
             this.StreetTextBox.TabIndex = 13;
             // 
@@ -177,8 +191,10 @@
             // 
             // CityTextBox
             // 
+            this.CityTextBox.BackColor = System.Drawing.SystemColors.Window;
             this.CityTextBox.Location = new System.Drawing.Point(161, 245);
             this.CityTextBox.Name = "CityTextBox";
+            this.CityTextBox.ReadOnly = true;
             this.CityTextBox.Size = new System.Drawing.Size(193, 20);
             this.CityTextBox.TabIndex = 15;
             // 
@@ -193,8 +209,10 @@
             // 
             // PostalTextBox
             // 
+            this.PostalTextBox.BackColor = System.Drawing.SystemColors.Window;
             this.PostalTextBox.Location = new System.Drawing.Point(161, 276);
             this.PostalTextBox.Name = "PostalTextBox";
+            this.PostalTextBox.ReadOnly = true;
             this.PostalTextBox.Size = new System.Drawing.Size(193, 20);
             this.PostalTextBox.TabIndex = 17;
             // 
@@ -209,8 +227,10 @@
             // 
             // CountryIdentifier
             // 
+            this.CountryIdentifier.BackColor = System.Drawing.SystemColors.Window;
             this.CountryIdentifier.Location = new System.Drawing.Point(161, 307);
             this.CountryIdentifier.Name = "CountryIdentifier";
+            this.CountryIdentifier.ReadOnly = true;
             this.CountryIdentifier.Size = new System.Drawing.Size(193, 20);
             this.CountryIdentifier.TabIndex = 19;
             // 
@@ -225,8 +245,10 @@
             // 
             // CountryNameTextBox
             // 
+            this.CountryNameTextBox.BackColor = System.Drawing.SystemColors.Window;
             this.CountryNameTextBox.Location = new System.Drawing.Point(161, 338);
             this.CountryNameTextBox.Name = "CountryNameTextBox";
+            this.CountryNameTextBox.ReadOnly = true;
             this.CountryNameTextBox.Size = new System.Drawing.Size(193, 20);
             this.CountryNameTextBox.TabIndex = 21;
             // 

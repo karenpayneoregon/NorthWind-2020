@@ -3,10 +3,11 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
+using North.Interfaces;
 
 namespace North.Models
 {
-    public partial class Customers : INotifyPropertyChanged
+    public partial class Customers : INotifyPropertyChanged, IBaseModelEntity
     {
         private int? _countryIdentifier;
 
@@ -15,6 +16,7 @@ namespace North.Models
             Orders = new HashSet<Orders>();
         }
 
+        public int Id => CustomerIdentifier;
         /// <summary>
         /// Id
         /// </summary>

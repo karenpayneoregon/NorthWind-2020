@@ -31,6 +31,7 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CustomersDataGridViewTestForm));
             this.panel1 = new System.Windows.Forms.Panel();
+            this.CompanyNameStartsWithTextBox = new System.Windows.Forms.TextBox();
             this.SaveChangesButton = new System.Windows.Forms.Button();
             this.CurrentCustomerDetails = new System.Windows.Forms.Button();
             this.CustomersDataGridView = new System.Windows.Forms.DataGridView();
@@ -55,7 +56,6 @@
             this.bindingNavigatorSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.DeleteCustomerBindingNavigatorButton = new System.Windows.Forms.ToolStripButton();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
-            this.CompanyNameStartsWithTextBox = new System.Windows.Forms.TextBox();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.CustomersDataGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.CustomersBindingNavigator)).BeginInit();
@@ -70,8 +70,17 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.panel1.Location = new System.Drawing.Point(0, 394);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(870, 56);
+            this.panel1.Size = new System.Drawing.Size(1060, 56);
             this.panel1.TabIndex = 0;
+            // 
+            // CompanyNameStartsWithTextBox
+            // 
+            this.CompanyNameStartsWithTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.CompanyNameStartsWithTextBox.Enabled = false;
+            this.CompanyNameStartsWithTextBox.Location = new System.Drawing.Point(892, 21);
+            this.CompanyNameStartsWithTextBox.Name = "CompanyNameStartsWithTextBox";
+            this.CompanyNameStartsWithTextBox.Size = new System.Drawing.Size(156, 20);
+            this.CompanyNameStartsWithTextBox.TabIndex = 2;
             // 
             // SaveChangesButton
             // 
@@ -111,7 +120,7 @@
             this.CustomersDataGridView.Dock = System.Windows.Forms.DockStyle.Fill;
             this.CustomersDataGridView.Location = new System.Drawing.Point(0, 25);
             this.CustomersDataGridView.Name = "CustomersDataGridView";
-            this.CustomersDataGridView.Size = new System.Drawing.Size(870, 369);
+            this.CustomersDataGridView.Size = new System.Drawing.Size(1060, 369);
             this.CustomersDataGridView.TabIndex = 0;
             // 
             // CompanyNameColumn
@@ -187,7 +196,7 @@
             this.CustomersBindingNavigator.MovePreviousItem = this.bindingNavigatorMovePreviousItem;
             this.CustomersBindingNavigator.Name = "CustomersBindingNavigator";
             this.CustomersBindingNavigator.PositionItem = this.bindingNavigatorPositionItem;
-            this.CustomersBindingNavigator.Size = new System.Drawing.Size(870, 25);
+            this.CustomersBindingNavigator.Size = new System.Drawing.Size(1060, 25);
             this.CustomersBindingNavigator.TabIndex = 2;
             this.CustomersBindingNavigator.Text = "Customers Binding Navigator";
             // 
@@ -281,20 +290,11 @@
             // 
             this.toolTip1.IsBalloon = true;
             // 
-            // CompanyNameStartsWithTextBox
-            // 
-            this.CompanyNameStartsWithTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.CompanyNameStartsWithTextBox.Enabled = false;
-            this.CompanyNameStartsWithTextBox.Location = new System.Drawing.Point(702, 21);
-            this.CompanyNameStartsWithTextBox.Name = "CompanyNameStartsWithTextBox";
-            this.CompanyNameStartsWithTextBox.Size = new System.Drawing.Size(156, 20);
-            this.CompanyNameStartsWithTextBox.TabIndex = 2;
-            // 
             // CustomersDataGridViewTestForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(870, 450);
+            this.ClientSize = new System.Drawing.Size(1060, 450);
             this.Controls.Add(this.CustomersDataGridView);
             this.Controls.Add(this.CustomersBindingNavigator);
             this.Controls.Add(this.panel1);
