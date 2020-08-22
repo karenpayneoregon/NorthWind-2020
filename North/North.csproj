@@ -184,7 +184,7 @@
     <Compile Include="Contexts\Configuration\ShippersConfiguration.cs" />
     <Compile Include="Contexts\Configuration\SuppliersConfiguration.cs" />
     <Compile Include="Contexts\NorthwindContext.cs" />
-    <Compile Include="Interfaces\IBaseModelEntity.cs" />
+    <Compile Include="Interfaces\IModelBaseEntity.cs" />
     <Compile Include="LanguageExtensions\ExperimentExtensions.cs" />
     <Compile Include="Forms\ModelPropertyDescriptionForm.cs">
       <SubType>Form</SubType>

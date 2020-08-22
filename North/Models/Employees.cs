@@ -5,7 +5,7 @@ using North.Interfaces;
 
 namespace North.Models
 {
-    public partial class Employees : IBaseModelEntity
+    public partial class Employees : IModelBaseEntity
     {
         public Employees()
         {

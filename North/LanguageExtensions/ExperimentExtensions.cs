@@ -12,16 +12,16 @@ namespace North.LanguageExtensions
 {
     public static class ExperimentExtensions
     {
-        public static IEnumerable<ModelComment> Comments<T>(this T sender) where T : IBaseModelEntity
+        public static IEnumerable<ModelComment> Comments<T>(this T sender) where T : IModelBaseEntity
         {
             using (var context = new NorthwindContext())
             {
                 IEntityType entityType = context.Model.FindRuntimeEntityType(typeof(T));
-
+                
                 return entityType.GetProperties().Select(property => new ModelComment
                 {
                     Name = property.Name,
-                    Comment = property.GetComment()
+                    Comment = string.IsNullOrWhiteSpace(property.GetComment()) ? property.Name : property.GetComment()
                 });
             }
         }
@@ -32,7 +32,7 @@ namespace North.LanguageExtensions
         /// <param name="sender"></param>
         /// <param name="context">Active dbContext</param>
         /// <returns></returns>
-        public static IEnumerable<ModelComment> Comments<T>(this T sender, DbContext context) where T : IBaseModelEntity
+        public static IEnumerable<ModelComment> Comments<T>(this T sender, DbContext context) where T : IModelBaseEntity
         {
             IEntityType entityType = context.Model.FindRuntimeEntityType(typeof(T));
 
@@ -54,13 +54,13 @@ namespace North.LanguageExtensions
         /// var example = new Customers();
         /// var test2 = context.GetEntityProperties(example);
         /// </remarks>
-        public static List<SqlColumn> GetEntityProperties<T>(this DbContext context, T model) where T : IBaseModelEntity 
+        public static List<SqlColumn> GetEntityProperties<T>(this DbContext context, T model) where T : IModelBaseEntity 
         {
             var sqlColumnsList = new List<SqlColumn>();
 
             // ReSharper disable once AssignNullToNotNullAttribute
             IEnumerable<IProperty> properties = context.Model.FindEntityType(typeof(T)).GetProperties();
-            var keys = context.Model.FindEntityType(typeof(T)).GetKeys();
+            //var keys = context.Model.FindEntityType(typeof(T)).GetKeys();
 
             foreach (IProperty itemProperty in properties)
             {
@@ -96,7 +96,7 @@ namespace North.LanguageExtensions
 
             // ReSharper disable once AssignNullToNotNullAttribute
             IEnumerable<IProperty> properties = context.Model.FindEntityType(entityType).GetProperties();
-            var keys = context.Model.FindEntityType(entityType).GetKeys();
+            //var keys = context.Model.FindEntityType(entityType).GetKeys();
 
             foreach (IProperty itemProperty in properties)
             {

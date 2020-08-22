@@ -3,10 +3,11 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
+using North.Interfaces;
 
 namespace North.Models
 {
-    public partial class Contacts : INotifyPropertyChanged
+    public partial class Contacts : INotifyPropertyChanged, IModelBaseEntity
     {
         private string _firstName;
         private string _lastName;
@@ -18,6 +19,7 @@ namespace North.Models
             Customers = new HashSet<Customers>();
         }
 
+        public int Id => ContactId;
         public int ContactId { get; set; }
 
         public string FirstName
@@ -61,6 +63,6 @@ namespace North.Models
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
-
+        
     }
 }

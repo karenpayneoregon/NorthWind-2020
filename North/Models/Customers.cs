@@ -7,7 +7,7 @@ using North.Interfaces;
 
 namespace North.Models
 {
-    public partial class Customers : INotifyPropertyChanged, IBaseModelEntity
+    public partial class Customers : INotifyPropertyChanged, IModelBaseEntity
     {
         private int? _countryIdentifier;
 

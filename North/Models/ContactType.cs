@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 namespace North.Models
 {
-    public partial class ContactType
+    public partial class ContactType 
     {
         public ContactType()
         {

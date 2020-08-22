@@ -1,7 +1,7 @@
 ﻿
 namespace North.Interfaces
 {
-    public interface IBaseModelEntity
+    public interface IModelBaseEntity
     {
         int Id { get; }
     }
