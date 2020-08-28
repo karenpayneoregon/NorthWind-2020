@@ -10,13 +10,17 @@
     ResizeMode="NoResize"
     mc:Ignorable="d">
 
+    <Window.Resources>
+        <SolidColorBrush x:Key="LightGreyGridLine" Color="#A9A9A9" />
+    </Window.Resources>
+
     <Grid Loaded="Grid_Loaded">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="547*" />
             <ColumnDefinition Width="15*" />
         </Grid.ColumnDefinitions>
         <DataGrid x:Name="EmployeeGrid"
-            Width="516"
+            Width="504"
             Height="204"
             Margin="21,10,0,0"
             HorizontalAlignment="Left"
@@ -24,6 +28,8 @@
             AutoGenerateColumns="False"
             Loaded="EmployeeGrid_OnLoaded"
             ItemsSource="{Binding  List,Mode=TwoWay}"
+            VerticalGridLinesBrush="{StaticResource LightGreyGridLine}"
+            HorizontalGridLinesBrush="{StaticResource LightGreyGridLine}"
             SelectedIndex="0">
 
             <DataGrid.Resources>
@@ -80,7 +86,7 @@
         <Button x:Name="ExitButton"
             Grid.Column="0"
             Width="75"
-            Margin="462,233,0,0"
+            Margin="450,234,0,0"
             HorizontalAlignment="Left"
             VerticalAlignment="Top"
             Click="ExitButton_Click"
