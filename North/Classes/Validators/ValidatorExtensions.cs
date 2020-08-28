@@ -1,7 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.Text;
 using System.Text.RegularExpressions;
-using DataValidationWindowsForms.Classes;
 using North.LanguageExtensions;
 
 namespace North.Classes.Validators

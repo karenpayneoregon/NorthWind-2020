@@ -1,6 +1,4 @@
-﻿using DataValidationWindowsForms.Classes;
-
-namespace North.Classes.Validators
+﻿namespace North.Classes.Validators
 {
     public class ValidationHelper
     {

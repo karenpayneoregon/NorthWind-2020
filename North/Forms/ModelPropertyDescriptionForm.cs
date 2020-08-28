@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using North.Classes;
 using North.Interfaces;
 using North.LanguageExtensions;
+using North.Models;
 
 namespace North.Forms
 {
@@ -26,6 +27,7 @@ namespace North.Forms
         {
             ModelNamesListBox.SelectedIndexChanged += ModelNamesListBox_SelectedIndexChanged;
             var modelNames = await ContactTestOperations.ModelNameList();
+            
             ModelNamesListBox.DataSource = modelNames;
         }
 

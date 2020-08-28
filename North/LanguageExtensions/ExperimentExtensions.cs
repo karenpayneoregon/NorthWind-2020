@@ -2,14 +2,25 @@
 using System.Collections.Generic;
 using System.Linq;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.ChangeTracking;
+using Microsoft.EntityFrameworkCore.ChangeTracking.Internal;
 using Microsoft.EntityFrameworkCore.Infrastructure.Internal;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Metadata.Builders;
+using Microsoft.EntityFrameworkCore.Metadata.Internal;
 using North.Classes;
 using North.Contexts;
 using North.Interfaces;
+using North.Models;
 
+/*
+ * Experimental extensions
+ */
 namespace North.LanguageExtensions
 {
+    [AttributeUsage(AttributeTargets.Method | AttributeTargets.Parameter | AttributeTargets.Property | AttributeTargets.Delegate | AttributeTargets.Field)]
+    internal sealed class NotNullAttribute : Attribute { }
+
     public static class ExperimentExtensions
     {
         public static IEnumerable<ModelComment> Comments<T>(this T sender) where T : IModelBaseEntity
@@ -17,13 +28,29 @@ namespace North.LanguageExtensions
             using (var context = new NorthwindContext())
             {
                 IEntityType entityType = context.Model.FindRuntimeEntityType(typeof(T));
-                
-                return entityType.GetProperties().Select(property => new ModelComment
+
+                if (entityType != null)
                 {
-                    Name = property.Name,
-                    Comment = string.IsNullOrWhiteSpace(property.GetComment()) ? property.Name : property.GetComment()
-                });
+                    return entityType.GetProperties().Select(property => new ModelComment
+                    {
+                        Name = property.Name,
+                        Comment = string.IsNullOrWhiteSpace(property.GetComment()) ? property.Name : property.GetComment()
+                    });
+                }
+                else
+                {
+                    return Enumerable.Empty<ModelComment>();
+                }
+
             }
+        }
+        public static void Remove1<TEntity>([NotNull] InternalEntityEntry entity) where TEntity : class
+        {
+            
+            
+
+
+
         }
         /// <summary>
         /// Get comments for properties of a model
@@ -34,6 +61,8 @@ namespace North.LanguageExtensions
         /// <returns></returns>
         public static IEnumerable<ModelComment> Comments<T>(this T sender, DbContext context) where T : IModelBaseEntity
         {
+            if (context == null) throw new ArgumentNullException(nameof(context));
+
             IEntityType entityType = context.Model.FindRuntimeEntityType(typeof(T));
 
             return entityType.GetProperties().Select(property => new ModelComment
@@ -56,6 +85,9 @@ namespace North.LanguageExtensions
         /// </remarks>
         public static List<SqlColumn> GetEntityProperties<T>(this DbContext context, T model) where T : IModelBaseEntity 
         {
+
+            if (context == null) throw new ArgumentNullException(nameof(context));
+
             var sqlColumnsList = new List<SqlColumn>();
 
             // ReSharper disable once AssignNullToNotNullAttribute
@@ -87,6 +119,8 @@ namespace North.LanguageExtensions
         /// <returns></returns>
         public static List<SqlColumn> GetEntityProperties(this DbContext context, string modelName) 
         {
+
+            if (context == null) throw new ArgumentNullException(nameof(context));
 
             var entityType = context.Model.GetEntityTypes()
                 .Select(eType => eType.ClrType)

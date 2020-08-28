@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
-namespace DataValidationWindowsForms.Classes
+namespace North.Classes.Validators
 {
     public class EntityValidationResult
     {
