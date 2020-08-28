@@ -1,50 +1,90 @@
 ﻿<Window x:Class="DataGridSimple.MainWindow"
-        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:DataGridSimple"
-        mc:Ignorable="d"
-        Title="Entity Framework simple" Height="302.678" Width="518.751" ResizeMode="NoResize">
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="clr-namespace:DataGridSimple"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    Title="Entity Framework simple"
+    Width="567.751"
+    Height="302.678"
+    ResizeMode="NoResize"
+    mc:Ignorable="d">
 
     <Grid Loaded="Grid_Loaded">
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="163*"/>
-            <ColumnDefinition Width="8*"/>
+            <ColumnDefinition Width="547*" />
+            <ColumnDefinition Width="15*" />
         </Grid.ColumnDefinitions>
-        <DataGrid x:Name="EmployeeGrid" SelectedIndex="0" Loaded="EmployeeGrid_OnLoaded" AutoGenerateColumns="False" HorizontalAlignment="Left" Height="204" Margin="21,10,0,0" VerticalAlignment="Top" Width="455">
+        <DataGrid x:Name="EmployeeGrid"
+            Width="516"
+            Height="204"
+            Margin="21,10,0,0"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top"
+            AutoGenerateColumns="False"
+            Loaded="EmployeeGrid_OnLoaded"
+            ItemsSource="{Binding  List,Mode=TwoWay}"
+            SelectedIndex="0">
 
             <DataGrid.Resources>
-                <BooleanToVisibilityConverter x:Key="BooleanToVisibilityConverter"/>
+                <BooleanToVisibilityConverter x:Key="BooleanToVisibilityConverter" />
             </DataGrid.Resources>
 
             <DataGrid.Columns>
 
-                <DataGridTextColumn Header="Title" Binding="{Binding TitleOfCourtesy}" />
-                <DataGridTextColumn Header="First" Binding="{Binding FirstName}" />
-                <DataGridTextColumn Header="last" Binding="{Binding LastName}" />
-                <DataGridTextColumn Header="Birth date" Binding="{Binding BirthDate, StringFormat=\{0:MM/dd/yyyy\}}" />
-                <DataGridTextColumn Header="Hired date" Binding="{Binding HireDate, StringFormat=\{0:MM/dd/yyyy\}}" />
-                <DataGridTextColumn Header="Home phone" Binding="{Binding HomePhone}" />
+                <DataGridTextColumn
+                    Binding="{Binding TitleOfCourtesy}"
+                    Header="Title" />
+                <DataGridTextColumn
+                    Binding="{Binding FirstName}"
+                    Header="First" />
+                <DataGridTextColumn
+                    Binding="{Binding LastName}"
+                    Header="last" />
+                <DataGridTextColumn
+                    Binding="{Binding BirthDate, StringFormat=\{0:MM/dd/yyyy\}}"
+                    Header="Birth date" />
+                <DataGridTextColumn
+                    Binding="{Binding HireDate, StringFormat=\{0:MM/dd/yyyy\}}"
+                    Header="Hired date" />
+                <DataGridTextColumn
+                    Binding="{Binding HomePhone}"
+                    Header="Home phone" />
 
                 <DataGridTemplateColumn Width="50">
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
-                            <Button 
-                                Content="Update" 
-                                x:Name="ButtonCurrent" 
+                            <Button x:Name="ButtonCurrent"
+                                Click="ButtonCurrent_OnClick"
+                                Content="Update"
                                 Tag="{Binding}"
-                                Visibility="{Binding IsSelected, Converter={StaticResource BooleanToVisibilityConverter},
-                                RelativeSource={RelativeSource FindAncestor, AncestorType=DataGridRow}}" Click="ButtonCurrent_OnClick"/>
+                                Visibility="{Binding IsSelected, Converter={StaticResource BooleanToVisibilityConverter}, RelativeSource={RelativeSource FindAncestor, AncestorType=DataGridRow}}" />
                         </DataTemplate>
                     </DataGridTemplateColumn.CellTemplate>
                 </DataGridTemplateColumn>
-
+                <DataGridTemplateColumn Width="50">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Button x:Name="ButtonCurrentRemove"
+                                    Click="ButtonCurrentRemove_OnClick"
+                                    Content="Delete"
+                                    Tag="{Binding}"
+                                    Visibility="{Binding IsSelected, Converter={StaticResource BooleanToVisibilityConverter}, RelativeSource={RelativeSource FindAncestor, AncestorType=DataGridRow}}" />
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
             </DataGrid.Columns>
 
         </DataGrid>
 
-        <Button x:Name="ExitButton" Grid.Column="0" Content="Exit" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Margin="404,233,0,0" Click="ExitButton_Click"/>
+        <Button x:Name="ExitButton"
+            Grid.Column="0"
+            Width="75"
+            Margin="462,233,0,0"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top"
+            Click="ExitButton_Click"
+            Content="Exit" Height="20" />
 
     </Grid>
 </Window>

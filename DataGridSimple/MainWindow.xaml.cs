@@ -48,7 +48,6 @@ namespace DataGridSimple
         /// <param name="e"></param>
         private void ButtonCurrent_OnClick(object sender, RoutedEventArgs e)
         {
-
             if (Question("Update current employee?"))
             {
                 var employee = EmployeeGrid.SelectedItem as Employees;
@@ -58,6 +57,35 @@ namespace DataGridSimple
                 }
             }
 
+        }
+        /// <summary>
+        /// Remove row (incomplete and not MVVM)
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void ButtonCurrentRemove_OnClick(object sender, RoutedEventArgs e)
+        {
+            var selectedItem = EmployeeGrid.SelectedItem;
+
+            if (selectedItem != null)
+            {
+                var employee = EmployeeGrid.SelectedItem as Employees;
+
+                if (Question($"Remove {employee.TitleOfCourtesy} {employee.LastName} employee?"))
+                {
+                    var employeeList = (List<Employees>)EmployeeGrid.ItemsSource;
+
+                    
+                    EmployeeGrid.Items.Refresh();
+                    employeeList.Remove(employee);
+                    EmployeeGrid.Focus();
+
+                }
+            }
+            else
+            {
+                MessageBox.Show("No current employee");
+            }
         }
         /// <summary>
         /// Close application
@@ -78,5 +106,7 @@ namespace DataGridSimple
             EmployeeGrid.MoveFocus(new TraversalRequest(FocusNavigationDirection.Next));
             EmployeeGrid.Focus();
         }
+
+
     }
 }
