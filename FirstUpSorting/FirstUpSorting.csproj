@@ -4,18 +4,19 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{75415E76-2CBF-4FF2-9513-A6ABB130B4BB}</ProjectGuid>
-    <OutputType>Library</OutputType>
-    <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>NorthClassLibrary</RootNamespace>
-    <AssemblyName>NorthClassLibrary</AssemblyName>
+    <ProjectGuid>{C25C6C20-0048-40D4-AB65-BF4D97199CBD}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>FirstUpSorting</RootNamespace>
+    <AssemblyName>FirstUpSorting</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <Deterministic>true</Deterministic>
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
@@ -25,6 +26,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
@@ -111,7 +113,6 @@
     <Reference Include="System.Diagnostics.DiagnosticSource, Version=4.0.5.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
       <HintPath>..\packages\System.Diagnostics.DiagnosticSource.4.7.1\lib\net46\System.Diagnostics.DiagnosticSource.dll</HintPath>
     </Reference>
-    <Reference Include="System.Drawing" />
     <Reference Include="System.IdentityModel" />
     <Reference Include="System.Memory, Version=4.0.1.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
       <HintPath>..\packages\System.Memory.4.5.4\lib\net461\System.Memory.dll</HintPath>
@@ -126,56 +127,66 @@
     <Reference Include="System.Threading.Tasks.Extensions, Version=4.2.0.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
       <HintPath>..\packages\System.Threading.Tasks.Extensions.4.5.4\lib\net461\System.Threading.Tasks.Extensions.dll</HintPath>
     </Reference>
-    <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
     <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Classes\Comparers\OrderedPredicateComparer.cs" />
-    <Compile Include="Classes\CountryItem.cs" />
-    <Compile Include="Classes\CountryOperations.cs" />
-    <Compile Include="Classes\SpecificOrdering.cs" />
-    <Compile Include="Classes\Utility\HelperOperations.cs" />
-    <Compile Include="Contexts\Configuration\BusinessEntityPhoneConfiguration.cs" />
-    <Compile Include="Contexts\Configuration\CategoriesConfiguration.cs" />
-    <Compile Include="Contexts\Configuration\ContactDevicesConfiguration.cs" />
-    <Compile Include="Contexts\Configuration\ContactsConfiguration.cs" />
-    <Compile Include="Contexts\Configuration\ContactTypeConfiguration.cs" />
-    <Compile Include="Contexts\Configuration\CountriesConfiguration.cs" />
-    <Compile Include="Contexts\Configuration\CustomersConfiguration.cs" />
-    <Compile Include="Contexts\Configuration\EmployeesConfiguration.cs" />
-    <Compile Include="Contexts\Configuration\OrderDetailsConfiguration.cs" />
-    <Compile Include="Contexts\Configuration\OrdersConfiguration.cs" />
-    <Compile Include="Contexts\Configuration\PhoneTypeConfiguration.cs" />
-    <Compile Include="Contexts\Configuration\ProductsConfiguration.cs" />
-    <Compile Include="Contexts\Configuration\ShippersConfiguration.cs" />
-    <Compile Include="Contexts\Configuration\SuppliersConfiguration.cs" />
-    <Compile Include="Contexts\NorthwindContext.cs" />
-    <Compile Include="Interfaces\IModelBaseEntity.cs" />
-    <Compile Include="Models\BusinessEntityPhone.cs" />
-    <Compile Include="Models\Categories.cs" />
-    <Compile Include="Models\ContactDevices.cs" />
-    <Compile Include="Models\Contacts.cs" />
-    <Compile Include="Models\ContactType.cs" />
-    <Compile Include="Models\Countries.cs" />
-    <Compile Include="Models\Customers.cs" />
-    <Compile Include="Models\Employees.cs" />
-    <Compile Include="Models\OrderDetails.cs" />
-    <Compile Include="Models\Orders.cs" />
-    <Compile Include="Models\PhoneType.cs" />
-    <Compile Include="Models\Products.cs" />
-    <Compile Include="Models\Shippers.cs" />
-    <Compile Include="Models\Suppliers.cs" />
+    <Compile Include="Classes\Customer.cs" />
+    <Compile Include="Classes\CustomerItem.cs" />
+    <Compile Include="Classes\CustomerOperations.cs" />
+    <Compile Include="Form1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form1.Designer.cs">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="LanguageExtensions\DataGridViewExtensions.cs" />
+    <Compile Include="LanguageExtensions\StringExtensions.cs" />
+    <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Form1.resx">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <None Include="readme.md" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="app.config" />
-    <None Include="packages.config" />
-    <None Include="readme.md" />
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\BindingListView\BindingListView.csproj">
+      <Project>{75af36a8-7797-4023-b183-5b63d448420a}</Project>
+      <Name>BindingListView</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\NorthClassLibrary\NorthClassLibrary.csproj">
+      <Project>{75415e76-2cbf-4ff2-9513-a6abb130b4bb}</Project>
+      <Name>NorthClassLibrary</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

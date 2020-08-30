@@ -61,6 +61,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ModelPropertiesWindowsForms
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NorthClassLibrary", "NorthClassLibrary\NorthClassLibrary.csproj", "{75415E76-2CBF-4FF2-9513-A6ABB130B4BB}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Sorting examples front ends", "Sorting examples front ends", "{870E5E77-D2CE-4320-BDF9-3B652EB29774}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FirstUpSorting", "FirstUpSorting\FirstUpSorting.csproj", "{C25C6C20-0048-40D4-AB65-BF4D97199CBD}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -135,6 +139,10 @@ Global
 		{75415E76-2CBF-4FF2-9513-A6ABB130B4BB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{75415E76-2CBF-4FF2-9513-A6ABB130B4BB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{75415E76-2CBF-4FF2-9513-A6ABB130B4BB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C25C6C20-0048-40D4-AB65-BF4D97199CBD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C25C6C20-0048-40D4-AB65-BF4D97199CBD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C25C6C20-0048-40D4-AB65-BF4D97199CBD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C25C6C20-0048-40D4-AB65-BF4D97199CBD}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -157,6 +165,7 @@ Global
 		{3192747D-641B-46C3-9EC5-8AE0FF563D19} = {C29C5404-3DB7-4ABA-95E5-8FA362D59D64}
 		{DD0EBA02-EB39-40FD-BE8F-DCF9271F4B36} = {FC975BA8-3154-4220-B6A1-5992E932614C}
 		{75415E76-2CBF-4FF2-9513-A6ABB130B4BB} = {C29C5404-3DB7-4ABA-95E5-8FA362D59D64}
+		{C25C6C20-0048-40D4-AB65-BF4D97199CBD} = {870E5E77-D2CE-4320-BDF9-3B652EB29774}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {242CA456-223F-4F7D-B950-0B94F48F7A6D}
