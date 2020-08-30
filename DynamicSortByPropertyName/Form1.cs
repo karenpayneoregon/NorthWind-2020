@@ -29,7 +29,9 @@ namespace DynamicSortByPropertyName
         private async void Form1_Shown(object sender, EventArgs e)
         {
             var colName = "CompanyName";
-            _customerView = new BindingListView<CustomerItem>(await CustomerOperations.CustomerSort(colName));
+
+            _customerView = new BindingListView<CustomerItem>(
+                await CustomerOperations.CustomerSort(colName));
 
             _bindingSource.DataSource = _customerView;
             dataGridView1.DataSource = _bindingSource;
@@ -59,6 +61,8 @@ namespace DynamicSortByPropertyName
         /// <param name="e"></param>
         private  void ColumnNameComboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
+            if (dataGridView1.CurrentRow == null) return;
+
             var customerView = _customerView[dataGridView1.CurrentRow.Index]; 
             var currentIdentifier = customerView.Object.CustomerIdentifier;
 
@@ -75,7 +79,6 @@ namespace DynamicSortByPropertyName
             {
                 _bindingSource.Position = position;
             }
-
         }
     }
 }

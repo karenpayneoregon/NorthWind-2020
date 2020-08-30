@@ -3,7 +3,6 @@ using System.Linq;
 using System.Threading.Tasks;
 using DynamicSortByPropertyName.LanguageExtensions;
 using EntityCoreExtensions;
-using NorthClassLibrary.Classes;
 using NorthClassLibrary.Contexts;
 using NorthClassLibrary.Models;
 
@@ -26,7 +25,11 @@ namespace DynamicSortByPropertyName.Classes
 
             using (var context = new NorthwindContext())
             {
-                return await Task.Run(() => context.Customers.Select(Customer.Projection).ToList().SortByPropertyname(propertyName, sortDirection));
+                return await Task.Run(() => context
+                    .Customers
+                    .Select(Customer.Projection)
+                    .ToList()
+                    .SortByPropertyname(propertyName, sortDirection));
             }
 
         }

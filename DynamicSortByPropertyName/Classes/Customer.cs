@@ -1,20 +1,17 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations.Schema;
-using System.Linq;
 using System.Linq.Expressions;
-using System.Text;
-using System.Threading.Tasks;
-using DynamicSortByPropertyName.Classes;
 using NorthClassLibrary.Models;
 
-namespace NorthClassLibrary.Models
+namespace DynamicSortByPropertyName.Classes
 {
-    public partial class Customer
+    public class Customer
     {
         [NotMapped] public string FirstName { get; set; }
         [NotMapped] public string LastName { get; set; }
-
+        /// <summary>
+        /// Project for CustomerItem from Customers
+        /// </summary>
         public static Expression<Func<Customers, CustomerItem>> Projection =>
             (customer) => new CustomerItem()
             {

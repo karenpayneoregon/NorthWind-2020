@@ -27,28 +27,13 @@ namespace FirstUpSorting.Classes
                 return await Task.Run(() =>
                 {
                     List<CustomerItem> customerItemsList = context.Customers.Select(Customer.Projection).ToList();
-                    return customerItemsList.OrderBy((customer) => customer.CompanyName, new SpecificOrdering()).ToList();
+
+                    return customerItemsList
+                        .OrderBy((customer) => customer.CompanyName, new SpecificOrdering())
+                        .ToList();
+
                 });
 
-            }
-
-        }
-        /// <summary>
-        /// Sort by property name
-        /// </summary>
-        /// <param name="propertyName"></param>
-        /// <param name="sortDirection"><see cref="SortDirection"/></param>
-        /// <returns></returns>
-        /// <remarks>
-        /// Example usage
-        /// await CustomerOperations.CustomerSort("CountryName", SortDirection.Descending);
-        /// </remarks>
-        public static async Task<List<CustomerItem>> CustomerSort(string propertyName, SortDirection sortDirection = SortDirection.Ascending)
-        {
-
-            using (var context = new NorthwindContext())
-            {
-                return await Task.Run(() => context.Customers.Select(Customer.Projection).ToList().Sort(propertyName, sortDirection));
             }
 
         }
