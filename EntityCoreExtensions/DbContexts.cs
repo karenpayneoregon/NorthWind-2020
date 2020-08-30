@@ -81,6 +81,25 @@ namespace EntityCoreExtensions
             });
 
         }
+        public static List<string> ColumnNames(this DbContext context, string modelName)
+        {
+            if (context == null) throw new ArgumentNullException(nameof(context));
+
+            var entityType = GetEntityType(context, modelName);
+
+            var sqlColumnsList = new List<string>();
+
+            IEnumerable<IProperty> properties = context.Model.FindEntityType(entityType ?? throw new InvalidOperationException()).GetProperties();
+
+            foreach (IProperty itemProperty in properties)
+            {
+                sqlColumnsList.Add(itemProperty.Name);
+            }
+
+            return sqlColumnsList;
+
+
+        }
         /// <summary>
         /// Get comments for a specific model
         /// </summary>

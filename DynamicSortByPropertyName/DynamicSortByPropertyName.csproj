@@ -4,10 +4,10 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{C25C6C20-0048-40D4-AB65-BF4D97199CBD}</ProjectGuid>
+    <ProjectGuid>{C0A087D8-6F4E-4D9A-B603-2FB2128BEFF2}</ProjectGuid>
     <OutputType>WinExe</OutputType>
-    <RootNamespace>FirstUpSorting</RootNamespace>
-    <AssemblyName>FirstUpSorting</AssemblyName>
+    <RootNamespace>DynamicSortByPropertyName</RootNamespace>
+    <AssemblyName>DynamicSortByPropertyName</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -141,6 +141,7 @@
     <Compile Include="Classes\Customer.cs" />
     <Compile Include="Classes\CustomerItem.cs" />
     <Compile Include="Classes\CustomerOperations.cs" />
+    <Compile Include="Classes\SortDirection.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -148,7 +149,6 @@
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
     <Compile Include="LanguageExtensions\DataGridViewExtensions.cs" />
-    <Compile Include="Classes\SortDirection.cs" />
     <Compile Include="LanguageExtensions\Sorters.cs" />
     <Compile Include="LanguageExtensions\StringExtensions.cs" />
     <Compile Include="Program.cs" />
@@ -194,7 +194,6 @@
       <Name>NorthClassLibrary</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="..\packages\Microsoft.Data.SqlClient.SNI.1.0.19235.1\build\net46\Microsoft.Data.SqlClient.SNI.targets" Condition="Exists('..\packages\Microsoft.Data.SqlClient.SNI.1.0.19235.1\build\net46\Microsoft.Data.SqlClient.SNI.targets')" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

@@ -27,6 +27,8 @@ namespace FirstUpSorting
         {
             _customerView = new BindingListView<CustomerItem>(await CustomerOperations.DemonstrationCustomOrdering());
             dataGridView1.DataSource = _customerView;
+
+            // ReSharper disable once PossibleNullReferenceException
             dataGridView1.Columns["CustomerIdentifier"].Visible = false;
             dataGridView1.ExpandColumns("Name");
         }
