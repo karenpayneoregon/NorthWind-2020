@@ -36,6 +36,7 @@
             this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.ModelNamesListBox = new System.Windows.Forms.ListBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.GetCommentsButton = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -99,11 +100,22 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Column descriptions";
             // 
+            // GetCommentsButton
+            // 
+            this.GetCommentsButton.Location = new System.Drawing.Point(39, 417);
+            this.GetCommentsButton.Name = "GetCommentsButton";
+            this.GetCommentsButton.Size = new System.Drawing.Size(167, 23);
+            this.GetCommentsButton.TabIndex = 5;
+            this.GetCommentsButton.Text = "Get comments";
+            this.GetCommentsButton.UseVisualStyleBackColor = true;
+            this.GetCommentsButton.Click += new System.EventHandler(this.GetCommentsButton_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(680, 413);
+            this.ClientSize = new System.Drawing.Size(680, 464);
+            this.Controls.Add(this.GetCommentsButton);
             this.Controls.Add(this.groupBox1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "Form1";
@@ -124,6 +136,7 @@
         private System.Windows.Forms.ColumnHeader columnHeader2;
         private System.Windows.Forms.ListBox ModelNamesListBox;
         private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.Button GetCommentsButton;
     }
 }
 

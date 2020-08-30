@@ -14,11 +14,14 @@ namespace NorthClassLibrary.Contexts.Configuration
 
             builder.Property(e => e.CategoryName)
                 .IsRequired()
-                .HasMaxLength(15);
+                .HasMaxLength(15)
+                .HasComment("Name");
 
             builder.Property(e => e.Description).HasColumnType("ntext");
 
-            builder.Property(e => e.Picture).HasColumnType("image");
+            builder.Property(e => e.Picture)
+                .HasColumnType("image")
+                .HasComment("Image");
         }
     }
 }

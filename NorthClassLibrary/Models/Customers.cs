@@ -6,7 +6,7 @@ using North.Interfaces;
 
 namespace NorthClassLibrary.Models
 {
-    public partial class Customers : INotifyPropertyChanged, IModelBaseEntity
+    public partial class Customers : INotifyPropertyChanged, IModelBaseEntity, IEditableObject
     {
         private int? _countryIdentifier;
 
@@ -86,5 +86,52 @@ namespace NorthClassLibrary.Models
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
 
+        #region IEditableObject implementation
+
+        private bool isDirty;
+        public bool IsDirty => isDirty;
+
+        private bool currentlyEditing;
+        private Customers copy;
+
+        public void BeginEdit()
+        {
+            if (!currentlyEditing)
+            {
+                if (copy == null)
+                {
+                    copy = new Customers();
+                }
+
+                copy.isDirty = isDirty;
+                copy.CustomerIdentifier = CustomerIdentifier;
+
+                currentlyEditing = true;
+                isDirty = false;
+            }
+        }
+
+        public void EndEdit()
+        {
+            if (currentlyEditing)
+            {
+                copy = null;
+                currentlyEditing = false;
+            }
+        }
+
+        public void CancelEdit()
+        {
+            if (currentlyEditing)
+            {
+                isDirty = copy.isDirty;
+                //Firstname = copy.Firstname;
+
+
+                currentlyEditing = false;
+            }
+        }
+
+        #endregion
     }
 }

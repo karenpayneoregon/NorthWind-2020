@@ -27,6 +27,8 @@ namespace EntityCoreExtensions.Classes
             Convert.ToString(IsNullable ? "Yes" : "")
         };
 
+        public string Comment { get; set; }
+
 
         public override string ToString() => Name;
 
