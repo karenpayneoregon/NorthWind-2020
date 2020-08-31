@@ -33,7 +33,7 @@ namespace <#= project.Properties.Item("DefaultNamespace").Value #><#= Path.GetDi
     {
 <#
     SqlConnection conn = new SqlConnection(connectionString);
-    string command = string.Format("select {0}, {1}, {2} from {3} order by {0}", columnId, columnName, columnDescription, tableName);
+    string command = $"select {columnId}, {columnName}, {columnDescription} from {tableName} order by {columnId}";
     SqlCommand comm = new SqlCommand(command, conn);
 
     conn.Open();

@@ -53,31 +53,61 @@ namespace DynamicSortByPropertyName
             ColumnNameComboBox.SelectedIndex = ColumnNameComboBox.FindString(colName);
             ColumnNameComboBox.SelectedIndexChanged += ColumnNameComboBox_SelectedIndexChanged;
 
+            foreach (var radioButton in Controls.OfType<RadioButton>())
+            {
+                radioButton.CheckedChanged += RadioButton_CheckedChanged;
+            }
+
+        }
+        /// <summary>
+        /// Perform sort if current row in DataGridView is valid
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void RadioButton_CheckedChanged(object sender, EventArgs e)
+        {
+            if (sender is RadioButton rb)
+            {
+                if (rb.Checked)
+                {
+                    PerformSort();
+                }
+            }
+        }
+
+        /// <summary>
+        /// Perform sort if current row in DataGridView is valid
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void ColumnNameComboBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            PerformSort();
         }
         /// <summary>
         /// Sort by property string and reposition to the current row prior to the sort
         /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private  void ColumnNameComboBox_SelectedIndexChanged(object sender, EventArgs e)
+        private void PerformSort()
         {
-            if (dataGridView1.CurrentRow == null) return;
-
-            var customerView = _customerView[dataGridView1.CurrentRow.Index]; 
-            var currentIdentifier = customerView.Object.CustomerIdentifier;
-
-            _customerView = new BindingListView<CustomerItem>(((List<CustomerItem>)_customerView.DataSource)
-                .SortByPropertyname(
-                    ColumnNameComboBox.Text, 
-                    AscendingRadioButton.Checked ? SortDirection.Ascending : SortDirection.Descending));
-
-            _bindingSource.DataSource = _customerView;
-            dataGridView1.DataSource = _bindingSource;
-
-            var position = _bindingSource.Find(_primaryKey, currentIdentifier);
-            if (position > -1)
+            if (dataGridView1.CurrentRow != null)
             {
-                _bindingSource.Position = position;
+                var customerView = _customerView[dataGridView1.CurrentRow.Index];
+                var currentIdentifier = customerView.Object.CustomerIdentifier;
+
+                _customerView = new BindingListView<CustomerItem>(((List<CustomerItem>) _customerView.DataSource)
+                    .SortByPropertyname(
+                        ColumnNameComboBox.Text,
+                        AscendingRadioButton.Checked ? SortDirection.Ascending : SortDirection.Descending));
+
+                _bindingSource.DataSource = _customerView;
+                dataGridView1.DataSource = _bindingSource;
+
+                var position = _bindingSource.Find(_primaryKey, currentIdentifier);
+
+                if (position > -1)
+                {
+                    _bindingSource.Position = position;
+                }
             }
         }
     }
