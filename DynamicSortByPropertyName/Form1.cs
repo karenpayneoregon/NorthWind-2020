@@ -92,8 +92,11 @@ namespace DynamicSortByPropertyName
             if (dataGridView1.CurrentRow != null)
             {
                 var customerView = _customerView[dataGridView1.CurrentRow.Index];
+
+                // remember position for setting back to the current customer after sorting
                 var currentIdentifier = customerView.Object.CustomerIdentifier;
 
+                // perform the sort
                 _customerView = new BindingListView<CustomerItem>(((List<CustomerItem>) _customerView.DataSource)
                     .SortByPropertyname(
                         ColumnNameComboBox.Text,
@@ -104,6 +107,7 @@ namespace DynamicSortByPropertyName
 
                 var position = _bindingSource.Find(_primaryKey, currentIdentifier);
 
+                // if former current customer is located reposition to that customer.
                 if (position > -1)
                 {
                     _bindingSource.Position = position;

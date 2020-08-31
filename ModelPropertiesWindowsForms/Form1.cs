@@ -16,7 +16,7 @@ namespace ModelPropertiesWindowsForms
 {
     public partial class Form1 : Form
     {
-        private readonly NorthwindContext _northwindContext = new NorthwindContext();
+        private readonly NorthwindContext _northWindContext = new NorthwindContext();
         public Form1()
         {
             InitializeComponent();
@@ -40,7 +40,7 @@ namespace ModelPropertiesWindowsForms
         {
             ColumnDescriptionsListView.Items.Clear();
 
-            var results = _northwindContext.GetEntityProperties(ModelNamesListBox.Text);
+            var results = _northWindContext.GetEntityProperties(ModelNamesListBox.Text);
 
             foreach (var sqlColumn in results)
             {
@@ -50,6 +50,7 @@ namespace ModelPropertiesWindowsForms
             ColumnDescriptionsListView.AutoResizeColumns(ColumnHeaderAutoResizeStyle.HeaderSize);
             ColumnDescriptionsListView.FocusedItem = ColumnDescriptionsListView.Items[0];
             ColumnDescriptionsListView.Items[0].Selected = true;
+
         }
 
         private void GetCommentsButton_Click(object sender, EventArgs e)
@@ -58,6 +59,7 @@ namespace ModelPropertiesWindowsForms
             {
                 var comments = context.Comments(ModelNamesListBox.Text).Select(x => x.Full).ToList(); 
                 var commentForm = new ModelCommentsForm(comments, ModelNamesListBox.Text);
+
                 try
                 {
                     commentForm.ShowDialog();
