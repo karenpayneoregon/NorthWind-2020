@@ -1,12 +1,11 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using DynamicSortByPropertyName.LanguageExtensions;
-using EntityCoreExtensions;
 using NorthClassLibrary.Contexts;
-using NorthClassLibrary.Models;
+using SortLibrary;
+using UtilityTestProject.Classes;
 
-namespace DynamicSortByPropertyName.Classes
+namespace NorthClassLibrary
 {
     public class CustomerOperations
     {
@@ -33,18 +32,5 @@ namespace DynamicSortByPropertyName.Classes
             }
 
         }
-        /// <summary>
-        /// Get all column names for a specific model
-        /// </summary>
-        /// <param name="modelName">Existing model name</param>
-        /// <returns>list of property/column names for model</returns>
-        public static List<string> ModelColumnNameList(string modelName)
-        {
-            using (var context = new NorthwindContext())
-            {
-                return context.ColumnNames(modelName);
-            }
-        }
-
     }
 }

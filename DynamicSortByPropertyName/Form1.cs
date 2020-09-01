@@ -98,7 +98,7 @@ namespace DynamicSortByPropertyName
 
                 // perform the sort
                 _customerView = new BindingListView<CustomerItem>(((List<CustomerItem>) _customerView.DataSource)
-                    .SortByPropertyname(
+                    .SortByPropertyName(
                         ColumnNameComboBox.Text,
                         AscendingRadioButton.Checked ? SortDirection.Ascending : SortDirection.Descending));
 
