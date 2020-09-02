@@ -1,0 +1,9 @@
+This is how exceptions are written
+
+Object reference not set to an instance of an object.
+   at DynamicSortByPropertyName.Classes.ApplicationSettings.SetValue(String key, String value) in C:\OED\Dotnetland\NorthWind2020\DynamicSortByPropertyName\Classes\ApplicationSettings.cs:line 53
+   at DynamicSortByPropertyName.Classes.ApplicationSettings.SetValue(String key, String value) in C:\OED\Dotnetland\NorthWind2020\DynamicSortByPropertyName\Classes\ApplicationSettings.cs:line 59
+   at DynamicSortByPropertyName.Classes.ApplicationSettings.SetSortDirection(String value) in C:\OED\Dotnetland\NorthWind2020\DynamicSortByPropertyName\Classes\ApplicationSettings.cs:line 35
+   at DynamicSortByPropertyName.Form1.Form1_Closing(Object sender, CancelEventArgs e) in C:\OED\Dotnetland\NorthWind2020\DynamicSortByPropertyName\Form1.cs:line 36
+   at DynamicSortByPropertyName.Program.Main() in C:\OED\Dotnetland\NorthWind2020\DynamicSortByPropertyName\Program.cs:line 19
+
