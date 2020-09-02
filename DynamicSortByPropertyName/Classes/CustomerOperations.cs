@@ -4,7 +4,6 @@ using System.Threading.Tasks;
 using DynamicSortByPropertyName.LanguageExtensions;
 using EntityCoreExtensions;
 using NorthClassLibrary.Contexts;
-using NorthClassLibrary.Models;
 
 namespace DynamicSortByPropertyName.Classes
 {

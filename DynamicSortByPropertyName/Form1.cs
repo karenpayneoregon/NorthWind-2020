@@ -24,14 +24,37 @@ namespace DynamicSortByPropertyName
             InitializeComponent();
 
             Shown += Form1_Shown;
+            Closing += Form1_Closing;
+        }
+        /// <summary>
+        /// Save sort column name and direction
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void Form1_Closing(object sender, CancelEventArgs e)
+        {
+            ApplicationSettings.SetSortDirection(Controls
+                .OfType<RadioButton>()
+                .FirstOrDefault(radioButton => radioButton.Checked)?.Text);
+
+            ApplicationSettings.SetSortColumn(ColumnNameComboBox.Text);
         }
 
         private async void Form1_Shown(object sender, EventArgs e)
         {
-            var colName = "CompanyName";
+            var lastSortColumnName = ApplicationSettings.GetSortColumnName();
+
+            var sort = ApplicationSettings.GetSortDirection() == "Descending" ? 
+                SortDirection.Descending : 
+                SortDirection.Ascending;
+
+            if (sort == SortDirection.Descending)
+            {
+                DescendingRadioButton.Checked = true;
+            }
 
             _customerView = new BindingListView<CustomerItem>(
-                await CustomerOperations.CustomerSort(colName));
+                await CustomerOperations.CustomerSort(lastSortColumnName,sort));
 
             _bindingSource.DataSource = _customerView;
             dataGridView1.DataSource = _bindingSource;
@@ -50,7 +73,7 @@ namespace DynamicSortByPropertyName
                 .Select(prop => prop.Name)
                 .ToList();
 
-            ColumnNameComboBox.SelectedIndex = ColumnNameComboBox.FindString(colName);
+            ColumnNameComboBox.SelectedIndex = ColumnNameComboBox.FindString(lastSortColumnName);
             ColumnNameComboBox.SelectedIndexChanged += ColumnNameComboBox_SelectedIndexChanged;
 
             foreach (var radioButton in Controls.OfType<RadioButton>())
@@ -58,7 +81,12 @@ namespace DynamicSortByPropertyName
                 radioButton.CheckedChanged += RadioButton_CheckedChanged;
             }
 
+            dataGridView1.Columns.Cast<DataGridViewColumn>().ToList().ForEach(col => 
+                col.SortMode = DataGridViewColumnSortMode.NotSortable);
+
         }
+    
+
         /// <summary>
         /// Perform sort if current row in DataGridView is valid
         /// </summary>

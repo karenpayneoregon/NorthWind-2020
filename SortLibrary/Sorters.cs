@@ -8,7 +8,7 @@ namespace SortLibrary
     public static class Sorters
     {
         /// <summary>
-        /// Performs a sort by property name as a string
+        /// Performs a sort by property name as a string on T
         /// </summary>
         /// <typeparam name="T">Type to perform sorting on</typeparam>
         /// <param name="list">List of T</param>

@@ -138,6 +138,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Classes\ApplicationSettings.cs" />
     <Compile Include="Classes\Customer.cs" />
     <Compile Include="Classes\CustomerItem.cs" />
     <Compile Include="Classes\CustomerOperations.cs" />
@@ -188,6 +189,10 @@
     <ProjectReference Include="..\EntityCoreExtensions\EntityCoreExtensions.csproj">
       <Project>{3192747d-641b-46c3-9ec5-8ae0ff563d19}</Project>
       <Name>EntityCoreExtensions</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ExceptionHandling\ExceptionHandling.csproj">
+      <Project>{6d49f625-e9f5-4751-833b-b0c0a01c4d7a}</Project>
+      <Name>ExceptionHandling</Name>
     </ProjectReference>
     <ProjectReference Include="..\NorthClassLibrary\NorthClassLibrary.csproj">
       <Project>{75415e76-2cbf-4ff2-9513-a6abb130b4bb}</Project>

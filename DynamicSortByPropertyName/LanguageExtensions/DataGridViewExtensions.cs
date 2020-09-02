@@ -21,7 +21,7 @@ namespace DynamicSortByPropertyName.LanguageExtensions
 
             foreach (DataGridViewColumn col in sender.Columns)
             {
-                if (col.ValueType.Name != "ICollection`1")
+                if (col.Visible && col.ValueType.Name != "ICollection`1")
                 {
                     col.AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
                 }
