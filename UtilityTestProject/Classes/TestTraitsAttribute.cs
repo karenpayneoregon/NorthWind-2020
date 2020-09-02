@@ -10,7 +10,8 @@ namespace UtilityTestProject.Classes
     public enum Trait
     {
         DynamicSortByPropertyName,
-        StringTest
+        StringTest,
+        ApplicationConfiguration
     }
 
     public class TestTraitsAttribute : TestCategoryBaseAttribute

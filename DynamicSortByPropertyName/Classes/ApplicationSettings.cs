@@ -6,6 +6,9 @@ using ExceptionHandling;
 
 namespace DynamicSortByPropertyName.Classes
 {
+    /// <summary>
+    /// Methods to handle reading application settings rather than using project -> settings
+    /// </summary>
     public class ApplicationSettings
     {
         /// <summary>

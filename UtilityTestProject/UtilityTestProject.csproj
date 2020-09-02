@@ -169,6 +169,10 @@
       <Project>{47e11b18-d07f-46c4-b625-ed22a83e1e83}</Project>
       <Name>SortLibrary</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Windows.Forms.Application\Windows.Forms.Application.csproj">
+      <Project>{20815af7-945c-4f5e-9afd-750f07c81256}</Project>
+      <Name>Windows.Forms.Application</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets" Condition="Exists('$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets')" />

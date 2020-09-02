@@ -131,6 +131,14 @@ namespace North.Classes
             }
         }
 
+        public void UpdateMultipleRows(List<Customers> customers)
+        {
+            using (var context = new NorthwindContext())
+            {
+                context.Customers.UpdateRange(customers);
+            }
+        }
+
         public static Customers CustomerFirstOrDefault(int customerIdentifier) => Context.Customers.FirstOrDefault(customer => customer.CustomerIdentifier == customerIdentifier);
     }
 }

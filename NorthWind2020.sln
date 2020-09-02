@@ -77,6 +77,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SortLibrary", "SortLibrary\
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExceptionHandling", "ExceptionHandling\ExceptionHandling.csproj", "{6D49F625-E9F5-4751-833B-B0C0A01C4D7A}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Windows.Forms.Application", "Windows.Forms.Application\Windows.Forms.Application.csproj", "{20815AF7-945C-4F5E-9AFD-750F07C81256}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WindowsFormsApp1", "WindowsFormsApp1\WindowsFormsApp1.csproj", "{37635839-687B-4E28-AAF2-7FA483B726C1}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -175,6 +179,14 @@ Global
 		{6D49F625-E9F5-4751-833B-B0C0A01C4D7A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6D49F625-E9F5-4751-833B-B0C0A01C4D7A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6D49F625-E9F5-4751-833B-B0C0A01C4D7A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{20815AF7-945C-4F5E-9AFD-750F07C81256}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{20815AF7-945C-4F5E-9AFD-750F07C81256}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{20815AF7-945C-4F5E-9AFD-750F07C81256}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{20815AF7-945C-4F5E-9AFD-750F07C81256}.Release|Any CPU.Build.0 = Release|Any CPU
+		{37635839-687B-4E28-AAF2-7FA483B726C1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{37635839-687B-4E28-AAF2-7FA483B726C1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{37635839-687B-4E28-AAF2-7FA483B726C1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{37635839-687B-4E28-AAF2-7FA483B726C1}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -203,6 +215,7 @@ Global
 		{F5F888F7-7866-4778-B13C-5F9FBF907F34} = {8772C5DD-6778-4DC8-A4C9-57764152B43B}
 		{47E11B18-D07F-46C4-B625-ED22A83E1E83} = {C29C5404-3DB7-4ABA-95E5-8FA362D59D64}
 		{6D49F625-E9F5-4751-833B-B0C0A01C4D7A} = {C29C5404-3DB7-4ABA-95E5-8FA362D59D64}
+		{20815AF7-945C-4F5E-9AFD-750F07C81256} = {C29C5404-3DB7-4ABA-95E5-8FA362D59D64}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {242CA456-223F-4F7D-B950-0B94F48F7A6D}
