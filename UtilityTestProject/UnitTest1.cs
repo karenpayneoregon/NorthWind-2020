@@ -20,7 +20,8 @@ namespace UtilityTestProject
                 "CompanyName", SortDirection.Descending);
 
             Assert.AreEqual(customerItems.FirstOrDefault()?.CompanyName, 
-                "Wolski  Zajazd");
+                "Wolski  Zajazd",
+                $"{TestContextInstance.TestName} failed");
 
         }
         [TestMethod]
@@ -31,7 +32,8 @@ namespace UtilityTestProject
                 "CompanyName");
 
             Assert.AreEqual(customerItems.FirstOrDefault()?.CompanyName, 
-                "Alfreds Futterkiste");
+                "Alfreds Futterkiste", 
+                $"{TestContextInstance.TestName} failed");
 
         }
         [TestMethod]
@@ -42,7 +44,8 @@ namespace UtilityTestProject
                 "CountryName");
 
             Assert.AreEqual(customerItems.FirstOrDefault()?.CountryName, 
-                "Argentina");
+                "Argentina",
+                $"{TestContextInstance.TestName} failed");
 
         }
     }
