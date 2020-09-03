@@ -11,49 +11,49 @@ namespace EnumGeneratorLibrary
     {
       
 		/// <summary>
-        /// Beverages 
+        /// Soft drinks, coffees, teas, beers, and ales 
         /// </summary>
         Beverages = 1,
 
       
 		/// <summary>
-        /// Condiments 
+        /// Sweet and savory sauces, relishes, spreads, and seasonings 
         /// </summary>
         Condiments = 2,
 
       
 		/// <summary>
-        /// Confections 
+        /// Desserts, candies, and sweet breads 
         /// </summary>
         Confections = 3,
 
       
 		/// <summary>
-        /// Dairy Products 
+        /// Cheeses 
         /// </summary>
         DairyProducts = 4,
 
       
 		/// <summary>
-        /// Grains/Cereals 
+        /// Breads, crackers, pasta, and cereal 
         /// </summary>
         GrainsCereals = 5,
 
       
 		/// <summary>
-        /// Meat/Poultry 
+        /// Prepared meats 
         /// </summary>
         MeatPoultry = 6,
 
       
 		/// <summary>
-        /// Produce 
+        /// Dried fruit and bean curd 
         /// </summary>
         Produce = 7,
 
       
 		/// <summary>
-        /// Seafood 
+        /// Seaweed and fish 
         /// </summary>
         Seafood = 8,
 

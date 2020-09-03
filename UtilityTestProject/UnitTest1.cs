@@ -16,8 +16,8 @@ namespace UtilityTestProject
         /// <summary>
         /// Valid non-existing keys can be known
         /// </summary>
-        [TestMethod]
-        [TestTraits(Trait.ApplicationConfiguration)]
+        [TestMethod, 
+         TestTraits(Trait.ApplicationConfiguration)]
         public void KeyExistsAppConfiguration()
         {
             // key exists

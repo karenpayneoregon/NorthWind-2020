@@ -46,12 +46,30 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Categories.ttinclude</DependentUpon>
     </Compile>
+    <Compile Include="ContactType.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ContactType.ttinclude</DependentUpon>
+    </Compile>
+    <Compile Include="PhoneType.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>PhoneType.ttinclude</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Categories.ttinclude">
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>Categories.cs</LastGenOutput>
+    </None>
+    <None Include="ContactType.ttinclude">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>ContactType.cs</LastGenOutput>
+    </None>
+    <None Include="PhoneType.ttinclude">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>PhoneType.cs</LastGenOutput>
     </None>
     <None Include="readme.md" />
   </ItemGroup>

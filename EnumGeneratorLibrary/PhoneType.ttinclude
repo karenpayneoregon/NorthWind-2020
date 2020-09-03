@@ -10,9 +10,9 @@
 <#
     var tableName = Path.GetFileNameWithoutExtension(Host.TemplateFile);
     var path = Path.GetDirectoryName(Host.TemplateFile);
-    var columnId = "CategoryID";
-    var columnName = "CategoryName";
-	var columnDescription = "Description";
+    var columnId = "PhoneTypeIdenitfier";
+    var columnName = "PhoneTypeDescription";
+	var columnDescription = "PhoneTypeDescription";
     var connectionString = "data source=.\\SQLEXPRESS;initial catalog=NorthWind2020;integrated security=SSPI";
 
 	// Get containing project
