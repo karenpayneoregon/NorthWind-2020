@@ -13,6 +13,14 @@ namespace UtilityTestProject
     [TestClass]
     public class UnitTest1 : BaseClass
     {
+
+        [TestMethod,
+         TestTraits(Trait.ApplicationConfiguration)]
+        public void EntityExistsTest() 
+        {
+
+        }
+
         /// <summary>
         /// Valid non-existing keys can be known
         /// </summary>
@@ -36,6 +44,7 @@ namespace UtilityTestProject
             AssemblyHelpers.SetSortDirection("Ascending");
             Assert.IsTrue(AssemblyHelpers.GetSortDirection() == "Ascending");
             AssemblyHelpers.SetSortDirection("Descending");
+            Console.WriteLine("Done");
         }
 
         [TestMethod]

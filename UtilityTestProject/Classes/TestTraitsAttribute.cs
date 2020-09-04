@@ -10,7 +10,7 @@ namespace UtilityTestProject.Classes
     public enum Trait
     {
         DynamicSortByPropertyName,
-        StringTest,
+        DbContextExtensions, 
         ApplicationConfiguration
     }
 
