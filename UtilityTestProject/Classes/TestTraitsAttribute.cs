@@ -11,6 +11,7 @@ namespace UtilityTestProject.Classes
     {
         DynamicSortByPropertyName,
         DbContextExtensions, 
+        ModifyingRecords,
         ApplicationConfiguration
     }
 

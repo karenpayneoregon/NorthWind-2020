@@ -8,6 +8,7 @@ using FirstUpSorting.LanguageExtensions;
 using NorthClassLibrary.Classes;
 using NorthClassLibrary.Contexts;
 using NorthClassLibrary.Models;
+using Customer = NorthClassLibrary.Models.Customer;
 
 namespace FirstUpSorting.Classes
 {

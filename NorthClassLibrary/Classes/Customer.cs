@@ -2,8 +2,9 @@
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq.Expressions;
 using NorthClassLibrary.Models;
+using UtilityTestProject.Classes;
 
-namespace UtilityTestProject.Classes
+namespace NorthClassLibrary.Classes
 {
     public class Customer
     {
@@ -16,6 +17,7 @@ namespace UtilityTestProject.Classes
             (customer) => new CustomerItem()
             {
                 CustomerIdentifier = customer.CustomerIdentifier,
+                ContactId = customer.ContactId,
                 CompanyName = customer.CompanyName,
                 CountryName = customer.CountryIdentifierNavigation.Name,
                 FirstName = customer.Contact.FirstName,

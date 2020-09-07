@@ -1,10 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading;
 using System.Threading.Tasks;
 using Windows.Forms.Application;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using NorthClassLibrary;
+using NorthClassLibrary.Classes;
 using SortLibrary;
 using UtilityTestProject.Classes;
 
@@ -13,6 +15,39 @@ namespace UtilityTestProject
     [TestClass]
     public class UnitTest1 : BaseClass
     {
+        /// <summary>
+        /// Modify five records using UpdateRange.
+        /// Add a 1 to the end of each customer name,
+        /// assert update succeeded, remove the 1.
+        ///
+        /// If a DbUpdateConcurrencyException (concurrency conflicts) is thrown
+        /// in this case each entry is reloaded from the database.
+        /// </summary>
+        /// <returns>N/A</returns>
+        [TestMethod,
+         TestTraits(Trait.ModifyingRecords)]
+        public async Task UpdateRange()
+        {
+            var topFiveCustomers = await CustomerOperations.SelectTopFiveCustomersAsync();
+
+            for (int index = 0; index < topFiveCustomers.Count; index++)
+            {
+                topFiveCustomers[index].CompanyName += "1";
+            }
+
+            var success = await CustomerOperations.UpdateWithConcurrency(topFiveCustomers); 
+
+            Assert.IsTrue(success);
+
+            for (int index = 0; index < topFiveCustomers.Count; index++)
+            {
+                var name = topFiveCustomers[index].CompanyName;
+                topFiveCustomers[index].CompanyName = name.Remove(name.Length - 1,1);
+            }
+
+            await CustomerOperations.UpdateWithConcurrency(topFiveCustomers);
+
+        }
 
         [TestMethod,
          TestTraits(Trait.ApplicationConfiguration)]

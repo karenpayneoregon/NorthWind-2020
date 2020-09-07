@@ -157,7 +157,7 @@
     <Compile Include="Contexts\Configuration\ShippersConfiguration.cs" />
     <Compile Include="Contexts\Configuration\SuppliersConfiguration.cs" />
     <Compile Include="Contexts\NorthwindContext.cs" />
-    <Compile Include="CustomerOperations.cs" />
+    <Compile Include="Classes\CustomerOperations.cs" />
     <Compile Include="Interfaces\IModelBaseEntity.cs" />
     <Compile Include="Models\BusinessEntityPhone.cs" />
     <Compile Include="Models\Categories.cs" />

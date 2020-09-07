@@ -81,6 +81,12 @@ namespace EntityCoreExtensions
             });
 
         }
+        /// <summary>
+        /// Returns a list of column names for model
+        /// </summary>
+        /// <param name="context">Live DbContext</param>
+        /// <param name="modelName">Existing model name</param>
+        /// <returns></returns>
         public static List<string> ColumnNames(this DbContext context, string modelName)
         {
             if (context == null) throw new ArgumentNullException(nameof(context));
@@ -148,17 +154,17 @@ namespace EntityCoreExtensions
 
             foreach (var entry in entries)
             {
-                if (entry.State == EntityState.Modified)
+                switch (entry.State)
                 {
-                    entry.State = EntityState.Unchanged;
-                }
-                else if (entry.State == EntityState.Added)
-                {
-                    entry.State = EntityState.Detached;
-                }
-                else if (entry.State == EntityState.Deleted)
-                {
-                    entry.Reload();
+                    case EntityState.Modified:
+                        entry.State = EntityState.Unchanged;
+                        break;
+                    case EntityState.Added:
+                        entry.State = EntityState.Detached;
+                        break;
+                    case EntityState.Deleted:
+                        entry.Reload();
+                        break;
                 }
             }
         }
