@@ -28,6 +28,7 @@ namespace UtilityTestProject
          TestTraits(Trait.ModifyingRecords)]
         public async Task UpdateRange()
         {
+            //https://docs.microsoft.com/en-us/dotnet/api/microsoft.entityframeworkcore.dbcontext.updaterange?view=efcore-3.1#Microsoft_EntityFrameworkCore_DbContext_UpdateRange_System_Collections_Generic_IEnumerable_System_Object__
             var topFiveCustomers = await CustomerOperations.SelectTopFiveCustomersAsync();
 
             for (int index = 0; index < topFiveCustomers.Count; index++)
@@ -35,7 +36,7 @@ namespace UtilityTestProject
                 topFiveCustomers[index].CompanyName += "1";
             }
 
-            var success = await CustomerOperations.UpdateWithConcurrency(topFiveCustomers); 
+            var success = await CustomerOperations.UpdateRange(topFiveCustomers); 
 
             Assert.IsTrue(success);
 
@@ -45,7 +46,27 @@ namespace UtilityTestProject
                 topFiveCustomers[index].CompanyName = name.Remove(name.Length - 1,1);
             }
 
-            await CustomerOperations.UpdateWithConcurrency(topFiveCustomers);
+            await CustomerOperations.UpdateRange(topFiveCustomers);
+
+        }
+        /// <summary>
+        /// Shows attaching a range of customers that have been modified when attached
+        /// their state is UnChanged
+        /// </summary>
+        /// <returns></returns>
+        [TestMethod,
+         TestTraits(Trait.ModifyingRecords)]
+        public async Task AttachRange()
+        {
+            var topFiveCustomers = await CustomerOperations.SelectTopFiveCustomersAsync();
+
+            for (int index = 0; index < topFiveCustomers.Count; index++)
+            {
+                topFiveCustomers[index].CompanyName += "1";
+            }
+
+            var success = CustomerOperations.AttachCustomersRange(topFiveCustomers);
+            Assert.IsTrue(success);
 
         }
 

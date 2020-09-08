@@ -75,13 +75,34 @@ namespace NorthClassLibrary.Classes
             }
         }
 
-        public static async Task<bool> UpdateWithConcurrency<T>(List<T> items) where T : class, new()
+        public static async Task<bool> UpdateRange<T>(List<T> items) where T : class, new()
         {
 
             using (var context = new NorthwindContext())
             {
                 context.UpdateRange(items);
                 return await context.SaveChangesAsync() == 5;
+            }
+
+        }
+        /// <summary>
+        /// Simple example for AttachRange, SaveChanges will return 0
+        /// </summary>
+        /// <param name="items">Customers list</param>
+        /// <returns>true for SaveChanges returns 0</returns>
+        public static bool AttachCustomersRange(List<Customers> items) 
+        {
+
+            using (var context = new NorthwindContext())
+            {
+                context.AttachRange(items);
+
+                var unChanged = items
+                    .Select(customer => context.Entry(customer).State)
+                    .All(entityState => entityState == EntityState.Unchanged);
+
+                return context.SaveChanges() == 0 && unChanged;
+
             }
 
         }
