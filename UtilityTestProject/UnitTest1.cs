@@ -24,11 +24,13 @@ namespace UtilityTestProject
         /// in this case each entry is reloaded from the database.
         /// </summary>
         /// <returns>N/A</returns>
+        /// <remarks>
+        /// https://docs.microsoft.com/en-us/dotnet/api/microsoft.entityframeworkcore.dbcontext.updaterange?view=efcore-3.1
+        /// </remarks>
         [TestMethod,
          TestTraits(Trait.ModifyingRecords)]
         public async Task UpdateRange()
         {
-            //https://docs.microsoft.com/en-us/dotnet/api/microsoft.entityframeworkcore.dbcontext.updaterange?view=efcore-3.1#Microsoft_EntityFrameworkCore_DbContext_UpdateRange_System_Collections_Generic_IEnumerable_System_Object__
             var topFiveCustomers = await CustomerOperations.SelectTopFiveCustomersAsync();
 
             for (int index = 0; index < topFiveCustomers.Count; index++)
@@ -54,6 +56,9 @@ namespace UtilityTestProject
         /// their state is UnChanged
         /// </summary>
         /// <returns></returns>
+        /// <remarks>
+        /// https://docs.microsoft.com/en-us/dotnet/api/microsoft.entityframeworkcore.dbcontext.attachrange?view=efcore-3.1
+        /// </remarks>
         [TestMethod,
          TestTraits(Trait.ModifyingRecords)]
         public async Task AttachRange()
