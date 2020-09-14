@@ -29,7 +29,7 @@ namespace UtilityTestProject
         /// </remarks>
         [TestMethod,
          TestTraits(Trait.ModifyingRecords)]
-        public async Task UpdateRange()
+        public async Task UpdateRangeTask()
         {
             var topFiveCustomers = await CustomerOperations.SelectTopFiveCustomersAsync();
 
@@ -51,6 +51,79 @@ namespace UtilityTestProject
             await CustomerOperations.UpdateRange(topFiveCustomers);
 
         }
+
+        [TestMethod,
+         TestTraits(Trait.Find)]
+        public async Task FindSimpleTask()
+        {
+            var customer = await CustomerOperations.FindCustomersAsync(new object[] { 3 });
+            Assert.AreEqual(customer.CompanyName, "Antonio Moreno Taquería");
+        }
+
+        /// <summary>
+        /// Find with navigation(s) and without navigation properties
+        /// </summary>
+        /// <returns></returns>
+        [TestMethod,
+         TestTraits(Trait.Find)]
+        public async Task FindWithIncludesTask()
+        {
+            // specify which navigation properties to include
+            var customer = await CustomerOperations.Get(3, new[]
+            {
+                "CountryIdentifierNavigation",
+                "ContactTypeIdentifierNavigation"
+            });
+
+            Assert.IsTrue(
+                customer.CountryIdentifierNavigation != null && 
+                customer.ContactTypeIdentifierNavigation != null);
+
+            // get customer w/o any navigation properties
+            customer = await CustomerOperations.Get(3);
+            Assert.AreEqual(customer.CompanyName, "Antonio Moreno Taquería");
+
+            // get customer with all navigation properties
+            customer = await CustomerOperations.GetWithAllNavigationProperties(3);
+            Assert.IsTrue(
+                customer.CountryIdentifierNavigation != null &&
+                customer.ContactTypeIdentifierNavigation != null & 
+                customer.Orders != null && 
+                customer.Contact != null);
+
+
+        }
+        /// <summary>
+        /// Test generic FindAsync for Customers
+        /// </summary>
+        /// <returns></returns>
+        [TestMethod,
+         TestTraits(Trait.Find)]
+        public async Task GenericCustomersFindTask()
+        {
+            var customer = await CustomerOperations.GenericRepositoryFindAsync();
+            Assert.AreEqual(customer.CompanyName, "Antonio Moreno Taquería");
+        }
+        /// <summary>
+        /// Test generic FindAsync for Employee
+        /// </summary>
+        /// <returns></returns>
+        [TestMethod,
+         TestTraits(Trait.Find)]
+        public async Task GenericEmployeesFindTask()
+        {
+            var employee = await EmployeeOperations.GenericRepositoryFindAsync(new[]
+            {
+                "CountryIdentifierNavigation",
+                "ContactTypeIdentifierNavigation"
+            });
+
+            Assert.IsTrue(
+                employee.ContactTypeIdentifierNavigation != null && 
+                employee.CountryIdentifierNavigation != null);
+
+        }
+
         /// <summary>
         /// Shows attaching a range of customers that have been modified when attached
         /// their state is UnChanged
@@ -61,7 +134,7 @@ namespace UtilityTestProject
         /// </remarks>
         [TestMethod,
          TestTraits(Trait.ModifyingRecords)]
-        public async Task AttachRange()
+        public async Task AttachRangeTask()
         {
             var topFiveCustomers = await CustomerOperations.SelectTopFiveCustomersAsync();
 
@@ -110,7 +183,7 @@ namespace UtilityTestProject
 
         [TestMethod]
         [TestTraits(Trait.DynamicSortByPropertyName)]
-        public async Task SortCustomerByCompanyNameDescending()
+        public async Task SortCustomerByCompanyNameDescendingTask()
         {
             var customerItems = await CustomerOperations.CustomerSort(
                 "CompanyName", SortDirection.Descending);
@@ -122,7 +195,7 @@ namespace UtilityTestProject
         }
         [TestMethod]
         [TestTraits(Trait.DynamicSortByPropertyName)]
-        public async Task SortCustomerByCompanyNameAscending()
+        public async Task SortCustomerByCompanyNameAscendingTask()
         {
             var customerItems = await CustomerOperations.CustomerSort(
                 "CompanyName");
@@ -134,7 +207,7 @@ namespace UtilityTestProject
         }
         [TestMethod]
         [TestTraits(Trait.DynamicSortByPropertyName)]
-        public async Task SortCustomerByCountryNameAscending()
+        public async Task SortCustomerByCountryNameAscendingTask()
         {
             var customerItems = await CustomerOperations.CustomerSort(
                 "CountryName");

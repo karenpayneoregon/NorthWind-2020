@@ -12,7 +12,8 @@ namespace UtilityTestProject.Classes
         DynamicSortByPropertyName,
         DbContextExtensions, 
         ModifyingRecords,
-        ApplicationConfiguration
+        ApplicationConfiguration,
+        Find
     }
 
     public class TestTraitsAttribute : TestCategoryBaseAttribute

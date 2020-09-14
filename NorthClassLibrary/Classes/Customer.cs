@@ -2,7 +2,6 @@
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq.Expressions;
 using NorthClassLibrary.Models;
-using UtilityTestProject.Classes;
 
 namespace NorthClassLibrary.Classes
 {

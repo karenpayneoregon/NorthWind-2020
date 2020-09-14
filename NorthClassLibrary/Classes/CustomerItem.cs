@@ -1,4 +1,4 @@
-﻿namespace UtilityTestProject.Classes
+﻿namespace NorthClassLibrary.Classes
 {
     public class CustomerItem
     {

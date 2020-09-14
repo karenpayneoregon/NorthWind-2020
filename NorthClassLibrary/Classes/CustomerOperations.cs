@@ -1,13 +1,15 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Cryptography.X509Certificates;
 using System.Threading;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.ChangeTracking;
 using NorthClassLibrary.Contexts;
 using NorthClassLibrary.Models;
+using NorthClassLibrary.Repositories;
 using SortLibrary;
-using UtilityTestProject.Classes;
 
 namespace NorthClassLibrary.Classes
 {
@@ -46,6 +48,67 @@ namespace NorthClassLibrary.Classes
 
             }
         }
+        public static async Task<Customers> FindCustomersAsync(object[] keys)
+        {
+
+            using (var context = new NorthwindContext())
+            {
+                var customer = await context.Customers.FindAsync(keys);
+                return customer;
+            }
+
+
+        }
+        public static async Task<Customers> Get(int id, string[] navigationPaths = null)
+        {
+            using (var context = new NorthwindContext())
+            {
+
+                var customer = await context.Customers.FindAsync(id);
+
+                if (navigationPaths == null) return customer;
+                foreach (var navigation in context.Entry(customer).Navigations)
+                {
+                    await navigation.LoadAsync();
+                }
+                foreach (var path in navigationPaths)
+                {
+                    await context.Entry((object) customer).Reference(path).LoadAsync();
+                }
+
+                return customer;
+            }
+
+
+        }
+        /// <summary>
+        /// Find with all navigation properties
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns>Fully loaded customer if found</returns>
+        public static async Task<Customers> GetWithAllNavigationProperties(int id)
+        {
+            using (var context = new NorthwindContext())
+            {
+
+                var customer = await context.Customers.FindAsync(id);
+
+                foreach (NavigationEntry navigation in context.Entry(customer).Navigations)
+                {
+                    await navigation.LoadAsync();
+                }
+
+                return customer;
+            }
+
+        }
+
+        public static async Task<Customers> GenericRepositoryFindAsync()
+        {
+            var repo = new GenericRepository<Customers>();
+            return await repo.Get(3);
+        }
+
         /// <summary>
         /// Update five records read from SelectTopFiveCustomersAsync()
         /// </summary>

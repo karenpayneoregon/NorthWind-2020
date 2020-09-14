@@ -8,24 +8,24 @@ namespace UtilityTestProject.Classes
 {
     public class BaseClass
     {
-        protected NorthwindContext dbContext;
+        //protected NorthwindContext dbContext;
 
-        public NorthwindContext DbContext
-        {
-            get => dbContext;
-            set => dbContext = value;
-        }
+        //public NorthwindContext DbContext
+        //{
+        //    get => dbContext;
+        //    set => dbContext = value;
+        //}
 
         [TestInitialize]
         public void SetupTestBase()
         {
-            DbContext = new NorthwindContext();
+            //DbContext = new NorthwindContext();
         }
 
         [TestCleanup]
         public void TeardownTestBase()
         {
-            DbContext.Dispose();
+            //DbContext.Dispose();
         }  
         protected TestContext TestContextInstance;
         public TestContext TestContext
