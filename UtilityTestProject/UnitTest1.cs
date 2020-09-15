@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
@@ -121,6 +122,17 @@ namespace UtilityTestProject
             Assert.IsTrue(
                 employee.ContactTypeIdentifierNavigation != null && 
                 employee.CountryIdentifierNavigation != null);
+
+        }
+
+        [TestMethod,
+         TestTraits(Trait.JsonSerializing)]
+        public async Task SerializeProducts()
+        {
+            var products = await ProductOperations.GetProductsByCategory(3, false);
+            var json = ProductOperations.Serialize(products);
+            Assert.IsNotNull(json);
+            File.WriteAllText("SerializedProducts.json", json);
 
         }
 

@@ -13,7 +13,8 @@ namespace UtilityTestProject.Classes
         DbContextExtensions, 
         ModifyingRecords,
         ApplicationConfiguration,
-        Find
+        Find,
+        JsonSerializing
     }
 
     public class TestTraitsAttribute : TestCategoryBaseAttribute
