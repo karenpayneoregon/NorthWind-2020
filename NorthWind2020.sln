@@ -85,6 +85,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Benchmarking", "Benchmarkin
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NorthBenchMarking", "NorthBenchMarking\NorthBenchMarking.csproj", "{B366CE03-B1FC-4C3B-84C5-B65521D9D0A0}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EmployeeUnitTest", "EmployeeUnitTest\EmployeeUnitTest.csproj", "{56F0096B-621D-479C-9098-63EA0612EFF5}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -247,6 +249,12 @@ Global
 		{B366CE03-B1FC-4C3B-84C5-B65521D9D0A0}.NormalDebug|Any CPU.Build.0 = NormalDebug|Any CPU
 		{B366CE03-B1FC-4C3B-84C5-B65521D9D0A0}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B366CE03-B1FC-4C3B-84C5-B65521D9D0A0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{56F0096B-621D-479C-9098-63EA0612EFF5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{56F0096B-621D-479C-9098-63EA0612EFF5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{56F0096B-621D-479C-9098-63EA0612EFF5}.NormalDebug|Any CPU.ActiveCfg = Debug|Any CPU
+		{56F0096B-621D-479C-9098-63EA0612EFF5}.NormalDebug|Any CPU.Build.0 = Debug|Any CPU
+		{56F0096B-621D-479C-9098-63EA0612EFF5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{56F0096B-621D-479C-9098-63EA0612EFF5}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -277,6 +285,7 @@ Global
 		{6D49F625-E9F5-4751-833B-B0C0A01C4D7A} = {C29C5404-3DB7-4ABA-95E5-8FA362D59D64}
 		{20815AF7-945C-4F5E-9AFD-750F07C81256} = {C29C5404-3DB7-4ABA-95E5-8FA362D59D64}
 		{B366CE03-B1FC-4C3B-84C5-B65521D9D0A0} = {6DF9E211-552E-45D1-8753-F6554C23FE2F}
+		{56F0096B-621D-479C-9098-63EA0612EFF5} = {8772C5DD-6778-4DC8-A4C9-57764152B43B}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {242CA456-223F-4F7D-B950-0B94F48F7A6D}
