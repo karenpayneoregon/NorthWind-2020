@@ -3,6 +3,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq.Expressions;
 using NorthClassLibrary.Models;
 
+
 namespace DynamicSortByPropertyName.Classes
 {
     public class Customer

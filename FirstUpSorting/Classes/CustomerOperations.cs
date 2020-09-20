@@ -5,9 +5,9 @@ using System.Text;
 using System.Threading.Tasks;
 using EntityCoreExtensions;
 using FirstUpSorting.LanguageExtensions;
-using NorthClassLibrary.Classes;
-using NorthClassLibrary.Contexts;
 using NorthClassLibrary.Models;
+using NorthEntityLibrary.Classes;
+using NorthEntityLibrary.Contexts;
 using Customer = NorthClassLibrary.Models.Customer;
 
 namespace FirstUpSorting.Classes

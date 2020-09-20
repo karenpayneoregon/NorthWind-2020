@@ -3,7 +3,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using DynamicSortByPropertyName.LanguageExtensions;
 using EntityCoreExtensions;
-using NorthClassLibrary.Contexts;
+using NorthEntityLibrary.Contexts;
 
 namespace DynamicSortByPropertyName.Classes
 {

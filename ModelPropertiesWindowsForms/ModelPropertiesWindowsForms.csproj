@@ -195,9 +195,9 @@
       <Project>{3192747d-641b-46c3-9ec5-8ae0ff563d19}</Project>
       <Name>EntityCoreExtensions</Name>
     </ProjectReference>
-    <ProjectReference Include="..\NorthClassLibrary\NorthClassLibrary.csproj">
-      <Project>{75415E76-2CBF-4FF2-9513-A6ABB130B4BB}</Project>
-      <Name>NorthClassLibrary</Name>
+    <ProjectReference Include="..\NorthEntityLibrary\NorthEntityLibrary.csproj">
+      <Project>{5B3A96AB-3337-4428-9568-8BF34BEC9DAC}</Project>
+      <Name>NorthEntityLibrary</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

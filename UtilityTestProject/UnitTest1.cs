@@ -6,9 +6,9 @@ using System.Threading;
 using System.Threading.Tasks;
 using Windows.Forms.Application;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using NorthClassLibrary;
-using NorthClassLibrary.Classes;
+using NorthEntityLibrary.Classes;
 using SortLibrary;
+
 using UtilityTestProject.Classes;
 
 namespace UtilityTestProject
@@ -123,6 +123,14 @@ namespace UtilityTestProject
                 employee.ContactTypeIdentifierNavigation != null && 
                 employee.CountryIdentifierNavigation != null);
 
+        }
+
+        [TestMethod,
+         TestTraits(Trait.Find)]
+        public async Task GenericEmployeeFindWithIncludesTask()
+        {
+            var employee = await EmployeeOperations.GenericRepositoryFindWithIncludesAsync(3);
+            Console.WriteLine();
         }
 
         [TestMethod,

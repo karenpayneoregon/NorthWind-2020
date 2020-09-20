@@ -3,7 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using EmployeeUnitTest.Classes;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using NorthClassLibrary.Classes;
+using NorthEntityLibrary.Classes;
+
 
 namespace EmployeeUnitTest
 {

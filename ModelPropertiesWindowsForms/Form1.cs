@@ -1,16 +1,9 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using EntityCoreExtensions;
-using NorthClassLibrary.Classes.Utility;
-using NorthClassLibrary.Contexts;
-using NorthClassLibrary.Models;
+using NorthEntityLibrary.Classes.Utility;
+using NorthEntityLibrary.Contexts;
 
 namespace ModelPropertiesWindowsForms
 {

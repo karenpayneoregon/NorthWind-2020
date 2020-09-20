@@ -159,9 +159,9 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\NorthClassLibrary\NorthClassLibrary.csproj">
-      <Project>{75415e76-2cbf-4ff2-9513-a6abb130b4bb}</Project>
-      <Name>NorthClassLibrary</Name>
+    <ProjectReference Include="..\NorthEntityLibrary\NorthEntityLibrary.csproj">
+      <Project>{5B3A96AB-3337-4428-9568-8BF34BEC9DAC}</Project>
+      <Name>NorthEntityLibrary</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets" Condition="Exists('$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets')" />

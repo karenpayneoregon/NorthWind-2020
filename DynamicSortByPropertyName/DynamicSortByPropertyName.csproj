@@ -205,9 +205,9 @@
       <Project>{6d49f625-e9f5-4751-833b-b0c0a01c4d7a}</Project>
       <Name>ExceptionHandling</Name>
     </ProjectReference>
-    <ProjectReference Include="..\NorthClassLibrary\NorthClassLibrary.csproj">
-      <Project>{75415e76-2cbf-4ff2-9513-a6abb130b4bb}</Project>
-      <Name>NorthClassLibrary</Name>
+    <ProjectReference Include="..\NorthEntityLibrary\NorthEntityLibrary.csproj">
+      <Project>{5B3A96AB-3337-4428-9568-8BF34BEC9DAC}</Project>
+      <Name>NorthEntityLibrary</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

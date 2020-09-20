@@ -199,9 +199,9 @@
       <Project>{3192747d-641b-46c3-9ec5-8ae0ff563d19}</Project>
       <Name>EntityCoreExtensions</Name>
     </ProjectReference>
-    <ProjectReference Include="..\NorthClassLibrary\NorthClassLibrary.csproj">
-      <Project>{75415e76-2cbf-4ff2-9513-a6abb130b4bb}</Project>
-      <Name>NorthClassLibrary</Name>
+    <ProjectReference Include="..\NorthEntityLibrary\NorthEntityLibrary.csproj">
+      <Project>{5b3a96ab-3337-4428-9568-8bf34bec9dac}</Project>
+      <Name>NorthEntityLibrary</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup />
