@@ -9,6 +9,8 @@ namespace NorthEntityLibrary.Interfaces
     public interface IGenericRepository<TEntity> where TEntity : class
     {
         Task<TEntity> GetTask(int id, string[] paths = null);
+        TEntity Get(int id, string[] paths = null);
         Task<TEntity> GetWithIncludesTask(int id);
+        TEntity GetWithIncludes(int id);
     }
 }

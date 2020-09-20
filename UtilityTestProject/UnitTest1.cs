@@ -102,7 +102,7 @@ namespace UtilityTestProject
          TestTraits(Trait.Find)]
         public async Task GenericCustomersFindTask()
         {
-            var customer = await CustomerOperations.GenericRepositoryFindAsync();
+            var customer = await CustomerOperations.GenericRepositoryFindAsync(3);
             Assert.AreEqual(customer.CompanyName, "Antonio Moreno Taquería");
         }
         /// <summary>
@@ -130,7 +130,24 @@ namespace UtilityTestProject
         public async Task GenericEmployeeFindWithIncludesTask()
         {
             var employee = await EmployeeOperations.GenericRepositoryFindWithIncludesAsync(3);
-            Console.WriteLine();
+
+            Assert.IsFalse(employee.CountryIdentifierNavigation == null);
+            Assert.IsFalse(employee.ContactTypeIdentifierNavigation == null);
+            Assert.IsFalse(employee.Orders == null);
+            Assert.IsFalse(employee.ReportsToNavigation == null);
+
+        }
+        [TestMethod,
+         TestTraits(Trait.Find)]
+        public async Task GenericCustomerFindWithIncludesTask()
+        {
+            var customer = await CustomerOperations.GenericRepositoryFindWithIncludesAsync(3);
+
+            Assert.IsFalse(customer.CountryIdentifierNavigation == null);
+            Assert.IsFalse(customer.ContactTypeIdentifierNavigation == null);
+            Assert.IsFalse(customer.Contact == null);
+            Assert.IsFalse(customer.Orders == null);
+
         }
 
         [TestMethod,

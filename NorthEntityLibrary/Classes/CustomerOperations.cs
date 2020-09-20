@@ -59,6 +59,17 @@ namespace NorthEntityLibrary.Classes
 
 
         }
+        public static Customers FindCustomers(object[] keys)
+        {
+
+            using (var context = new NorthwindContext())
+            {
+                var customer = context.Customers.Find(keys);
+                return customer;
+            }
+
+
+        }
         public static async Task<Customers> Get(int id, string[] navigationPaths = null)
         {
             using (var context = new NorthwindContext())
@@ -103,12 +114,16 @@ namespace NorthEntityLibrary.Classes
 
         }
 
-        public static async Task<Customers> GenericRepositoryFindAsync()
+        public static async Task<Customers> GenericRepositoryFindAsync(int id)
         {
             var repo = new GenericRepository<Customers>();
-            return await repo.GetTask(3);
+            return await repo.GetTask(id);
         }
-
+        public static async Task<Customers> GenericRepositoryFindWithIncludesAsync(int identifier)
+        {
+            var repo = new GenericRepository<Customers>();
+            return await repo.GetWithIncludesTask(identifier);
+        }
         /// <summary>
         /// Update five records read from SelectTopFiveCustomersAsync()
         /// </summary>

@@ -41,6 +41,20 @@ namespace NorthEntityLibrary.Repositories
             return model;
         }
 
+        public TEntity Get(int id, string[] paths = null)
+        {
+            var model = _dbSet.Find(id);
+
+            if (paths == null) return model;
+
+            foreach (var path in paths)
+            {
+                _context.Entry((object)model).Reference(path).Load();
+            }
+
+            return model;
+        }
+
         public async Task<TEntity> GetWithIncludesTask(int id)
         {
             var model = await _dbSet.FindAsync(id);
@@ -48,6 +62,19 @@ namespace NorthEntityLibrary.Repositories
             foreach (NavigationEntry navigation in _context.Entry(model).Navigations)
             {
                 await navigation.LoadAsync();
+            }
+
+            return model;
+
+        }
+
+        public TEntity GetWithIncludes(int id)
+        {
+            var model = _dbSet.Find(id);
+
+            foreach (NavigationEntry navigation in _context.Entry(model).Navigations)
+            {
+                navigation.Load();
             }
 
             return model;
