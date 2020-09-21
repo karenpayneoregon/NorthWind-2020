@@ -1,6 +1,11 @@
-﻿using System.Threading.Tasks;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Linq.Expressions;
+using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.ChangeTracking;
+using NorthClassLibrary.Models;
 using NorthEntityLibrary.Contexts;
 using NorthEntityLibrary.Interfaces;
 
@@ -8,12 +13,6 @@ namespace NorthEntityLibrary.Repositories
 {
     /// <summary>
     /// Popular generic method to include navigation properties
-    ///
-    /// Taken from
-    /// https://entityframework.net/knowledge-base/40360512/findasync-and-include-linq-statements
-    ///
-    /// With slight modifications where the dbContext is not passed in. If this was for a library
-    /// for multiple solutions then it makes sense to have the dbContext passed in on the constructor.
     /// </summary>
     /// <typeparam name="TEntity"></typeparam>
     public class GenericRepository<TEntity> : IGenericRepository<TEntity> where TEntity : class
@@ -27,34 +26,49 @@ namespace NorthEntityLibrary.Repositories
             _dbSet = _context.Set<TEntity>();
         }
 
-        public async Task<TEntity> GetTask(int id, string[] paths = null)
+        /// <summary>
+        /// Get entity by primary key
+        /// </summary>
+        /// <param name="id">primary key to find</param>
+        /// <param name="references">empty, one or more navigation property by name</param>
+        /// <returns>Entity if found along with navigation items if specified</returns>
+        public async Task<TEntity> GetTask(int id, string[] references = null)
         {
             var model = await _dbSet.FindAsync(id);
 
-            if (paths == null) return model;
+            if (references == null) return model;
 
-            foreach (var path in paths)
+            foreach (var reference in references)
             {
-                _context.Entry((object) model).Reference(path).Load();
+                _context.Entry((object) model).Reference(reference).Load();
             }
 
             return model;
         }
-
-        public TEntity Get(int id, string[] paths = null)
+        /// <summary>
+        /// Get entity by primary key
+        /// </summary>
+        /// <param name="id">primary key to find</param>
+        /// <param name="references">empty, one or more navigation property by name</param>
+        /// <returns>Entity if found along with navigation items if specified</returns>
+        public TEntity Get(int id, string[] references = null)
         {
             var model = _dbSet.Find(id);
+            
+            if (references == null) return model;
 
-            if (paths == null) return model;
-
-            foreach (var path in paths)
+            foreach (var reference in references)
             {
-                _context.Entry((object)model).Reference(path).Load();
+                _context.Entry((object)model).Reference(reference).Load();
             }
 
             return model;
         }
-
+        /// <summary>
+        /// Get entity by primary key
+        /// </summary>
+        /// <param name="id">primary key to find</param>
+        /// <returns>Entity if found all navigation(s) are included</returns>
         public async Task<TEntity> GetWithIncludesTask(int id)
         {
             var model = await _dbSet.FindAsync(id);
@@ -67,7 +81,11 @@ namespace NorthEntityLibrary.Repositories
             return model;
 
         }
-
+        /// <summary>
+        /// Get entity by primary key
+        /// </summary>
+        /// <param name="id">primary key to find</param>
+        /// <returns>Entity if found all navigation(s) are included</returns>
         public TEntity GetWithIncludes(int id)
         {
             var model = _dbSet.Find(id);

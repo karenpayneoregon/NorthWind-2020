@@ -41,14 +41,14 @@ namespace NorthEntityLibrary.Classes
 
                 var entry = context.Entry(employee);
 
-                foreach (var item in entry.CurrentValues.Properties)
+                foreach (var property in entry.CurrentValues.Properties)
                 {
-                    var propEntry = entry.Property(item.Name);
+                    var propEntry = entry.Property(property.Name);
 
                     if (propEntry.IsModified)
                     {
                         changes.Add(new Tuple<string, object, object>(
-                            item.Name,
+                            property.Name,
                             propEntry.OriginalValue,
                             propEntry.CurrentValue));
 
@@ -72,7 +72,8 @@ namespace NorthEntityLibrary.Classes
 
             using (var context = new NorthwindContext())
             {
-                var employee = context.Employees.FirstOrDefault();
+                var employee = context.Employees.FirstOrDefault() ?? 
+                               throw new ArgumentNullException(@"context.Employees.FirstOrDefault()");
 
                 // ReSharper disable once PossibleNullReferenceException
                 employee.City = "Salem";
@@ -81,13 +82,13 @@ namespace NorthEntityLibrary.Classes
 
                 var entry = context.Entry(employee);
 
-                foreach (var item in entry.CurrentValues.Properties)
+                foreach (var property in entry.CurrentValues.Properties)
                 {
-                    var propEntry = entry.Property(item.Name);
+                    var propEntry = entry.Property(property.Name);
 
                     if (propEntry.IsModified)
                     {
-                        results.Add((item.Name, propEntry.OriginalValue, propEntry.CurrentValue));
+                        results.Add((property.Name, propEntry.OriginalValue, propEntry.CurrentValue));
                     }
                 }
 

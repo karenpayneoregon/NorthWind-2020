@@ -5,8 +5,12 @@ using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 using Windows.Forms.Application;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Logging;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using NorthClassLibrary.Models;
 using NorthEntityLibrary.Classes;
+using NorthEntityLibrary.Contexts;
 using SortLibrary;
 
 using UtilityTestProject.Classes;
@@ -16,6 +20,18 @@ namespace UtilityTestProject
     [TestClass]
     public class UnitTest1 : BaseClass
     {
+        [TestMethod,
+         TestTraits(Trait.Interceptors)]
+        public void Interceptors1()
+        {
+            using (var context = new NorthwindContext())
+            {
+                Customers customers = new Customers() {CompanyName = "ABC", ContactId = 1, ContactTypeIdentifier = 1, CountryIdentifier = 1};
+                //context.Entry(customers).State = EntityState.Added;
+                //Console.WriteLine(context.SaveChanges());
+            }
+        }
+
         /// <summary>
         /// Modify five records using UpdateRange.
         /// Add a 1 to the end of each customer name,

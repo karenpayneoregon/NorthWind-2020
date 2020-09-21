@@ -14,6 +14,7 @@ namespace UtilityTestProject.Classes
         ModifyingRecords,
         ApplicationConfiguration,
         Find,
+        Interceptors,
         JsonSerializing
     }
 

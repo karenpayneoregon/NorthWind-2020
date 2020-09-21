@@ -39,6 +39,22 @@ namespace NorthEntityLibrary.Classes
 
         }
 
+        public static void TestInterceptor()
+        {
+            using (var context = new NorthwindContext())
+            {
+                Customers customer = new Customers
+                {
+                    CompanyName = "Test", ContactId = 3, ContactTypeIdentifier = 1, CountryIdentifier = 1
+                };
+
+                context.Entry(customer).State = EntityState.Added;
+                var count = context.SaveChanges();
+                Console.WriteLine();
+
+            }
+        }
+
         public static async Task<List<Customers>> SelectTopFiveCustomersAsync()
         {
             using (var context = new NorthwindContext())

@@ -1,21 +1,59 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using System.Data.Common;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Diagnostics;
+using Microsoft.Extensions.Logging;
 using NorthClassLibrary.Models;
 using NorthEntityLibrary.Contexts.Configuration;
 using NorthEntityLibrary.Models;
 using static System.Configuration.ConfigurationManager;
+using static Microsoft.Extensions.Logging.LoggerFactory;
 
 namespace NorthEntityLibrary.Contexts 
 {
     public partial class NorthwindContext : DbContext
     {
+
+        /// <summary>
+        /// Set Console logging on or off
+        /// </summary>
+        public bool LoggingDiagnostics { get; set; }
+
+        /// <summary>
+        /// Configure logging for app
+        /// https://docs.microsoft.com/en-us/ef/core/miscellaneous/logging?tabs=v3
+        /// https://github.com/dotnet/EntityFramework.Docs/blob/master/entity-framework/core/miscellaneous/logging.md
+        /// </summary>
+        public static readonly ILoggerFactory ConsoleLoggerFactory = Create(builder =>
+        {
+            builder
+                .AddFilter((category, level) =>
+                    category == DbLoggerCategory.Database.Command.Name && level == LogLevel.Information)
+                .AddConsole();
+
+        });
+        /// <summary>
+        /// Determine if logging will be used
+        /// </summary>
+        /// <param name="log"></param>
+        public NorthwindContext(bool log)
+        {
+            LoggingDiagnostics = log; 
+        }
         public NorthwindContext()
         {
+            if (AppSettings["UsingLogging"] == null) return;
+
+            if (bool.TryParse(AppSettings["UsingLogging"], out var value))
+            {
+                LoggingDiagnostics = value;
+            }
         }
 
         public NorthwindContext(DbContextOptions<NorthwindContext> options)
             : base(options)
         {
         }
+
 
         public virtual DbSet<BusinessEntityPhone> BusinessEntityPhone { get; set; }
         public virtual DbSet<Categories> Categories { get; set; }
@@ -32,6 +70,8 @@ namespace NorthEntityLibrary.Contexts
         public virtual DbSet<Shippers> Shippers { get; set; }
         public virtual DbSet<Suppliers> Suppliers { get; set; }
 
+
+
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             if (!optionsBuilder.IsConfigured)
@@ -41,7 +81,25 @@ namespace NorthEntityLibrary.Contexts
                     $"Initial Catalog={AppSettings["NorthWinCatalog"]};" +
                     "Integrated Security=True";
 
-                optionsBuilder.UseSqlServer(connectionString);
+                //optionsBuilder.EnableSensitiveDataLogging()
+                //    .UseSqlServer(connectionString)
+                //    .AddInterceptors(new HintCommandInterceptor());
+
+                if (LoggingDiagnostics)
+                {
+                    optionsBuilder
+                        .UseSqlServer(connectionString)
+                        .UseLoggerFactory(ConsoleLoggerFactory)
+                        .EnableSensitiveDataLogging()
+                        .AddInterceptors(
+                            new ReadCommandInterceptor(), 
+                            new TransactionInterceptor());
+                }
+                else
+                {
+                    optionsBuilder.UseSqlServer(connectionString);
+                }
+
 
             }
         }
@@ -69,4 +127,27 @@ namespace NorthEntityLibrary.Contexts
         partial void OnModelCreatingPartial(ModelBuilder modelBuilder);
 
     }
+
+    public class TransactionInterceptor : DbTransactionInterceptor
+    {
+        public override void TransactionCommitted(DbTransaction transaction, TransactionEndEventData eventData)
+        {
+            base.TransactionCommitted(transaction, eventData);
+        }
+    }
+
+    public class ReadCommandInterceptor : DbCommandInterceptor
+    {
+
+        public override InterceptionResult<DbDataReader> ReaderExecuting(DbCommand command, CommandEventData eventData, InterceptionResult<DbDataReader> result)
+        {
+            return result;
+        }
+
+        public override DbDataReader ReaderExecuted(DbCommand command, CommandExecutedEventData eventData, DbDataReader result)
+        {
+            return base.ReaderExecuted(command, eventData, result);
+        }
+    }
+
 }
