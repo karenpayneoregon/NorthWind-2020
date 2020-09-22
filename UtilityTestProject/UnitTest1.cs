@@ -233,9 +233,12 @@ namespace UtilityTestProject
         {
             Assert.IsTrue(AssemblyHelpers.GetSortDirection() == "Descending");
             AssemblyHelpers.SetSortDirection("Ascending");
+
             Assert.IsTrue(AssemblyHelpers.GetSortDirection() == "Ascending");
             AssemblyHelpers.SetSortDirection("Descending");
+
             Console.WriteLine("Done");
+
         }
         /// <summary>
         /// See <see cref="CustomerOperations.CustomerSort"/> for more

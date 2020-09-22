@@ -17,6 +17,26 @@ namespace NorthEntityLibrary.Classes
 {
     public class CustomerOperations
     {
+
+        public static async Task<List<CustomerEntity>> AllCustomersAsync() 
+        {
+
+            return await Task.Run(async () =>
+            {
+                using (var context = new NorthwindContext())
+                {
+                    List<CustomerEntity> customerItemsList = await context.Customers
+                        .Include(customer => customer.Contact)
+                        .Select(Customers.Projection)
+                        .ToListAsync();
+
+                    return customerItemsList.OrderBy((customer) => customer.CompanyName).ToList();
+                }
+
+            });
+
+        }
+
         /// <summary>
         /// Sort by property name
         /// </summary>

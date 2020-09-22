@@ -83,7 +83,8 @@ namespace NorthEntityLibrary.Classes
         }
 
         public string ContactName => $"{FirstName} {LastName}";
-
+        public string ContactFullName { get; set; } 
+        
         public int? ContactTypeIdentifier
         {
             get => _contactTypeIdentifier;
