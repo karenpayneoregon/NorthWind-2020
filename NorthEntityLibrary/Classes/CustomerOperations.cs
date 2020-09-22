@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
+using System.Runtime.CompilerServices;
 using System.Security.Cryptography.X509Certificates;
 using System.Threading;
 using System.Threading.Tasks;
@@ -20,19 +22,21 @@ namespace NorthEntityLibrary.Classes
         /// </summary>
         /// <param name="propertyName"></param>
         /// <param name="sortDirection"><see cref="SortDirection"/></param>
-        /// <returns></returns>
+        /// <param name="methodName">Get method name</param>
+        /// <returns>List&lt;CustomerItem&gt;</returns>
         /// <remarks>
         /// Example usage
         /// await CustomerOperations.CustomerSort("CountryName", SortDirection.Descending);
         /// </remarks>
-        public static async Task<List<CustomerItem>> CustomerSort(string propertyName, SortDirection sortDirection = SortDirection.Ascending)
+        public static async Task<List<CustomerItem>> CustomerSort(string propertyName, SortDirection sortDirection = SortDirection.Ascending, [CallerMemberName] string methodName = "")
         {
-
             using (var context = new NorthwindContext())
             {
                 return await Task.Run(() => context
                     .Customers
                     .Select(Customer.Projection)
+                    .TagWith("Code sample performing sort by property name dynamically")
+                    .TagWith($"From: {nameof(CustomerOperations)}.{methodName}")
                     .ToList()
                     .SortByPropertyName(propertyName, sortDirection));
             }
@@ -43,13 +47,12 @@ namespace NorthEntityLibrary.Classes
         {
             using (var context = new NorthwindContext())
             {
-                Customers customer = new Customers
+                var customer = new Customers
                 {
                     CompanyName = "Test", ContactId = 3, ContactTypeIdentifier = 1, CountryIdentifier = 1
                 };
 
                 context.Entry(customer).State = EntityState.Added;
-                var count = context.SaveChanges();
                 Console.WriteLine();
 
             }
@@ -94,10 +97,12 @@ namespace NorthEntityLibrary.Classes
                 var customer = await context.Customers.FindAsync(id);
 
                 if (navigationPaths == null) return customer;
+
                 foreach (var navigation in context.Entry(customer).Navigations)
                 {
                     await navigation.LoadAsync();
                 }
+
                 foreach (var path in navigationPaths)
                 {
                     await context.Entry((object) customer).Reference(path).LoadAsync();

@@ -27,7 +27,11 @@ namespace UtilityTestProject
             using (var context = new NorthwindContext())
             {
                 Customers customers = new Customers() {CompanyName = "ABC", ContactId = 1, ContactTypeIdentifier = 1, CountryIdentifier = 1};
-                //context.Entry(customers).State = EntityState.Added;
+                context.Entry(customers).State = EntityState.Added;
+                customers.CompanyName = "DEF";
+
+                //context.DisplayTrackedEntities(context.ChangeTracker);
+
                 //Console.WriteLine(context.SaveChanges());
             }
         }
@@ -233,13 +237,16 @@ namespace UtilityTestProject
             AssemblyHelpers.SetSortDirection("Descending");
             Console.WriteLine("Done");
         }
-
+        /// <summary>
+        /// See <see cref="CustomerOperations.CustomerSort"/> for more
+        /// on working with .TagWith
+        /// </summary>
+        /// <returns></returns>
         [TestMethod]
         [TestTraits(Trait.DynamicSortByPropertyName)]
         public async Task SortCustomerByCompanyNameDescendingTask()
         {
-            var customerItems = await CustomerOperations.CustomerSort(
-                "CompanyName", SortDirection.Descending);
+            var customerItems = await CustomerOperations.CustomerSort("CompanyName", SortDirection.Descending);
 
             Assert.AreEqual(customerItems.FirstOrDefault()?.CompanyName, 
                 "Wolski  Zajazd",
@@ -250,8 +257,7 @@ namespace UtilityTestProject
         [TestTraits(Trait.DynamicSortByPropertyName)]
         public async Task SortCustomerByCompanyNameAscendingTask()
         {
-            var customerItems = await CustomerOperations.CustomerSort(
-                "CompanyName");
+            var customerItems = await CustomerOperations.CustomerSort("CompanyName");
 
             Assert.AreEqual(customerItems.FirstOrDefault()?.CompanyName, 
                 "Alfreds Futterkiste", 

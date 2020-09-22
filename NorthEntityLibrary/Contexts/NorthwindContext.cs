@@ -1,5 +1,8 @@
-﻿using System.Data.Common;
+﻿using System;
+using System.Data.Common;
+using System.Runtime.CompilerServices;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.ChangeTracking;
 using Microsoft.EntityFrameworkCore.Diagnostics;
 using Microsoft.Extensions.Logging;
 using NorthClassLibrary.Models;
@@ -13,6 +16,7 @@ namespace NorthEntityLibrary.Contexts
     public partial class NorthwindContext : DbContext
     {
 
+        
         /// <summary>
         /// Set Console logging on or off
         /// </summary>
@@ -30,6 +34,7 @@ namespace NorthEntityLibrary.Contexts
                     category == DbLoggerCategory.Database.Command.Name && level == LogLevel.Information)
                 .AddConsole();
 
+
         });
         /// <summary>
         /// Determine if logging will be used
@@ -37,8 +42,10 @@ namespace NorthEntityLibrary.Contexts
         /// <param name="log"></param>
         public NorthwindContext(bool log)
         {
-            LoggingDiagnostics = log; 
+            LoggingDiagnostics = log;
         }
+
+
         public NorthwindContext()
         {
             if (AppSettings["UsingLogging"] == null) return;
@@ -47,6 +54,21 @@ namespace NorthEntityLibrary.Contexts
             {
                 LoggingDiagnostics = value;
             }
+        }
+
+        public void DisplayTrackedEntities(ChangeTracker changeTracker)
+        {
+            Console.WriteLine("");
+
+
+            var entries = changeTracker.Entries();
+            foreach (var entry in entries)
+            {
+                Console.WriteLine("Entity Name: {0}", entry.Entity.GetType().FullName);
+                Console.WriteLine("Status: {0}", entry.State);
+            }
+            Console.WriteLine("");
+            Console.WriteLine("---------------------------------------");
         }
 
         public NorthwindContext(DbContextOptions<NorthwindContext> options)
@@ -91,9 +113,7 @@ namespace NorthEntityLibrary.Contexts
                         .UseSqlServer(connectionString)
                         .UseLoggerFactory(ConsoleLoggerFactory)
                         .EnableSensitiveDataLogging()
-                        .AddInterceptors(
-                            new ReadCommandInterceptor(), 
-                            new TransactionInterceptor());
+                        .AddInterceptors(new ReadCommandInterceptor(), new TransactionInterceptor());
                 }
                 else
                 {
@@ -148,6 +168,7 @@ namespace NorthEntityLibrary.Contexts
         {
             return base.ReaderExecuted(command, eventData, result);
         }
+        
     }
 
 }

@@ -3,7 +3,7 @@ using NorthWithFolders.Models;
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata;
-using NorthWithFolders.Models;
+
 
 namespace NorthWithFolders.Contexts
 {

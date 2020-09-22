@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations.Schema;
+using System.Diagnostics;
 using System.Linq;
 using System.Linq.Expressions;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
@@ -38,6 +40,8 @@ namespace North.Classes
         /// <returns></returns>
         public static async Task<List<CustomerItem>> GetCustomersAsync()
         {
+
+            var currentExecutable = Process.GetCurrentProcess().MainModule.FileName;
             return await Task.Run(async () =>
             {
 
@@ -65,7 +69,11 @@ namespace North.Classes
                             LastName = customer.Contact.LastName,
                             ContactTitle = customer.ContactTypeIdentifierNavigation.ContactTitle,
                             OfficePhoneNumber = customer.Contact.ContactDevices.FirstOrDefault(contactDevices => contactDevices.PhoneTypeIdentifier == 3).PhoneNumber
-                        }).ToListAsync();
+                        })
+                        .TagWith($"App name: {currentExecutable}")
+                        .TagWith($"From: {nameof(CustomersTestOperations)}.{nameof(GetCustomersAsync)}")
+                        .TagWith("Parameters: None")
+                        .ToListAsync();
 
 
                 }
