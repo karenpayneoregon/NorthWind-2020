@@ -11,11 +11,24 @@ namespace Demo1
     {
         static async Task Main(string[] args)
         {
+            await CustomersDuplicateFinder.GetCustomerEntities();
             var customers = await CustomersDuplicateFinder.GetDuplicates();
 
             if (customers.Count >0)
             {
+#if DEBUG
+                var originalColor = Console.ForegroundColor;
+                Console.ForegroundColor = ConsoleColor.White;
                 Console.WriteLine($"There are {customers.Count} duplicates");
+                Console.ForegroundColor = originalColor;
+
+                foreach (var customerEntity in customers)
+                {
+                    Console.WriteLine($"{customerEntity.CustomerIdentifier,3}, {customerEntity.CompanyName}");
+                }
+#endif
+
+
             }
             else
             {

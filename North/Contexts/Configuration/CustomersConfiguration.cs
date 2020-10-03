@@ -35,7 +35,7 @@ namespace North.Contexts.Configuration
 
             builder.Property(e => e.Fax)
                 .HasMaxLength(24)
-                .HasComment("Fax");
+                .HasComment("Fax number");
 
             builder.Property(e => e.ModifiedDate)
                 .HasDefaultValueSql("(getdate())")
@@ -43,7 +43,7 @@ namespace North.Contexts.Configuration
 
             builder.Property(e => e.Phone)
                 .HasMaxLength(24)
-                .HasComment("Phone");
+                .HasComment("Phone number");
 
             builder.Property(e => e.PostalCode)
                 .HasMaxLength(10)

@@ -36,6 +36,15 @@ namespace NorthEntityLibrary.Classes
             });
 
         }
+        public static async Task<int> WarmupTask()
+        {
+
+            using (var context = new NorthwindContext())
+            {
+                await Task.Delay(0);
+                return 0;
+            }
+        }
 
         /// <summary>
         /// Sort by property name

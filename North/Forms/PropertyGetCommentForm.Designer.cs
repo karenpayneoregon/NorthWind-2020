@@ -66,7 +66,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "PropertyGetCommentForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Property GetComments";
+            this.Text = "Customer model comments";
             this.ResumeLayout(false);
 
         }

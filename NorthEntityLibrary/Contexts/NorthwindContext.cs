@@ -67,6 +67,7 @@ namespace NorthEntityLibrary.Contexts
                 Console.WriteLine("Entity Name: {0}", entry.Entity.GetType().FullName);
                 Console.WriteLine("Status: {0}", entry.State);
             }
+
             Console.WriteLine("");
             Console.WriteLine("---------------------------------------");
         }
@@ -103,10 +104,6 @@ namespace NorthEntityLibrary.Contexts
                     $"Initial Catalog={AppSettings["NorthWinCatalog"]};" +
                     "Integrated Security=True";
 
-                //optionsBuilder.EnableSensitiveDataLogging()
-                //    .UseSqlServer(connectionString)
-                //    .AddInterceptors(new HintCommandInterceptor());
-
                 if (LoggingDiagnostics)
                 {
                     optionsBuilder
@@ -141,7 +138,9 @@ namespace NorthEntityLibrary.Contexts
             modelBuilder.ApplyConfiguration(new ProductsConfiguration());
             modelBuilder.ApplyConfiguration(new ShippersConfiguration());
             modelBuilder.ApplyConfiguration(new SuppliersConfiguration());
+
             OnModelCreatingPartial(modelBuilder);
+
         }
 
         partial void OnModelCreatingPartial(ModelBuilder modelBuilder);
