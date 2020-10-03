@@ -8,3 +8,9 @@ Contains several extension methods for DbContext.
 
 - Install-Package Microsoft.EntityFrameworkCore.Relational -Version 5.0.0-preview.8.20407.4
 - Install-Package Microsoft.EntityFrameworkCore -Version 5.0.0-preview.8.20407.4
+
+# Screen shots
+
+![modelcomments](../assets/ModelComments.png)
+
+More to follow
