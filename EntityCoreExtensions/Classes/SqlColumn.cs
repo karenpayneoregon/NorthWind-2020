@@ -2,6 +2,9 @@
 
 namespace EntityCoreExtensions.Classes
 {
+    /// <summary>
+    /// 
+    /// </summary>
     public class SqlColumn
     {
         public bool IsPrimaryKey { get; set; }

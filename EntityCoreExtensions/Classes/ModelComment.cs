@@ -1,5 +1,8 @@
 ﻿namespace EntityCoreExtensions.Classes
 {
+    /// <summary>
+    /// 
+    /// </summary>
     public class ModelComment
     {
         public string Name { get; internal set; }

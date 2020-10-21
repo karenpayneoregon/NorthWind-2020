@@ -17,7 +17,7 @@ namespace North
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new PropertyGetCommentForm());
+            Application.Run(new CustomersDataGridViewTestForm());
         }
     }
 }

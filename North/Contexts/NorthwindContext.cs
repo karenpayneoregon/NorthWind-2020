@@ -69,7 +69,9 @@ namespace North.Contexts
             modelBuilder.ApplyConfiguration(new ProductsConfiguration());
             modelBuilder.ApplyConfiguration(new ShippersConfiguration());
             modelBuilder.ApplyConfiguration(new SuppliersConfiguration());
+
             OnModelCreatingPartial(modelBuilder);
+
         }
 
         partial void OnModelCreatingPartial(ModelBuilder modelBuilder);

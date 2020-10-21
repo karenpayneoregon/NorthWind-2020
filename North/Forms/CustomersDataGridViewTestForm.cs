@@ -23,7 +23,7 @@ namespace North.Forms
     {
         private SortableBindingList<CustomerEntity> _customerView;
         private SortableBindingList<CustomerEntity> _customerViewFilter;
-        private BindingSource _customerBindingSource = new BindingSource();
+        private readonly BindingSource _customerBindingSource = new BindingSource();
         private bool _filtered = false;
 
         public CustomersDataGridViewTestForm()
@@ -36,7 +36,9 @@ namespace North.Forms
             toolTip1.SetToolTip(CurrentCustomerDetails,"View customer information\nUsing multiple dialogs.");
 
             Shown += CustomersDataGridViewTestForm_Shown;
+
             CompanyNameStartsWithTextBox.TextChanged += CompanyNameStartsWithTextBox_TextChanged;
+
             SetCueText(CompanyNameStartsWithTextBox," company starts with");
         }
 
@@ -205,7 +207,8 @@ namespace North.Forms
             if (CustomersDataGridView.DataSource == null) return;
 
             CustomerEntity customerEntity = _customerView.CurrentCustomer(_customerBindingSource.Position);
-            Customers customer = CustomersTestOperations.Context.Customers.FirstOrDefault(c => c.CustomerIdentifier == customerEntity.CustomerIdentifier);
+            Customers customer = CustomersTestOperations.Context.Customers.
+                FirstOrDefault(c => c.CustomerIdentifier == customerEntity.CustomerIdentifier);
 
             if (CustomersDataGridView.Columns[e.ColumnIndex].Name == "CountryColumn")
             {
@@ -223,7 +226,7 @@ namespace North.Forms
 
             if (!_hasValidationErrors)
             {
-                Console.WriteLine(CustomersTestOperations.Context.SaveChanges());
+                CustomersTestOperations.Context.SaveChanges();
             }
             
         }
@@ -235,7 +238,9 @@ namespace North.Forms
 
             try
             {
-                customerEntity = _filtered ? _customerViewFilter.CurrentCustomer(_customerBindingSource.Position) : _customerView.CurrentCustomer(_customerBindingSource.Position);
+                customerEntity = _filtered ? 
+                    _customerViewFilter.CurrentCustomer(_customerBindingSource.Position) : 
+                    _customerView.CurrentCustomer(_customerBindingSource.Position);
 
                 var displayCustomerForm = new CustomerEntityReadOnlyForm(customerEntity);
 
@@ -261,7 +266,7 @@ namespace North.Forms
         /// <param name="e"></param>
         private void SaveChangesButton_Click(object sender, EventArgs e)
         {
-            Console.WriteLine(CustomersTestOperations.Context.SaveChanges());
+            CustomersTestOperations.Context.SaveChanges();
         }
         /// <summary>
         /// In this case removal of a customer means we need cascading rule to
