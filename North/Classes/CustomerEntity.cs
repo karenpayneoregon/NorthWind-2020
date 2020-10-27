@@ -155,6 +155,11 @@ namespace North.Classes
             }
         }
 
+        public override string ToString()
+        {
+            return CustomerIdentifier.ToString();
+        }
+
         public event PropertyChangedEventHandler PropertyChanged;
         protected virtual void OnPropertyChanged([CallerMemberName] string propertyName = null)
         {

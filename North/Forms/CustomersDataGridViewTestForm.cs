@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using LanguageExtensions;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.ChangeTracking;
 using North.Classes;
 using North.Classes.Components;
@@ -24,6 +25,7 @@ namespace North.Forms
         private SortableBindingList<CustomerEntity> _customerView;
         private SortableBindingList<CustomerEntity> _customerViewFilter;
         private readonly BindingSource _customerBindingSource = new BindingSource();
+
         private bool _filtered = false;
 
         public CustomersDataGridViewTestForm()
@@ -53,6 +55,7 @@ namespace North.Forms
             {
                 try
                 {
+
                     var filter = CompanyNameStartsWithTextBox.Text.Trim();
                     _customerViewFilter = new SortableBindingList<CustomerEntity>(_customerView.Where(customerEntity =>
                         customerEntity.CompanyName.ToLower().StartsWith(filter)).ToList());
@@ -99,8 +102,75 @@ namespace North.Forms
 
             CustomersDataGridView.CellValueChanged += CustomersDataGridView_CellValueChanged;
             CustomersDataGridView.UserDeletingRow += CustomersDataGridView_UserDeletingRow;
-            _customerView.ListChanged += _customerView_ListChanged;
 
+            
+            _customerView.ListChanged += _customerView_ListChanged;
+            _customerView.AddingNew += _customerView_AddingNew;
+
+            DeleteCustomerBindingNavigatorButton.Enabled = true;
+
+            CustomersDataGridView.RowPrePaint += CustomersDataGridView_RowPrePaint;
+            
+
+        }
+        /// <summary>
+        /// - Set default values (hard coded) for new row.
+        /// - The code in this form was never meant to allow
+        ///   adding via the DataGridView, this is to show in part what to do.
+        ///
+        ///   What needs to change? for one, the DataGridViewComboBoxes would
+        ///   need "Select" selection and code to validate that selection is
+        ///   not selected when leaving the row.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void _customerView_AddingNew(object sender, AddingNewEventArgs e)
+        {
+            e.NewObject = new CustomerEntity() {ContactIdentifier = 91, CountryIdentifier = 9, ContactTypeIdentifier = 11};
+        }
+        /// <summary>
+        /// Get newly added Customer (CustomerEntity)
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void CustomersDataGridView_RowPrePaint(object sender, DataGridViewRowPrePaintEventArgs e)
+        {
+            if (CustomersDataGridView.Rows[e.RowIndex].DataBoundItem != null)
+            {
+                label1.Text = ((CustomerEntity) CustomersDataGridView.Rows[e.RowIndex].DataBoundItem).CompanyName;
+            }
+        }
+        /// <summary>
+        /// For validating stuff, currently not production ready.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void AddNewCustomerButton_Click(object sender, EventArgs e)
+        {
+            
+            /*
+             * NOTE: WIP
+             */
+
+            CustomerEntity customerEntity = _customerView.FirstOrDefault(x => x.CustomerIdentifier == 0);
+            customerEntity.ContactIdentifier = 52;
+            customerEntity.CountryIdentifier = 9;
+
+            Customers customers = new Customers
+            {
+                CompanyName = customerEntity.CompanyName,
+                CountryIdentifier = customerEntity.CountryIdentifier,
+                ContactId = 52,
+                ContactTypeIdentifier = 5
+            };
+
+
+            CustomersTestOperations.Context.Attach(customers).State = EntityState.Added;
+            if (CustomersTestOperations.Context.SaveChanges() != 1)
+            {
+                // alert user and/or write to log file.
+            }
+            
         }
 
         private bool _hasValidationErrors;
@@ -120,7 +190,7 @@ namespace North.Forms
                 // Get current customer in current DataGridView row
                 //
                 CustomerEntity currentCustomer = _customerView.CurrentCustomer(_customerBindingSource.Position);
-
+                Console.WriteLine($" -> {e.ListChangedType.ToString()}");
                 //
                 // Assert if there are changes to the current row in the DataGridView
                 //
@@ -303,17 +373,31 @@ namespace North.Forms
         {
             if (_customerView.Count <= 0) return;
 
-            CustomerEntity customer = _customerView.CurrentCustomer(_customerBindingSource.Position);
+            var customer = _customerView.CurrentCustomer(_customerBindingSource.Position);
 
             if (Question($"Remove {customer.CompanyName}"))
             {
-                MessageBox.Show(@"Removal goes here");
+
+                var customerToRemove = CustomersTestOperations.Context.Customers.Find(customer.CustomerIdentifier);
+                CustomersTestOperations.Context.Customers.Remove(customerToRemove);
+                try
+                {
+                    CustomersTestOperations.Context.SaveChanges();
+                }
+                catch (Exception ex)
+                {
+                    /*
+                     * Common reason is no cascade rule to related table(s)
+                     */
+                    MessageBox.Show($"Failed to remove customer\n{ex.Message}");
+                }
+
             }
             else
             {
                 e.Cancel = true;
-                MessageBox.Show(@"Removal aborted");
             }
         }
+
     }
 }

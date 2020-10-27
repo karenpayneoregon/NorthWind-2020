@@ -31,6 +31,8 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CustomersDataGridViewTestForm));
             this.panel1 = new System.Windows.Forms.Panel();
+            this.label1 = new System.Windows.Forms.Label();
+            this.AddNewCustomerButton = new System.Windows.Forms.Button();
             this.CompanyNameStartsWithTextBox = new System.Windows.Forms.TextBox();
             this.SaveChangesButton = new System.Windows.Forms.Button();
             this.CurrentCustomerDetails = new System.Windows.Forms.Button();
@@ -64,6 +66,8 @@
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.label1);
+            this.panel1.Controls.Add(this.AddNewCustomerButton);
             this.panel1.Controls.Add(this.CompanyNameStartsWithTextBox);
             this.panel1.Controls.Add(this.SaveChangesButton);
             this.panel1.Controls.Add(this.CurrentCustomerDetails);
@@ -72,6 +76,25 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1060, 56);
             this.panel1.TabIndex = 0;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(456, 24);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(35, 13);
+            this.label1.TabIndex = 4;
+            this.label1.Text = "label1";
+            // 
+            // AddNewCustomerButton
+            // 
+            this.AddNewCustomerButton.Location = new System.Drawing.Point(303, 19);
+            this.AddNewCustomerButton.Name = "AddNewCustomerButton";
+            this.AddNewCustomerButton.Size = new System.Drawing.Size(129, 23);
+            this.AddNewCustomerButton.TabIndex = 3;
+            this.AddNewCustomerButton.Text = "Add code";
+            this.AddNewCustomerButton.UseVisualStyleBackColor = true;
+            this.AddNewCustomerButton.Click += new System.EventHandler(this.AddNewCustomerButton_Click);
             // 
             // CompanyNameStartsWithTextBox
             // 
@@ -279,6 +302,7 @@
             // DeleteCustomerBindingNavigatorButton
             // 
             this.DeleteCustomerBindingNavigatorButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.DeleteCustomerBindingNavigatorButton.Enabled = false;
             this.DeleteCustomerBindingNavigatorButton.Image = ((System.Drawing.Image)(resources.GetObject("DeleteCustomerBindingNavigatorButton.Image")));
             this.DeleteCustomerBindingNavigatorButton.Name = "DeleteCustomerBindingNavigatorButton";
             this.DeleteCustomerBindingNavigatorButton.RightToLeftAutoMirrorImage = true;
@@ -340,5 +364,7 @@
         private System.Windows.Forms.Button SaveChangesButton;
         private System.Windows.Forms.ToolTip toolTip1;
         private System.Windows.Forms.TextBox CompanyNameStartsWithTextBox;
+        private System.Windows.Forms.Button AddNewCustomerButton;
+        private System.Windows.Forms.Label label1;
     }
 }
