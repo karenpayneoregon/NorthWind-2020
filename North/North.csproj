@@ -34,6 +34,9 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>EFC.ico</ApplicationIcon>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="Microsoft.Bcl.AsyncInterfaces, Version=1.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.Bcl.AsyncInterfaces.1.1.1\lib\net461\Microsoft.Bcl.AsyncInterfaces.dll</HintPath>
@@ -184,6 +187,12 @@
     <Compile Include="Contexts\Configuration\ShippersConfiguration.cs" />
     <Compile Include="Contexts\Configuration\SuppliersConfiguration.cs" />
     <Compile Include="Contexts\NorthwindContext.cs" />
+    <Compile Include="Forms\BetweenExtensionExamples.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\BetweenExtensionExamples.Designer.cs">
+      <DependentUpon>BetweenExtensionExamples.cs</DependentUpon>
+    </Compile>
     <Compile Include="Interfaces\IModelBaseEntity.cs" />
     <Compile Include="LanguageExtensions\ExperimentExtensions.cs" />
     <Compile Include="Forms\ModelPropertyDescriptionForm.cs">
@@ -295,6 +304,9 @@
     <Compile Include="Models\Suppliers.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Forms\BetweenExtensionExamples.resx">
+      <DependentUpon>BetweenExtensionExamples.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\CategoryImagesTestForm.resx">
       <DependentUpon>CategoryImagesTestForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -373,6 +385,8 @@
     <None Include="Resources\Save_16x.png" />
     <None Include="Resources\Exit_16x.png" />
     <Content Include="Contexts\NorthwindContextOriginal.txt" />
+    <None Include="Resources\Execute_16x.png" />
+    <Content Include="EFC.ico" />
     <Content Include="SQL\ContactDevices.sql" />
     <Content Include="SQL\Customers.sql" />
     <Content Include="SQL\EmployeeReportsToChange.sql" />
@@ -381,7 +395,12 @@
     <Content Include="SQL\Orders.sql" />
     <Content Include="SQL\Products.sql" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\EntityCoreExtensions\EntityCoreExtensions.csproj">
+      <Project>{3192747d-641b-46c3-9ec5-8ae0ff563d19}</Project>
+      <Name>EntityCoreExtensions</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="..\packages\Microsoft.Data.SqlClient.SNI.1.0.19235.1\build\net46\Microsoft.Data.SqlClient.SNI.targets" Condition="Exists('..\packages\Microsoft.Data.SqlClient.SNI.1.0.19235.1\build\net46\Microsoft.Data.SqlClient.SNI.targets')" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

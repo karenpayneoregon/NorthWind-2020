@@ -128,6 +128,7 @@
     <Compile Include="Classes\ModelComment.cs" />
     <Compile Include="Classes\SqlColumn.cs" />
     <Compile Include="DbContexts.cs" />
+    <Compile Include="GeneralExtensions.cs" />
     <Compile Include="Interfaces\IModelBaseEntity.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

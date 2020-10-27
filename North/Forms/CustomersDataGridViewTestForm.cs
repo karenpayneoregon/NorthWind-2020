@@ -380,6 +380,7 @@ namespace North.Forms
 
                 var customerToRemove = CustomersTestOperations.Context.Customers.Find(customer.CustomerIdentifier);
                 CustomersTestOperations.Context.Customers.Remove(customerToRemove);
+
                 try
                 {
                     CustomersTestOperations.Context.SaveChanges();

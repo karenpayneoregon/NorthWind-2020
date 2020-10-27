@@ -34,6 +34,18 @@ namespace North.Classes
                 }
             });
         }
+
+        public static async Task<List<string>> CustomerNames()
+        {
+            return await Task.Run(async () =>
+            {
+                using (var context = new NorthwindContext())
+                {
+                    return await context.Customers.OrderBy(cust => cust.CompanyName).Select(customer => customer.CompanyName).ToListAsync();
+                }
+            });
+        }
+
         /// <summary>
         /// Conventional loading of entities
         /// </summary>
