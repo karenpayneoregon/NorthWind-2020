@@ -37,14 +37,6 @@
             this.SaveChangesButton = new System.Windows.Forms.Button();
             this.CurrentCustomerDetails = new System.Windows.Forms.Button();
             this.CustomersDataGridView = new System.Windows.Forms.DataGridView();
-            this.CompanyNameColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.FirstNameColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.LastNameColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ContactTitleColumn = new System.Windows.Forms.DataGridViewComboBoxColumn();
-            this.AddressColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CityColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.PostalColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CountryColumn = new System.Windows.Forms.DataGridViewComboBoxColumn();
             this.CustomersBindingNavigator = new System.Windows.Forms.BindingNavigator(this.components);
             this.bindingNavigatorAddNewItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorCountItem = new System.Windows.Forms.ToolStripLabel();
@@ -58,6 +50,14 @@
             this.bindingNavigatorSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.DeleteCustomerBindingNavigatorButton = new System.Windows.Forms.ToolStripButton();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
+            this.CompanyNameColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.FirstNameColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.LastNameColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ContactTitleColumn = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.AddressColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CityColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.PostalColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CountryColumn = new System.Windows.Forms.DataGridViewComboBoxColumn();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.CustomersDataGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.CustomersBindingNavigator)).BeginInit();
@@ -145,55 +145,6 @@
             this.CustomersDataGridView.Name = "CustomersDataGridView";
             this.CustomersDataGridView.Size = new System.Drawing.Size(1060, 369);
             this.CustomersDataGridView.TabIndex = 0;
-            // 
-            // CompanyNameColumn
-            // 
-            this.CompanyNameColumn.DataPropertyName = "CompanyName";
-            this.CompanyNameColumn.Frozen = true;
-            this.CompanyNameColumn.HeaderText = "Company";
-            this.CompanyNameColumn.Name = "CompanyNameColumn";
-            // 
-            // FirstNameColumn
-            // 
-            this.FirstNameColumn.DataPropertyName = "FirstName";
-            this.FirstNameColumn.HeaderText = "First name";
-            this.FirstNameColumn.Name = "FirstNameColumn";
-            // 
-            // LastNameColumn
-            // 
-            this.LastNameColumn.DataPropertyName = "LastName";
-            this.LastNameColumn.HeaderText = "Last name";
-            this.LastNameColumn.Name = "LastNameColumn";
-            // 
-            // ContactTitleColumn
-            // 
-            this.ContactTitleColumn.HeaderText = "Title";
-            this.ContactTitleColumn.Name = "ContactTitleColumn";
-            // 
-            // AddressColumn
-            // 
-            this.AddressColumn.DataPropertyName = "Street";
-            this.AddressColumn.HeaderText = "Street";
-            this.AddressColumn.Name = "AddressColumn";
-            this.AddressColumn.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.AddressColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            // 
-            // CityColumn
-            // 
-            this.CityColumn.DataPropertyName = "City";
-            this.CityColumn.HeaderText = "City";
-            this.CityColumn.Name = "CityColumn";
-            // 
-            // PostalColumn
-            // 
-            this.PostalColumn.DataPropertyName = "PostalCode";
-            this.PostalColumn.HeaderText = "Zip code";
-            this.PostalColumn.Name = "PostalColumn";
-            // 
-            // CountryColumn
-            // 
-            this.CountryColumn.HeaderText = "Country";
-            this.CountryColumn.Name = "CountryColumn";
             // 
             // CustomersBindingNavigator
             // 
@@ -314,6 +265,55 @@
             // 
             this.toolTip1.IsBalloon = true;
             // 
+            // CompanyNameColumn
+            // 
+            this.CompanyNameColumn.DataPropertyName = "CompanyName";
+            this.CompanyNameColumn.Frozen = true;
+            this.CompanyNameColumn.HeaderText = "Company Name";
+            this.CompanyNameColumn.Name = "CompanyNameColumn";
+            // 
+            // FirstNameColumn
+            // 
+            this.FirstNameColumn.DataPropertyName = "FirstName";
+            this.FirstNameColumn.HeaderText = "First name";
+            this.FirstNameColumn.Name = "FirstNameColumn";
+            // 
+            // LastNameColumn
+            // 
+            this.LastNameColumn.DataPropertyName = "LastName";
+            this.LastNameColumn.HeaderText = "Last name";
+            this.LastNameColumn.Name = "LastNameColumn";
+            // 
+            // ContactTitleColumn
+            // 
+            this.ContactTitleColumn.HeaderText = "Title";
+            this.ContactTitleColumn.Name = "ContactTitleColumn";
+            // 
+            // AddressColumn
+            // 
+            this.AddressColumn.DataPropertyName = "Street";
+            this.AddressColumn.HeaderText = "Street";
+            this.AddressColumn.Name = "AddressColumn";
+            this.AddressColumn.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.AddressColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            // 
+            // CityColumn
+            // 
+            this.CityColumn.DataPropertyName = "City";
+            this.CityColumn.HeaderText = "City";
+            this.CityColumn.Name = "CityColumn";
+            // 
+            // PostalColumn
+            // 
+            this.PostalColumn.DataPropertyName = "PostalCode";
+            this.PostalColumn.HeaderText = "Zip code";
+            this.PostalColumn.Name = "PostalColumn";
+            // 
+            // CountryColumn
+            // 
+            this.CountryColumn.HeaderText = "Country";
+            this.CountryColumn.Name = "CountryColumn";
+            // 
             // CustomersDataGridViewTestForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -341,14 +341,6 @@
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.DataGridView CustomersDataGridView;
         private System.Windows.Forms.Button CurrentCustomerDetails;
-        private System.Windows.Forms.DataGridViewTextBoxColumn CompanyNameColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn FirstNameColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn LastNameColumn;
-        private System.Windows.Forms.DataGridViewComboBoxColumn ContactTitleColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn AddressColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn CityColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn PostalColumn;
-        private System.Windows.Forms.DataGridViewComboBoxColumn CountryColumn;
         private System.Windows.Forms.BindingNavigator CustomersBindingNavigator;
         private System.Windows.Forms.ToolStripButton bindingNavigatorAddNewItem;
         private System.Windows.Forms.ToolStripLabel bindingNavigatorCountItem;
@@ -366,5 +358,13 @@
         private System.Windows.Forms.TextBox CompanyNameStartsWithTextBox;
         private System.Windows.Forms.Button AddNewCustomerButton;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn CompanyNameColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn FirstNameColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn LastNameColumn;
+        private System.Windows.Forms.DataGridViewComboBoxColumn ContactTitleColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn AddressColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn CityColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn PostalColumn;
+        private System.Windows.Forms.DataGridViewComboBoxColumn CountryColumn;
     }
 }

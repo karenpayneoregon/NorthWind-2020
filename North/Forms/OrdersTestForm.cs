@@ -28,6 +28,8 @@ namespace North.Forms
             GetOrdersForCustomer();
             CustomersComboBox.SelectedIndexChanged += CustomersComboBox_SelectedIndexChanged;
             _ordersBindingSource.PositionChanged += _ordersBindingSource_PositionChanged;
+
+            OrdersWithNoDetailsButton.Enabled = true;
         }
 
         private void _ordersBindingSource_PositionChanged(object sender, EventArgs e)
@@ -49,6 +51,7 @@ namespace North.Forms
             var currentCustomerIdentifier = ((CustomerItem) CustomersComboBox.SelectedItem).CustomerIdentifier;
             _ordersBindingSource.DataSource = OrdersTestOperation.GetCustomerOrders(currentCustomerIdentifier);
 
+
             OrderCountLabel.Text = $"Order count: {_ordersBindingSource.Count}";
             OrderDataGridView.DataSource = _ordersBindingSource;
 
@@ -64,6 +67,15 @@ namespace North.Forms
             }
 
             OrderDetailsDataGridView.DataSource = _orderDetailsBindingSource;
+        }
+
+        private async void OrdersWithNoDetailsButton_Click(object sender, EventArgs e)
+        {
+            var results = await OrdersTestOperation.GetOrdersWithoutOrderDetails();
+            if (results.Count >0)
+            {
+                MessageBox.Show($"Found {results.Count} orders with no details");
+            }
         }
     }
 }

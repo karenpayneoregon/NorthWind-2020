@@ -30,6 +30,19 @@ namespace North.Classes
 
         }
 
+        public static async Task<List<Orders>> GetOrdersWithoutOrderDetails() 
+        {
+            using (var context = new NorthwindContext())
+            {
+                List<Orders> results = await context
+                    .Orders
+                    .Include(ord => ord.OrderDetails)
+                    .Where(q => !q.OrderDetails.Where(r => r.OrderID == q.OrderID).Any()).ToListAsync();
+
+                return results;
+            }
+        }
+
         public static List<OrderItem> GetCustomerOrders(int customerIdentifier)
         {
             

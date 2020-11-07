@@ -52,6 +52,7 @@
             this.Column18 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column19 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column20 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.OrdersWithNoDetailsButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.OrderDataGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.OrderDetailsDataGridView)).BeginInit();
             this.SuspendLayout();
@@ -235,11 +236,23 @@
             this.Column20.HeaderText = "Discount";
             this.Column20.Name = "Column20";
             // 
+            // OrdersWithNoDetailsButton
+            // 
+            this.OrdersWithNoDetailsButton.Enabled = false;
+            this.OrdersWithNoDetailsButton.Location = new System.Drawing.Point(866, 15);
+            this.OrdersWithNoDetailsButton.Name = "OrdersWithNoDetailsButton";
+            this.OrdersWithNoDetailsButton.Size = new System.Drawing.Size(157, 23);
+            this.OrdersWithNoDetailsButton.TabIndex = 4;
+            this.OrdersWithNoDetailsButton.Text = "Orders with no details";
+            this.OrdersWithNoDetailsButton.UseVisualStyleBackColor = true;
+            this.OrdersWithNoDetailsButton.Click += new System.EventHandler(this.OrdersWithNoDetailsButton_Click);
+            // 
             // OrdersTestForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1036, 361);
+            this.Controls.Add(this.OrdersWithNoDetailsButton);
             this.Controls.Add(this.OrderDetailsDataGridView);
             this.Controls.Add(this.OrderCountLabel);
             this.Controls.Add(this.OrderDataGridView);
@@ -281,5 +294,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Column18;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column19;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column20;
+        private System.Windows.Forms.Button OrdersWithNoDetailsButton;
     }
 }
