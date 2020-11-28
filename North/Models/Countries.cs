@@ -18,6 +18,9 @@ namespace North.Models
         public int CountryIdentifier { get; set; }
         public string Name { get; set; }
 
+        public override string ToString() => Name;
+
+
         public virtual ICollection<Customers> Customers { get; set; }
         public virtual ICollection<Employees> Employees { get; set; }
         public virtual ICollection<Suppliers> Suppliers { get; set; }

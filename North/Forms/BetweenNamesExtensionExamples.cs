@@ -14,9 +14,9 @@ using North.LanguageExtensions;
 
 namespace North.Forms
 {
-    public partial class BetweenExtensionExamples : Form
+    public partial class BetweenNamesExtensionExamples : Form
     {
-        public BetweenExtensionExamples()
+        public BetweenNamesExtensionExamples()
         {
             InitializeComponent();
             Shown += BetweenExtensionExamples_Shown;

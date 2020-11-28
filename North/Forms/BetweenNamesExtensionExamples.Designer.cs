@@ -1,6 +1,6 @@
 ﻿namespace North.Forms
 {
-    partial class BetweenExtensionExamples
+    partial class BetweenNamesExtensionExamples
     {
         /// <summary>
         /// Required designer variable.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(BetweenExtensionExamples));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(BetweenNamesExtensionExamples));
             this.CustomerNamesCheckedListBox = new System.Windows.Forms.CheckedListBox();
             this.ExecuteButton = new System.Windows.Forms.Button();
             this.ResultsDataGridView = new System.Windows.Forms.DataGridView();

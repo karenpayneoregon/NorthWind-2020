@@ -34,7 +34,7 @@ namespace North.Classes
         {
             using (var context = new NorthwindContext())
             {
-                List<Orders> results = await context
+                var results = await context
                     .Orders
                     .Include(ord => ord.OrderDetails)
                     .Where(q => !q.OrderDetails.Where(r => r.OrderID == q.OrderID).Any()).ToListAsync();

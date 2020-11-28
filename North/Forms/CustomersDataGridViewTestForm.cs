@@ -110,7 +110,7 @@ namespace North.Forms
             DeleteCustomerBindingNavigatorButton.Enabled = true;
 
             CustomersDataGridView.RowPrePaint += CustomersDataGridView_RowPrePaint;
-            
+            CustomersDataGridView.ExpandColumns();
 
         }
         /// <summary>

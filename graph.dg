@@ -1,0 +1,620 @@
+{
+  "format": 1,
+  "restore": {
+    "C:\\OED\\Dotnetland\\NorthWind2020\\TimeLibraryCore\\TimeLibraryCore.csproj": {},
+    "C:\\OED\\Dotnetland\\NorthWind2020\\TimeUnitTestProject\\TimeUnitTestProject.csproj": {}
+  },
+  "projects": {
+    "C:\\OED\\Dotnetland\\NorthWind2020\\AnnotationsDemos\\AnnotationsDemos.csproj": {
+      "restore": {
+        "projectUniqueName": "C:\\OED\\Dotnetland\\NorthWind2020\\AnnotationsDemos\\AnnotationsDemos.csproj",
+        "projectName": "AnnotationsDemos",
+        "projectPath": "C:\\OED\\Dotnetland\\NorthWind2020\\AnnotationsDemos\\AnnotationsDemos.csproj",
+        "packagesPath": "C:\\Users\\paynek\\.nuget\\packages\\",
+        "projectStyle": "PackagesConfig",
+        "configFilePaths": [
+          "C:\\Users\\paynek\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "packagesConfigPath": "C:\\OED\\Dotnetland\\NorthWind2020\\AnnotationsDemos\\packages.config"
+      }
+    },
+    "C:\\OED\\Dotnetland\\NorthWind2020\\BindingListView\\BindingListView.csproj": {
+      "restore": {
+        "projectUniqueName": "C:\\OED\\Dotnetland\\NorthWind2020\\BindingListView\\BindingListView.csproj",
+        "projectName": "BindingListView",
+        "projectPath": "C:\\OED\\Dotnetland\\NorthWind2020\\BindingListView\\BindingListView.csproj",
+        "frameworks": {
+          "net40-client": {
+            "projectReferences": {}
+          }
+        }
+      },
+      "frameworks": {
+        "net40-client": {}
+      }
+    },
+    "C:\\OED\\Dotnetland\\NorthWind2020\\DataGridSimple\\DataGridSimple.csproj": {
+      "restore": {
+        "projectUniqueName": "C:\\OED\\Dotnetland\\NorthWind2020\\DataGridSimple\\DataGridSimple.csproj",
+        "projectName": "DataGridSimple",
+        "projectPath": "C:\\OED\\Dotnetland\\NorthWind2020\\DataGridSimple\\DataGridSimple.csproj",
+        "packagesPath": "C:\\Users\\paynek\\.nuget\\packages\\",
+        "projectStyle": "PackagesConfig",
+        "configFilePaths": [
+          "C:\\Users\\paynek\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "packagesConfigPath": "C:\\OED\\Dotnetland\\NorthWind2020\\DataGridSimple\\packages.config"
+      }
+    },
+    "C:\\OED\\Dotnetland\\NorthWind2020\\Demo1\\Demo1.csproj": {
+      "restore": {
+        "projectUniqueName": "C:\\OED\\Dotnetland\\NorthWind2020\\Demo1\\Demo1.csproj",
+        "projectName": "Demo1",
+        "projectPath": "C:\\OED\\Dotnetland\\NorthWind2020\\Demo1\\Demo1.csproj",
+        "packagesPath": "C:\\Users\\paynek\\.nuget\\packages\\",
+        "projectStyle": "PackagesConfig",
+        "configFilePaths": [
+          "C:\\Users\\paynek\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "packagesConfigPath": "C:\\OED\\Dotnetland\\NorthWind2020\\Demo1\\packages.config"
+      }
+    },
+    "C:\\OED\\Dotnetland\\NorthWind2020\\DynamicSortByPropertyName\\DynamicSortByPropertyName.csproj": {
+      "restore": {
+        "projectUniqueName": "C:\\OED\\Dotnetland\\NorthWind2020\\DynamicSortByPropertyName\\DynamicSortByPropertyName.csproj",
+        "projectName": "DynamicSortByPropertyName",
+        "projectPath": "C:\\OED\\Dotnetland\\NorthWind2020\\DynamicSortByPropertyName\\DynamicSortByPropertyName.csproj",
+        "packagesPath": "C:\\Users\\paynek\\.nuget\\packages\\",
+        "projectStyle": "PackagesConfig",
+        "configFilePaths": [
+          "C:\\Users\\paynek\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "packagesConfigPath": "C:\\OED\\Dotnetland\\NorthWind2020\\DynamicSortByPropertyName\\packages.config"
+      }
+    },
+    "C:\\OED\\Dotnetland\\NorthWind2020\\EmployeeUnitTest\\EmployeeUnitTest.csproj": {
+      "restore": {
+        "projectUniqueName": "C:\\OED\\Dotnetland\\NorthWind2020\\EmployeeUnitTest\\EmployeeUnitTest.csproj",
+        "projectName": "EmployeeUnitTest",
+        "projectPath": "C:\\OED\\Dotnetland\\NorthWind2020\\EmployeeUnitTest\\EmployeeUnitTest.csproj",
+        "packagesPath": "C:\\Users\\paynek\\.nuget\\packages\\",
+        "projectStyle": "PackagesConfig",
+        "configFilePaths": [
+          "C:\\Users\\paynek\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "packagesConfigPath": "C:\\OED\\Dotnetland\\NorthWind2020\\EmployeeUnitTest\\packages.config"
+      }
+    },
+    "C:\\OED\\Dotnetland\\NorthWind2020\\EntityCoreExtensions\\EntityCoreExtensions.csproj": {
+      "restore": {
+        "projectUniqueName": "C:\\OED\\Dotnetland\\NorthWind2020\\EntityCoreExtensions\\EntityCoreExtensions.csproj",
+        "projectName": "EntityCoreExtensions",
+        "projectPath": "C:\\OED\\Dotnetland\\NorthWind2020\\EntityCoreExtensions\\EntityCoreExtensions.csproj",
+        "packagesPath": "C:\\Users\\paynek\\.nuget\\packages\\",
+        "projectStyle": "PackagesConfig",
+        "configFilePaths": [
+          "C:\\Users\\paynek\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "packagesConfigPath": "C:\\OED\\Dotnetland\\NorthWind2020\\EntityCoreExtensions\\packages.config"
+      }
+    },
+    "C:\\OED\\Dotnetland\\NorthWind2020\\EnumGeneratorLibrary\\EnumGeneratorLibrary.csproj": {
+      "restore": {
+        "projectUniqueName": "C:\\OED\\Dotnetland\\NorthWind2020\\EnumGeneratorLibrary\\EnumGeneratorLibrary.csproj",
+        "projectName": "EnumGeneratorLibrary",
+        "projectPath": "C:\\OED\\Dotnetland\\NorthWind2020\\EnumGeneratorLibrary\\EnumGeneratorLibrary.csproj",
+        "frameworks": {
+          "net472": {
+            "projectReferences": {}
+          }
+        }
+      },
+      "frameworks": {
+        "net472": {}
+      }
+    },
+    "C:\\OED\\Dotnetland\\NorthWind2020\\ExceptionHandling\\ExceptionHandling.csproj": {
+      "restore": {
+        "projectUniqueName": "C:\\OED\\Dotnetland\\NorthWind2020\\ExceptionHandling\\ExceptionHandling.csproj",
+        "projectName": "ExceptionHandling",
+        "projectPath": "C:\\OED\\Dotnetland\\NorthWind2020\\ExceptionHandling\\ExceptionHandling.csproj",
+        "frameworks": {
+          "net472": {
+            "projectReferences": {}
+          }
+        }
+      },
+      "frameworks": {
+        "net472": {}
+      }
+    },
+    "C:\\OED\\Dotnetland\\NorthWind2020\\FirstUpSorting\\FirstUpSorting.csproj": {
+      "restore": {
+        "projectUniqueName": "C:\\OED\\Dotnetland\\NorthWind2020\\FirstUpSorting\\FirstUpSorting.csproj",
+        "projectName": "FirstUpSorting",
+        "projectPath": "C:\\OED\\Dotnetland\\NorthWind2020\\FirstUpSorting\\FirstUpSorting.csproj",
+        "packagesPath": "C:\\Users\\paynek\\.nuget\\packages\\",
+        "projectStyle": "PackagesConfig",
+        "configFilePaths": [
+          "C:\\Users\\paynek\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "packagesConfigPath": "C:\\OED\\Dotnetland\\NorthWind2020\\FirstUpSorting\\packages.config"
+      }
+    },
+    "C:\\OED\\Dotnetland\\NorthWind2020\\ModelPropertiesWindowsForms\\ModelPropertiesWindowsForms.csproj": {
+      "restore": {
+        "projectUniqueName": "C:\\OED\\Dotnetland\\NorthWind2020\\ModelPropertiesWindowsForms\\ModelPropertiesWindowsForms.csproj",
+        "projectName": "ModelPropertiesWindowsForms",
+        "projectPath": "C:\\OED\\Dotnetland\\NorthWind2020\\ModelPropertiesWindowsForms\\ModelPropertiesWindowsForms.csproj",
+        "packagesPath": "C:\\Users\\paynek\\.nuget\\packages\\",
+        "projectStyle": "PackagesConfig",
+        "configFilePaths": [
+          "C:\\Users\\paynek\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "packagesConfigPath": "C:\\OED\\Dotnetland\\NorthWind2020\\ModelPropertiesWindowsForms\\packages.config"
+      }
+    },
+    "C:\\OED\\Dotnetland\\NorthWind2020\\NorthEntityLibrary\\NorthEntityLibrary.csproj": {
+      "restore": {
+        "projectUniqueName": "C:\\OED\\Dotnetland\\NorthWind2020\\NorthEntityLibrary\\NorthEntityLibrary.csproj",
+        "projectName": "NorthEntityLibrary",
+        "projectPath": "C:\\OED\\Dotnetland\\NorthWind2020\\NorthEntityLibrary\\NorthEntityLibrary.csproj",
+        "packagesPath": "C:\\Users\\paynek\\.nuget\\packages\\",
+        "projectStyle": "PackagesConfig",
+        "configFilePaths": [
+          "C:\\Users\\paynek\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "packagesConfigPath": "C:\\OED\\Dotnetland\\NorthWind2020\\NorthEntityLibrary\\packages.config"
+      }
+    },
+    "C:\\OED\\Dotnetland\\NorthWind2020\\NorthOlderModel\\NorthOlderModel.csproj": {
+      "restore": {
+        "projectUniqueName": "C:\\OED\\Dotnetland\\NorthWind2020\\NorthOlderModel\\NorthOlderModel.csproj",
+        "projectName": "NorthOlderModel",
+        "projectPath": "C:\\OED\\Dotnetland\\NorthWind2020\\NorthOlderModel\\NorthOlderModel.csproj",
+        "packagesPath": "C:\\Users\\paynek\\.nuget\\packages\\",
+        "projectStyle": "PackagesConfig",
+        "configFilePaths": [
+          "C:\\Users\\paynek\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "packagesConfigPath": "C:\\OED\\Dotnetland\\NorthWind2020\\NorthOlderModel\\packages.config"
+      }
+    },
+    "C:\\OED\\Dotnetland\\NorthWind2020\\NorthStockConfiguration\\NorthStockConfiguration.csproj": {
+      "restore": {
+        "projectUniqueName": "C:\\OED\\Dotnetland\\NorthWind2020\\NorthStockConfiguration\\NorthStockConfiguration.csproj",
+        "projectName": "NorthStockConfiguration",
+        "projectPath": "C:\\OED\\Dotnetland\\NorthWind2020\\NorthStockConfiguration\\NorthStockConfiguration.csproj",
+        "packagesPath": "C:\\Users\\paynek\\.nuget\\packages\\",
+        "projectStyle": "PackagesConfig",
+        "configFilePaths": [
+          "C:\\Users\\paynek\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "packagesConfigPath": "C:\\OED\\Dotnetland\\NorthWind2020\\NorthStockConfiguration\\packages.config"
+      }
+    },
+    "C:\\OED\\Dotnetland\\NorthWind2020\\NorthWithConfiguration\\NorthWithConfiguration.csproj": {
+      "restore": {
+        "projectUniqueName": "C:\\OED\\Dotnetland\\NorthWind2020\\NorthWithConfiguration\\NorthWithConfiguration.csproj",
+        "projectName": "NorthWithConfiguration",
+        "projectPath": "C:\\OED\\Dotnetland\\NorthWind2020\\NorthWithConfiguration\\NorthWithConfiguration.csproj",
+        "packagesPath": "C:\\Users\\paynek\\.nuget\\packages\\",
+        "projectStyle": "PackagesConfig",
+        "configFilePaths": [
+          "C:\\Users\\paynek\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "packagesConfigPath": "C:\\OED\\Dotnetland\\NorthWind2020\\NorthWithConfiguration\\packages.config"
+      }
+    },
+    "C:\\OED\\Dotnetland\\NorthWind2020\\NorthWithFoldersAnnotations\\NorthWithFoldersAnnotations.csproj": {
+      "restore": {
+        "projectUniqueName": "C:\\OED\\Dotnetland\\NorthWind2020\\NorthWithFoldersAnnotations\\NorthWithFoldersAnnotations.csproj",
+        "projectName": "NorthWithFoldersAnnotations",
+        "projectPath": "C:\\OED\\Dotnetland\\NorthWind2020\\NorthWithFoldersAnnotations\\NorthWithFoldersAnnotations.csproj",
+        "packagesPath": "C:\\Users\\paynek\\.nuget\\packages\\",
+        "projectStyle": "PackagesConfig",
+        "configFilePaths": [
+          "C:\\Users\\paynek\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "packagesConfigPath": "C:\\OED\\Dotnetland\\NorthWind2020\\NorthWithFoldersAnnotations\\packages.config"
+      }
+    },
+    "C:\\OED\\Dotnetland\\NorthWind2020\\NorthWithFolders\\NorthWithFolders.csproj": {
+      "restore": {
+        "projectUniqueName": "C:\\OED\\Dotnetland\\NorthWind2020\\NorthWithFolders\\NorthWithFolders.csproj",
+        "projectName": "NorthWithFolders",
+        "projectPath": "C:\\OED\\Dotnetland\\NorthWind2020\\NorthWithFolders\\NorthWithFolders.csproj",
+        "packagesPath": "C:\\Users\\paynek\\.nuget\\packages\\",
+        "projectStyle": "PackagesConfig",
+        "configFilePaths": [
+          "C:\\Users\\paynek\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "packagesConfigPath": "C:\\OED\\Dotnetland\\NorthWind2020\\NorthWithFolders\\packages.config"
+      }
+    },
+    "C:\\OED\\Dotnetland\\NorthWind2020\\North\\North.csproj": {
+      "restore": {
+        "projectUniqueName": "C:\\OED\\Dotnetland\\NorthWind2020\\North\\North.csproj",
+        "projectName": "North",
+        "projectPath": "C:\\OED\\Dotnetland\\NorthWind2020\\North\\North.csproj",
+        "packagesPath": "C:\\Users\\paynek\\.nuget\\packages\\",
+        "projectStyle": "PackagesConfig",
+        "configFilePaths": [
+          "C:\\Users\\paynek\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "packagesConfigPath": "C:\\OED\\Dotnetland\\NorthWind2020\\North\\packages.config"
+      }
+    },
+    "C:\\OED\\Dotnetland\\NorthWind2020\\SortLibrary\\SortLibrary.csproj": {
+      "restore": {
+        "projectUniqueName": "C:\\OED\\Dotnetland\\NorthWind2020\\SortLibrary\\SortLibrary.csproj",
+        "projectName": "SortLibrary",
+        "projectPath": "C:\\OED\\Dotnetland\\NorthWind2020\\SortLibrary\\SortLibrary.csproj",
+        "frameworks": {
+          "net472": {
+            "projectReferences": {}
+          }
+        }
+      },
+      "frameworks": {
+        "net472": {}
+      }
+    },
+    "C:\\OED\\Dotnetland\\NorthWind2020\\TimeLibraryCore\\TimeLibraryCore.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\OED\\Dotnetland\\NorthWind2020\\TimeLibraryCore\\TimeLibraryCore.csproj",
+        "projectName": "TimeLibraryCore",
+        "projectPath": "C:\\OED\\Dotnetland\\NorthWind2020\\TimeLibraryCore\\TimeLibraryCore.csproj",
+        "packagesPath": "C:\\Users\\paynek\\.nuget\\packages\\",
+        "outputPath": "C:\\OED\\Dotnetland\\NorthWind2020\\TimeLibraryCore\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Microsoft\\Xamarin\\NuGet\\",
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\paynek\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "netcoreapp2.2"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netcoreapp2.2": {
+            "targetAlias": "netcoreapp2.2",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netcoreapp2.2": {
+          "targetAlias": "netcoreapp2.2",
+          "dependencies": {
+            "Microsoft.EntityFrameworkCore.SqlServer": {
+              "target": "Package",
+              "version": "[3.1.7, )"
+            },
+            "Microsoft.Extensions.Configuration.Json": {
+              "target": "Package",
+              "version": "[3.1.7, )"
+            },
+            "Microsoft.NETCore.App": {
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[2.2.0, )",
+              "autoReferenced": true
+            },
+            "Newtonsoft.Json": {
+              "target": "Package",
+              "version": "[12.0.3, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.100\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\OED\\Dotnetland\\NorthWind2020\\TimeLibrary\\TimeLibrary.csproj": {
+      "restore": {
+        "projectUniqueName": "C:\\OED\\Dotnetland\\NorthWind2020\\TimeLibrary\\TimeLibrary.csproj",
+        "projectName": "TimeLibrary",
+        "projectPath": "C:\\OED\\Dotnetland\\NorthWind2020\\TimeLibrary\\TimeLibrary.csproj",
+        "packagesPath": "C:\\Users\\paynek\\.nuget\\packages\\",
+        "projectStyle": "PackagesConfig",
+        "configFilePaths": [
+          "C:\\Users\\paynek\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "packagesConfigPath": "C:\\OED\\Dotnetland\\NorthWind2020\\TimeLibrary\\packages.config"
+      }
+    },
+    "C:\\OED\\Dotnetland\\NorthWind2020\\TimeUnitTestProject\\TimeUnitTestProject.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\OED\\Dotnetland\\NorthWind2020\\TimeUnitTestProject\\TimeUnitTestProject.csproj",
+        "projectName": "TimeUnitTestProject",
+        "projectPath": "C:\\OED\\Dotnetland\\NorthWind2020\\TimeUnitTestProject\\TimeUnitTestProject.csproj",
+        "packagesPath": "C:\\Users\\paynek\\.nuget\\packages\\",
+        "outputPath": "C:\\OED\\Dotnetland\\NorthWind2020\\TimeUnitTestProject\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Microsoft\\Xamarin\\NuGet\\",
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\paynek\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "netcoreapp2.2"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netcoreapp2.2": {
+            "targetAlias": "netcoreapp2.2",
+            "projectReferences": {
+              "C:\\OED\\Dotnetland\\NorthWind2020\\TimeLibraryCore\\TimeLibraryCore.csproj": {
+                "projectPath": "C:\\OED\\Dotnetland\\NorthWind2020\\TimeLibraryCore\\TimeLibraryCore.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netcoreapp2.2": {
+          "targetAlias": "netcoreapp2.2",
+          "dependencies": {
+            "MSTest.TestAdapter": {
+              "target": "Package",
+              "version": "[1.3.2, )"
+            },
+            "MSTest.TestFramework": {
+              "target": "Package",
+              "version": "[1.3.2, )"
+            },
+            "Microsoft.EntityFrameworkCore.SqlServer": {
+              "target": "Package",
+              "version": "[3.1.7, )"
+            },
+            "Microsoft.NET.Test.Sdk": {
+              "target": "Package",
+              "version": "[15.9.0, )"
+            },
+            "Microsoft.NETCore.App": {
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[2.2.0, )",
+              "autoReferenced": true
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.100\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\OED\\Dotnetland\\NorthWind2020\\UtilityTestProject\\UtilityTestProject.csproj": {
+      "restore": {
+        "projectUniqueName": "C:\\OED\\Dotnetland\\NorthWind2020\\UtilityTestProject\\UtilityTestProject.csproj",
+        "projectName": "UtilityTestProject",
+        "projectPath": "C:\\OED\\Dotnetland\\NorthWind2020\\UtilityTestProject\\UtilityTestProject.csproj",
+        "packagesPath": "C:\\Users\\paynek\\.nuget\\packages\\",
+        "projectStyle": "PackagesConfig",
+        "configFilePaths": [
+          "C:\\Users\\paynek\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "packagesConfigPath": "C:\\OED\\Dotnetland\\NorthWind2020\\UtilityTestProject\\packages.config"
+      }
+    },
+    "C:\\OED\\Dotnetland\\NorthWind2020\\ValidationMocked\\ValidationMocked.csproj": {
+      "restore": {
+        "projectUniqueName": "C:\\OED\\Dotnetland\\NorthWind2020\\ValidationMocked\\ValidationMocked.csproj",
+        "projectName": "ValidationMocked",
+        "projectPath": "C:\\OED\\Dotnetland\\NorthWind2020\\ValidationMocked\\ValidationMocked.csproj",
+        "frameworks": {
+          "net472": {
+            "projectReferences": {}
+          }
+        }
+      },
+      "frameworks": {
+        "net472": {}
+      }
+    },
+    "C:\\OED\\Dotnetland\\NorthWind2020\\Windows.Forms.Application\\Windows.Forms.Application.csproj": {
+      "restore": {
+        "projectUniqueName": "C:\\OED\\Dotnetland\\NorthWind2020\\Windows.Forms.Application\\Windows.Forms.Application.csproj",
+        "projectName": "Windows.Forms.Application",
+        "projectPath": "C:\\OED\\Dotnetland\\NorthWind2020\\Windows.Forms.Application\\Windows.Forms.Application.csproj",
+        "frameworks": {
+          "net472": {
+            "projectReferences": {
+              "C:\\OED\\Dotnetland\\NorthWind2020\\ExceptionHandling\\ExceptionHandling.csproj": {
+                "projectPath": "C:\\OED\\Dotnetland\\NorthWind2020\\ExceptionHandling\\ExceptionHandling.csproj"
+              }
+            }
+          }
+        }
+      },
+      "frameworks": {
+        "net472": {}
+      }
+    },
+    "C:\\OED\\Dotnetland\\NorthWind2020\\WindowsFormsApp1\\WindowsFormsApp1.csproj": {
+      "restore": {
+        "projectUniqueName": "C:\\OED\\Dotnetland\\NorthWind2020\\WindowsFormsApp1\\WindowsFormsApp1.csproj",
+        "projectName": "WindowsFormsApp1",
+        "projectPath": "C:\\OED\\Dotnetland\\NorthWind2020\\WindowsFormsApp1\\WindowsFormsApp1.csproj",
+        "frameworks": {
+          "net472": {
+            "projectReferences": {
+              "C:\\OED\\Dotnetland\\NorthWind2020\\Windows.Forms.Application\\Windows.Forms.Application.csproj": {
+                "projectPath": "C:\\OED\\Dotnetland\\NorthWind2020\\Windows.Forms.Application\\Windows.Forms.Application.csproj"
+              }
+            }
+          }
+        }
+      },
+      "frameworks": {
+        "net472": {}
+      }
+    },
+    "C:\\OED\\Dotnetland\\NorthWind2020\\WorkingWithTimeUsingMovies\\WorkingWithTimeUsingMovies.csproj": {
+      "restore": {
+        "projectUniqueName": "C:\\OED\\Dotnetland\\NorthWind2020\\WorkingWithTimeUsingMovies\\WorkingWithTimeUsingMovies.csproj",
+        "projectName": "WorkingWithTimeUsingMovies",
+        "projectPath": "C:\\OED\\Dotnetland\\NorthWind2020\\WorkingWithTimeUsingMovies\\WorkingWithTimeUsingMovies.csproj",
+        "packagesPath": "C:\\Users\\paynek\\.nuget\\packages\\",
+        "projectStyle": "PackagesConfig",
+        "configFilePaths": [
+          "C:\\Users\\paynek\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "packagesConfigPath": "C:\\OED\\Dotnetland\\NorthWind2020\\WorkingWithTimeUsingMovies\\packages.config"
+      }
+    }
+  }
+}
