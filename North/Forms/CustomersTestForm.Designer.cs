@@ -42,7 +42,10 @@
             this.Column11 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column12 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column13 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.CurrentButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.CustomersDataGridView)).BeginInit();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // CustomersDataGridView
@@ -66,7 +69,7 @@
             this.CustomersDataGridView.Dock = System.Windows.Forms.DockStyle.Fill;
             this.CustomersDataGridView.Location = new System.Drawing.Point(0, 0);
             this.CustomersDataGridView.Name = "CustomersDataGridView";
-            this.CustomersDataGridView.Size = new System.Drawing.Size(747, 450);
+            this.CustomersDataGridView.Size = new System.Drawing.Size(747, 386);
             this.CustomersDataGridView.TabIndex = 0;
             // 
             // Column1
@@ -150,17 +153,38 @@
             this.Column13.HeaderText = "Office Phone";
             this.Column13.Name = "Column13";
             // 
+            // panel1
+            // 
+            this.panel1.Controls.Add(this.CurrentButton);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.panel1.Location = new System.Drawing.Point(0, 386);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(747, 64);
+            this.panel1.TabIndex = 1;
+            // 
+            // CurrentButton
+            // 
+            this.CurrentButton.Location = new System.Drawing.Point(25, 25);
+            this.CurrentButton.Name = "CurrentButton";
+            this.CurrentButton.Size = new System.Drawing.Size(75, 23);
+            this.CurrentButton.TabIndex = 0;
+            this.CurrentButton.Text = "Current";
+            this.CurrentButton.UseVisualStyleBackColor = true;
+            this.CurrentButton.Click += new System.EventHandler(this.CurrentButton_Click);
+            // 
             // CustomersTestForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(747, 450);
             this.Controls.Add(this.CustomersDataGridView);
+            this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "CustomersTestForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Customers testing";
             ((System.ComponentModel.ISupportInitialize)(this.CustomersDataGridView)).EndInit();
+            this.panel1.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -181,5 +205,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Column11;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column12;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column13;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Button CurrentButton;
     }
 }

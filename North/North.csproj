@@ -199,6 +199,7 @@
     <Compile Include="Forms\BetweenPrimaryKeysExtensionExamples.Designer.cs">
       <DependentUpon>BetweenPrimaryKeysExtensionExamples.cs</DependentUpon>
     </Compile>
+    <Compile Include="LanguageExtensions\BindingSourceExtensions.cs" />
     <Compile Include="Interfaces\IModelBaseEntity.cs" />
     <Compile Include="LanguageExtensions\ExperimentExtensions.cs" />
     <Compile Include="Forms\ModelPropertyDescriptionForm.cs">
