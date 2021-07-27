@@ -10,7 +10,7 @@ namespace ValidationMocked.Classes
         [Required]
         [StringLength(50)]
         public string LastName { get; set; }
-        [CustomRequired(ErrorMessage = "{0}")]
+        [FirstNameRequired(ErrorMessage = "{0}")]
         [StringLength(50)]
         public string FirstName { get; set; }
         [Required]

@@ -68,7 +68,7 @@
     <Compile Include="LanguageExtensions\StringExtensions.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Validators\CustomRequired.cs" />
+    <Compile Include="Validators\FirstNameRequired.cs" />
     <Compile Include="Validators\EntityValidationResult.cs" />
     <Compile Include="Validators\EntityValidator.cs" />
     <Compile Include="Validators\ValidationHelper.cs" />

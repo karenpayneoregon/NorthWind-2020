@@ -11,7 +11,7 @@ namespace ValidationMocked.Validators
     /// <summary>
     /// An example for overriding [<see cref="RequiredAttribute"/>
     /// </summary>
-    public class CustomRequired : RequiredAttribute
+    public class FirstNameRequired : RequiredAttribute
     {
         public override string FormatErrorMessage(string sender) => 
             $"{sender.SplitCamelCase()} is required";
