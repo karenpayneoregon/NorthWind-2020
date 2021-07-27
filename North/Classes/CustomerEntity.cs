@@ -2,6 +2,7 @@
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.Runtime.CompilerServices;
+using Newtonsoft.Json;
 using North.Classes.Base;
 using North.Models;
 
@@ -62,7 +63,7 @@ namespace North.Classes
                 OnPropertyChanged();
             }
         }
-
+        [JsonIgnore]
         public string FirstName
         {
             get => _firstName;
@@ -72,7 +73,7 @@ namespace North.Classes
                 OnPropertyChanged();
             }
         }
-
+        [JsonIgnore]
         public string LastName
         {
             get => _lastName;
@@ -154,6 +155,9 @@ namespace North.Classes
                 OnPropertyChanged();
             }
         }
+
+        public int? ContactId { get; set; }
+        public Countries CountryNavigation { get; set; }
 
         public override string ToString()
         {

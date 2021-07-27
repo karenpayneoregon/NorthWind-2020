@@ -1,5 +1,6 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations;
+using ValidationMocked.Validators;
 
 namespace ValidationMocked.Classes
 {
@@ -9,7 +10,7 @@ namespace ValidationMocked.Classes
         [Required]
         [StringLength(50)]
         public string LastName { get; set; }
-        [Required]
+        [CustomRequired(ErrorMessage = "{0}")]
         [StringLength(50)]
         public string FirstName { get; set; }
         [Required]

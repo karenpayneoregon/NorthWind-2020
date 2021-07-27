@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -12,6 +13,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.ChangeTracking;
 using North.Classes;
 using North.Classes.Components;
+using North.Classes.Helpers;
 using North.Classes.Validators;
 using North.LanguageExtensions;
 using North.Models;
@@ -75,6 +77,10 @@ namespace North.Forms
         private async void CustomersDataGridViewTestForm_Shown(object sender, EventArgs e)
         {
             var customerEntities = await CustomersTestOperations.AllCustomersForDataGridViewAsync();
+
+            await CustomersTestOperations.MakeJson();
+
+
 
             _customerView = new SortableBindingList<CustomerEntity>(customerEntities);
             _customerBindingSource.DataSource = _customerView;
@@ -292,6 +298,7 @@ namespace North.Forms
                 customerEntity.ContactTypeIdentifier = Convert.ToInt32(CustomersDataGridView.Rows[e.RowIndex].Cells["ContactTitleColumn"].Value);
                 customer.ContactTypeIdentifier = customerEntity.ContactTypeIdentifier;
                 customerEntity.ContactTitle = CustomersDataGridView.Rows[e.RowIndex].Cells["ContactTitleColumn"].FormattedValue?.ToString();
+                
             }
 
             if (!_hasValidationErrors)

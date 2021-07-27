@@ -38,6 +38,24 @@ namespace NorthEntityLibrary.Classes
 
             return productList;
         }
+        public static async Task<List<Product>> GetProducts()
+        {
+            var productList = new List<Product>();
+
+            await Task.Run(async () =>
+            {
+
+                productList = await Context.Products
+                    .Include(product => product.Supplier)
+                    .Include(product => product.Category)
+                    .Select(Product.Projection)
+                    .ToListAsync();
+
+            });
+
+            return productList;
+        }
+
         public static string Serialize(List<Product> products)
         {
             return JsonConvert.SerializeObject(products);

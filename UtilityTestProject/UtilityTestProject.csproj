@@ -158,6 +158,7 @@
   <ItemGroup>
     <Compile Include="Classes\BaseClass.cs" />
     <Compile Include="Classes\TestTraitsAttribute.cs" />
+    <Compile Include="Extensions\ValidateExtensions.cs" />
     <Compile Include="UnitTest1.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

@@ -5,6 +5,7 @@ using System.Linq;
 using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
+using Newtonsoft.Json;
 using North.Classes;
 
 // ReSharper disable once CheckNamespace - must be this namespace
@@ -13,8 +14,10 @@ namespace North.Models
     public partial class Customers
     {
         [NotMapped]
+        [JsonIgnore]
         public string FirstName { get; set; }
         [NotMapped]
+        [JsonIgnore]
         public string LastName { get; set; }
         public static Expression<Func<Customers, CustomerEntity>> Projection
         {
@@ -30,15 +33,20 @@ namespace North.Models
                     PostalCode = customer.PostalCode,
                     ContactTypeIdentifier = customer.ContactTypeIdentifier.Value,
                     ContactTitle = customer.ContactTypeIdentifierNavigation.ContactTitle,
+                    ContactId = customer.ContactId,
                     CountryName = customer.CountryIdentifierNavigation.Name,
                     FirstName = customer.Contact.FirstName,
                     LastName = customer.Contact.LastName,
                     ContactIdentifier = Convert.ToInt32(customer.ContactId),
                     Contacts = customer.Contact,
-                    CountryIdentifier = customer.CountryIdentifier
+                    CountryIdentifier = customer.CountryIdentifier,
+                    CountryNavigation = customer.CountryIdentifierNavigation,
+                    LastUpdated = customer.ModifiedDate
                 };
             }
 
         }
+
+
     }
 }

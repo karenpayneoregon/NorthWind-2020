@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Threading;
@@ -14,6 +15,7 @@ using NorthEntityLibrary.Contexts;
 using SortLibrary;
 
 using UtilityTestProject.Classes;
+using UtilityTestProject.Extensions;
 
 namespace UtilityTestProject
 {
@@ -170,8 +172,7 @@ namespace UtilityTestProject
 
         }
 
-        [TestMethod,
-         TestTraits(Trait.JsonSerializing)]
+        [TestMethod, TestTraits(Trait.JsonSerializing)]
         public async Task SerializeProducts()
         {
             var products = await ProductOperations.GetProductsByCategory(3, false);
@@ -280,6 +281,14 @@ namespace UtilityTestProject
 
         }
 
+        [TestMethod]
+        public void LastDayOfMonth()
+        {
+            var date = new DateTime(2021, 7, 9);
+            Assert.IsFalse(date.IsLastDayOfMonth(DateTime.Now.Day));
 
+            date = new DateTime(2021, 7, 31);
+            Assert.IsTrue(date.IsLastDayOfMonth(31));
+        }
     }
 }

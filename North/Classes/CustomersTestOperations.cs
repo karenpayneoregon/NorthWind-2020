@@ -2,12 +2,14 @@
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Diagnostics;
+using System.IO;
 using System.Linq;
 using System.Linq.Expressions;
 using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
+using North.Classes.Helpers;
 using North.Classes.Projections;
 using North.Contexts;
 using North.Models;
@@ -80,7 +82,8 @@ namespace North.Classes
                             FirstName = customer.Contact.FirstName,
                             LastName = customer.Contact.LastName,
                             ContactTitle = customer.ContactTypeIdentifierNavigation.ContactTitle,
-                            OfficePhoneNumber = customer.Contact.ContactDevices.FirstOrDefault(contactDevices => contactDevices.PhoneTypeIdentifier == 3).PhoneNumber
+                            OfficePhoneNumber = customer.Contact.ContactDevices.FirstOrDefault(contactDevices => 
+                                contactDevices.PhoneTypeIdentifier == 3).PhoneNumber
                         })
                         .TagWith($"App name: {currentExecutable}")
                         .TagWith($"From: {nameof(CustomersTestOperations)}.{nameof(GetCustomersAsync)}")
@@ -124,6 +127,22 @@ namespace North.Classes
 
                 return customerItemsList.OrderBy((customer) => customer.CompanyName).ToList();
             });
+
+        }
+
+        public static async Task MakeJson()
+        {
+            List<CustomerEntity> cust = await AllCustomersForDataGridViewAsync();
+            File.WriteAllText("Customers.json", JsonHelpers.Serialize<CustomerEntity>(cust));
+
+            var contactTypes = Context.ContactType.ToList();
+            File.WriteAllText("ContactType.json", JsonHelpers.Serialize<ContactType>(contactTypes));
+
+            var contacts = Context.Contacts.ToList();
+            File.WriteAllText("Contacts.json", JsonHelpers.Serialize<Contacts>(contacts));
+
+            var countriesList = Context.Countries.ToList();
+            File.WriteAllText("Countries.json", JsonHelpers.Serialize<Countries>(countriesList));
 
         }
 

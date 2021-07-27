@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
+using Newtonsoft.Json;
 using North.Interfaces;
 
 namespace North.Models
@@ -52,8 +53,11 @@ namespace North.Models
             }
         }
 
+        [JsonIgnore]
         public virtual ContactType ContactTypeIdentifierNavigation { get; set; }
+        [JsonIgnore]
         public virtual ICollection<ContactDevices> ContactDevices { get; set; }
+        [JsonIgnore]
         public virtual ICollection<Customers> Customers { get; set; }
 
         public override string ToString() => $"{FirstName} {LastName}";
