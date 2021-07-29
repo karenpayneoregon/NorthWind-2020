@@ -88,7 +88,7 @@ namespace NorthWindCore.Classes
         /// <summary>
         /// Cheap way to avoid attaching to another DbContext for changes in the ContactEditTestForm.
         /// </summary>
-        public static NorthwindContext Context = new NorthwindContext();
+        public static NorthwindContext Context = new();
         /// <summary>
         /// Get contact for editing
         /// </summary>
@@ -151,7 +151,11 @@ namespace NorthWindCore.Classes
         /// <returns></returns>
         public static async Task<List<string>> ModelNameList()
         {
-            return await Task.Run(() =>Context.Model.GetEntityTypes().Select(entityType => entityType.ClrType).Select(type => type.Name).ToList());
+            return await Task.Run(() => 
+                Context.Model
+                    .GetEntityTypes()
+                    .Select(entityType => entityType.ClrType).Select(type => type.Name)
+                    .ToList());
         }
         /// <summary>
         /// Get selected model primary key
