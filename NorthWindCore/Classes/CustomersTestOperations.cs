@@ -19,18 +19,13 @@ namespace NorthWindCore.Classes
         {
             return await Task.Run(async () =>
             {
-
-                using (var context = new NorthwindContext())
-                {
-                    return await context.Customers.AsNoTracking()
-                        .Select(customer => new CustomerItem()
-                        {
-                            CustomerIdentifier = customer.CustomerIdentifier,
-                            CompanyName = customer.CompanyName,
-                        }).ToListAsync();
-
-
-                }
+                await using var context = new NorthwindContext();
+                return await context.Customers.AsNoTracking()
+                    .Select(customer => new CustomerItem()
+                    {
+                        CustomerIdentifier = customer.CustomerIdentifier,
+                        CompanyName = customer.CompanyName,
+                    }).ToListAsync();
             });
         }
 
@@ -38,10 +33,8 @@ namespace NorthWindCore.Classes
         {
             return await Task.Run(async () =>
             {
-                using (var context = new NorthwindContext())
-                {
-                    return await context.Customers.OrderBy(cust => cust.CompanyName).Select(customer => customer.CompanyName).ToListAsync();
-                }
+                await using var context = new NorthwindContext();
+                return await context.Customers.OrderBy(cust => cust.CompanyName).Select(customer => customer.CompanyName).ToListAsync();
             });
         }
 
@@ -55,40 +48,35 @@ namespace NorthWindCore.Classes
             var currentExecutable = Process.GetCurrentProcess().MainModule.FileName;
             return await Task.Run(async () =>
             {
-
-                using (var context = new NorthwindContext())
-                {
-                    return await context.Customers.AsNoTracking()
-                        .Include(customer => customer.Contact)
-                        .ThenInclude(contact => contact.ContactDevices)
-                        .ThenInclude(contactDevices => contactDevices.PhoneTypeIdentifierNavigation)
-                        .Include(customer => customer.ContactTypeIdentifierNavigation)
-                        .Include(customer => customer.CountryIdentifierNavigation)
-                        .Select(customer => new CustomerItem()
-                        {
-                            CustomerIdentifier = customer.CustomerIdentifier,
-                            CompanyName = customer.CompanyName,
-                            ContactId = customer.Contact.ContactId,
-                            Street = customer.Street,
-                            City = customer.City,
-                            PostalCode = customer.PostalCode,
-                            CountryIdentifier = customer.CountryIdentifier,
-                            Phone = customer.Phone,
-                            ContactTypeIdentifier = customer.ContactTypeIdentifier,
-                            Country = customer.CountryIdentifierNavigation.Name,
-                            FirstName = customer.Contact.FirstName,
-                            LastName = customer.Contact.LastName,
-                            ContactTitle = customer.ContactTypeIdentifierNavigation.ContactTitle,
-                            OfficePhoneNumber = customer.Contact.ContactDevices.FirstOrDefault(contactDevices => 
-                                contactDevices.PhoneTypeIdentifier == 3).PhoneNumber
-                        })
-                        .TagWith($"App name: {currentExecutable}")
-                        .TagWith($"From: {nameof(CustomersTestOperations)}.{nameof(GetCustomersAsync)}")
-                        .TagWith("Parameters: None")
-                        .ToListAsync();
-
-
-                }
+                await using var context = new NorthwindContext();
+                return await context.Customers.AsNoTracking()
+                    .Include(customer => customer.Contact)
+                    .ThenInclude(contact => contact.ContactDevices)
+                    .ThenInclude(contactDevices => contactDevices.PhoneTypeIdentifierNavigation)
+                    .Include(customer => customer.ContactTypeIdentifierNavigation)
+                    .Include(customer => customer.CountryIdentifierNavigation)
+                    .Select(customer => new CustomerItem()
+                    {
+                        CustomerIdentifier = customer.CustomerIdentifier,
+                        CompanyName = customer.CompanyName,
+                        ContactId = customer.Contact.ContactId,
+                        Street = customer.Street,
+                        City = customer.City,
+                        PostalCode = customer.PostalCode,
+                        CountryIdentifier = customer.CountryIdentifier,
+                        Phone = customer.Phone,
+                        ContactTypeIdentifier = customer.ContactTypeIdentifier,
+                        Country = customer.CountryIdentifierNavigation.Name,
+                        FirstName = customer.Contact.FirstName,
+                        LastName = customer.Contact.LastName,
+                        ContactTitle = customer.ContactTypeIdentifierNavigation.ContactTitle,
+                        OfficePhoneNumber = customer.Contact.ContactDevices.FirstOrDefault(contactDevices => 
+                            contactDevices.PhoneTypeIdentifier == 3).PhoneNumber
+                    })
+                    .TagWith($"App name: {currentExecutable}")
+                    .TagWith($"From: {nameof(CustomersTestOperations)}.{nameof(GetCustomersAsync)}")
+                    .TagWith("Parameters: None")
+                    .ToListAsync();
             });
         }
         /// <summary>
@@ -100,10 +88,8 @@ namespace NorthWindCore.Classes
 
             return await Task.Run(async () =>
             {
-                using (var context = new NorthwindContext())
-                {
-                    return await context.Customers.AsNoTracking().Select(CustomerItem.Projection).ToListAsync();
-                }
+                await using var context = new NorthwindContext();
+                return await context.Customers.AsNoTracking().Select(CustomerItem.Projection).ToListAsync();
             });
         }
 
@@ -145,34 +131,26 @@ namespace NorthWindCore.Classes
 
         public static CustomerEntity CustomerByIdentifier(int identifier)
         {
-            using (var context = new NorthwindContext())
-            {
-                return context.Customers.Select(North.Models.Customers.Projection).FirstOrDefault(custEntity => custEntity.CustomerIdentifier == identifier);
-            }
+            using var context = new NorthwindContext();
+            return context.Customers.Select(North.Models.Customers.Projection).FirstOrDefault(custEntity => custEntity.CustomerIdentifier == identifier);
         }
 
         public static List<Countries> CountryList()
         {
-            using (var context = new NorthwindContext())
-            {
-                return context.Countries.AsNoTracking().ToList();
-            }
+            using var context = new NorthwindContext();
+            return context.Countries.AsNoTracking().ToList();
         }
 
         public static List<Models.ContactType> ContactTypeList()
         {
-            using (var context = new NorthwindContext())
-            {
-                return context.ContactType.AsNoTracking().ToList();
-            }
+            using var context = new NorthwindContext();
+            return context.ContactType.AsNoTracking().ToList();
         }
 
         public void UpdateMultipleRows(List<Customers> customers)
         {
-            using (var context = new NorthwindContext())
-            {
-                context.Customers.UpdateRange(customers);
-            }
+            using var context = new NorthwindContext();
+            context.Customers.UpdateRange(customers);
         }
 
         public static Customers CustomerFirstOrDefault(int customerIdentifier) => Context.Customers.FirstOrDefault(customer => customer.CustomerIdentifier == customerIdentifier);

@@ -18,21 +18,18 @@ namespace NorthWindCore.Classes.Helpers
 
             return await Task.Run(async () =>
             {
-                using (var cn = new SqlConnection { ConnectionString = connectionString })
+                using var cn = new SqlConnection { ConnectionString = connectionString };
+                try
                 {
-                    try
-                    {
-                        await cn.OpenAsync();
-                        return true;
+                    await cn.OpenAsync();
+                    return true;
 
-                    }
-                    catch (Exception ex)
-                    {
-                        Exception = ex;
-                        return false;
-                    }
                 }
-
+                catch (Exception ex)
+                {
+                    Exception = ex;
+                    return false;
+                }
             });
         }
     }

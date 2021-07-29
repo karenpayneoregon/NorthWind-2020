@@ -9,10 +9,8 @@ namespace NorthWindCore.Classes
     {
         public static List<Employees> AllEmployees()
         {
-            using (var context = new NorthwindContext())
-            {
-                return context.Employees.ToList();
-            }
+            using var context = new NorthwindContext();
+            return context.Employees.ToList();
         }
     }
 }

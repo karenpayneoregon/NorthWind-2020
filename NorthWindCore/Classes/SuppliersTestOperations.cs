@@ -13,16 +13,12 @@ namespace NorthWindCore.Classes
 
             return await Task.Run(async () =>
                 {
-
-                    using (var context = new NorthwindContext())
-                    {
-                        return await context.Suppliers
-                            .AsNoTracking()
-                            .Include(supplier => supplier.CountryIdentifierNavigation)
-                            .OrderBy(supplier => supplier.CompanyName)
-                            .ToListAsync();
-                    }
-
+                    await using var context = new NorthwindContext();
+                    return await context.Suppliers
+                        .AsNoTracking()
+                        .Include(supplier => supplier.CountryIdentifierNavigation)
+                        .OrderBy(supplier => supplier.CompanyName)
+                        .ToListAsync();
                 }
             );
 

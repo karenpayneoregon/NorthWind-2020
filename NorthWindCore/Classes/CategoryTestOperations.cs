@@ -12,17 +12,14 @@ namespace NorthWindCore.Classes
         {
             return await Task.Run<List<CategoryItem>>(async () =>
                 {
-
-                    using (var context = new NorthwindContext())
-                    {
-                        return await Queryable.Select(context.Categories
-                                .AsNoTracking(), cat => new CategoryItem()
-                            {
-                                CategoryId = cat.CategoryID,
-                                CategoryName = cat.CategoryName
-                            })
-                            .ToListAsync();
-                    }
+                    using var context = new NorthwindContext();
+                    return await Queryable.Select(context.Categories
+                            .AsNoTracking(), cat => new CategoryItem()
+                        {
+                            CategoryId = cat.CategoryID,
+                            CategoryName = cat.CategoryName
+                        })
+                        .ToListAsync();
                 }
             );
         }

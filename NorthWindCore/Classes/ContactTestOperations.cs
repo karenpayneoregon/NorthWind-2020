@@ -22,24 +22,21 @@ namespace NorthWindCore.Classes
         {
             return await Task.Run(async () =>
             {
-
-                using (var context = new NorthwindContext())
-                {
-                    return await context.Contacts
-                        .AsNoTracking()
-                        .Include(contact => contact.ContactTypeIdentifierNavigation)
-                        .Include(c => c.ContactDevices)
-                        .ThenInclude(contactDevices => contactDevices.PhoneTypeIdentifierNavigation)
-                        .Select(contact => new ContactItem
-                        {
-                            Id = contact.ContactId,
-                            ContactName = contact.FirstName + " " + contact.LastName,
-                            ContactType = contact.ContactTypeIdentifierNavigation.ContactTitle,
-                            OfficePhone = contact.ContactDevices.FirstOrDefault(contactDevices => contactDevices.PhoneTypeIdentifier == 3).PhoneNumber ?? "(none)",
-                            CellPhone = contact.ContactDevices.FirstOrDefault(contactDevices => contactDevices.PhoneTypeIdentifier == 2).PhoneNumber ?? "(none)",
-                            HomePhone = contact.ContactDevices.FirstOrDefault(contactDevices => contactDevices.PhoneTypeIdentifier == 1).PhoneNumber ?? "(none)"
-                        }).ToListAsync();
-                }
+                await using var context = new NorthwindContext();
+                return await context.Contacts
+                    .AsNoTracking()
+                    .Include(contact => contact.ContactTypeIdentifierNavigation)
+                    .Include(c => c.ContactDevices)
+                    .ThenInclude(contactDevices => contactDevices.PhoneTypeIdentifierNavigation)
+                    .Select(contact => new ContactItem
+                    {
+                        Id = contact.ContactId,
+                        ContactName = contact.FirstName + " " + contact.LastName,
+                        ContactType = contact.ContactTypeIdentifierNavigation.ContactTitle,
+                        OfficePhone = contact.ContactDevices.FirstOrDefault(contactDevices => contactDevices.PhoneTypeIdentifier == 3).PhoneNumber ?? "(none)",
+                        CellPhone = contact.ContactDevices.FirstOrDefault(contactDevices => contactDevices.PhoneTypeIdentifier == 2).PhoneNumber ?? "(none)",
+                        HomePhone = contact.ContactDevices.FirstOrDefault(contactDevices => contactDevices.PhoneTypeIdentifier == 1).PhoneNumber ?? "(none)"
+                    }).ToListAsync();
             });
         }
 
@@ -51,16 +48,13 @@ namespace NorthWindCore.Classes
         {
             return await Task.Run(async () =>
             {
-
-                using (var context = new NorthwindContext())
-                {
-                    return await context.Contacts
-                        .AsNoTracking()
-                        .Include(contact => contact.ContactTypeIdentifierNavigation)
-                        .Include(c => c.ContactDevices)
-                        .ThenInclude(contactDevices => contactDevices.PhoneTypeIdentifierNavigation)
-                        .Select(contact => contact).ToListAsync();
-                }
+                await using var context = new NorthwindContext();
+                return await context.Contacts
+                    .AsNoTracking()
+                    .Include(contact => contact.ContactTypeIdentifierNavigation)
+                    .Include(c => c.ContactDevices)
+                    .ThenInclude(contactDevices => contactDevices.PhoneTypeIdentifierNavigation)
+                    .Select(contact => contact).ToListAsync();
             });
         }
         /// <summary>
@@ -73,24 +67,21 @@ namespace NorthWindCore.Classes
 
             return await Task.Run(async () =>
             {
-
-                using (var context = new NorthwindContext())
-                {
-                    return await context.Contacts
-                        .AsNoTracking()
-                        .Include(contact => contact.ContactTypeIdentifierNavigation)
-                        .Include(c => c.ContactDevices)
-                        .ThenInclude(contactDevices => contactDevices.PhoneTypeIdentifierNavigation)
-                        .Select(contact => new ContactItem
-                        {
-                            Id = contact.ContactId,
-                            ContactName = contact.FirstName + " " + contact.LastName,
-                            ContactType = contact.ContactTypeIdentifierNavigation.ContactTitle,
-                            OfficePhone = contact.ContactDevices.FirstOrDefault(contactDevices => contactDevices.PhoneTypeIdentifier == 3).PhoneNumber ?? "(none)",
-                            CellPhone = contact.ContactDevices.FirstOrDefault(contactDevices => contactDevices.PhoneTypeIdentifier == 2).PhoneNumber ?? "(none)",
-                            HomePhone = contact.ContactDevices.FirstOrDefault(contactDevices => contactDevices.PhoneTypeIdentifier == 1).PhoneNumber ?? "(none)"
-                        }).FirstOrDefaultAsync(contactItem => contactItem.Id == contactIdentifier);
-                }
+                await using var context = new NorthwindContext();
+                return await context.Contacts
+                    .AsNoTracking()
+                    .Include(contact => contact.ContactTypeIdentifierNavigation)
+                    .Include(c => c.ContactDevices)
+                    .ThenInclude(contactDevices => contactDevices.PhoneTypeIdentifierNavigation)
+                    .Select(contact => new ContactItem
+                    {
+                        Id = contact.ContactId,
+                        ContactName = contact.FirstName + " " + contact.LastName,
+                        ContactType = contact.ContactTypeIdentifierNavigation.ContactTitle,
+                        OfficePhone = contact.ContactDevices.FirstOrDefault(contactDevices => contactDevices.PhoneTypeIdentifier == 3).PhoneNumber ?? "(none)",
+                        CellPhone = contact.ContactDevices.FirstOrDefault(contactDevices => contactDevices.PhoneTypeIdentifier == 2).PhoneNumber ?? "(none)",
+                        HomePhone = contact.ContactDevices.FirstOrDefault(contactDevices => contactDevices.PhoneTypeIdentifier == 1).PhoneNumber ?? "(none)"
+                    }).FirstOrDefaultAsync(contactItem => contactItem.Id == contactIdentifier);
             });
         }
 
@@ -122,10 +113,8 @@ namespace NorthWindCore.Classes
         {
             return await Task.Run(async () =>
             {
-                using (var context = new NorthwindContext())
-                {
-                    return await context.Contacts.AsNoTracking().OrderBy(contact => contact.LastName).ToListAsync();
-                }
+                await using var context = new NorthwindContext();
+                return await context.Contacts.AsNoTracking().OrderBy(contact => contact.LastName).ToListAsync();
             });
         }
         /// <summary>
@@ -137,15 +126,13 @@ namespace NorthWindCore.Classes
         {
             return await Task.Run(async () =>
             {
-                using (var context = new NorthwindContext())
-                {
-                    return await context.Contacts
-                        .AsNoTracking()
-                        .Include(contact => contact.ContactTypeIdentifierNavigation)
-                        .Include(c => c.ContactDevices)
-                        .ThenInclude(contactDevices => contactDevices.PhoneTypeIdentifierNavigation)
-                        .FirstOrDefaultAsync(c => c.ContactId == contactIdentifier);
-                }
+                await using var context = new NorthwindContext();
+                return await context.Contacts
+                    .AsNoTracking()
+                    .Include(contact => contact.ContactTypeIdentifierNavigation)
+                    .Include(c => c.ContactDevices)
+                    .ThenInclude(contactDevices => contactDevices.PhoneTypeIdentifierNavigation)
+                    .FirstOrDefaultAsync(c => c.ContactId == contactIdentifier);
             });
         }
         /// <summary>
@@ -154,10 +141,8 @@ namespace NorthWindCore.Classes
         /// <returns>List of all contact types</returns>
         public static List<Models.ContactType> GetContactTypes()
         {
-            using (var context = new NorthwindContext())
-            {
-                return context.ContactType.AsNoTracking().ToList();
-            }
+            using var context = new NorthwindContext();
+            return context.ContactType.AsNoTracking().ToList();
         }
 
         /// <summary>
@@ -187,12 +172,6 @@ namespace NorthWindCore.Classes
                 foreach (var property in key.Properties)
                 {
                     identifier = property.Name;
-
-                    // get more defined
-                    //if (property.ValueGenerated == ValueGenerated.OnAdd)
-                    //{
-                    //    identifier = property.Name;
-                    //}
                 }
             }
 
