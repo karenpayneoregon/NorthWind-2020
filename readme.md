@@ -24,3 +24,5 @@ Unknown
 ### Current model
 
 ![current model](assets/NorthSchema.png)
+
+7/2021 - upgrading to Core
