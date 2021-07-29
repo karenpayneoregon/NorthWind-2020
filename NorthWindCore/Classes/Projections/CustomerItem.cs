@@ -25,26 +25,20 @@ namespace NorthWindCore.Classes.Projections
         public int PhoneTypeIdentifier { get; set; }
         public override string ToString() => CompanyName;
 
-        public static Expression<Func<Customers, CustomerItem>> Projection
-        {
-            get
+        public static Expression<Func<Customers, CustomerItem>> Projection =>
+            (customers) => new CustomerItem()
             {
-                return (customers) => new CustomerItem()
-                {
-                    CustomerIdentifier = customers.CustomerIdentifier,
-                    CompanyName = customers.CompanyName,
-                    ContactId = customers.ContactId,
-                    ContactTitle = customers.ContactTypeIdentifierNavigation.ContactTitle,
-                    FirstName = customers.Contact.FirstName,
-                    LastName = customers.Contact.LastName,
-                    CountryIdentifier = customers.CountryIdentifier,
-                    Country = customers.CountryIdentifierNavigation.Name,
-                    ContactTypeIdentifier = customers.CountryIdentifier,
-                    OfficePhoneNumber = customers.Contact.ContactDevices
-                        .FirstOrDefault(contactDevices => contactDevices.PhoneTypeIdentifier == 3).PhoneNumber
-                };
-            }
-        }
-
+                CustomerIdentifier = customers.CustomerIdentifier,
+                CompanyName = customers.CompanyName,
+                ContactId = customers.ContactId,
+                ContactTitle = customers.ContactTypeIdentifierNavigation.ContactTitle,
+                FirstName = customers.Contact.FirstName,
+                LastName = customers.Contact.LastName,
+                CountryIdentifier = customers.CountryIdentifier,
+                Country = customers.CountryIdentifierNavigation.Name,
+                ContactTypeIdentifier = customers.CountryIdentifier,
+                OfficePhoneNumber = customers.Contact.ContactDevices
+                    .FirstOrDefault(contactDevices => contactDevices.PhoneTypeIdentifier == 3).PhoneNumber
+            };
     }
 }
