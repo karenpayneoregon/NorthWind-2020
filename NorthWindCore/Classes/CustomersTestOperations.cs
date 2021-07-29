@@ -10,6 +10,7 @@ using NorthWindCore.Classes.Projections;
 using NorthWindCore.Contexts;
 using NorthWindCore.Models;
 using Customers = NorthWindCore.Models.Customers;
+using M = NorthWindCore.Models;
 
 namespace NorthWindCore.Classes
 {
@@ -98,9 +99,9 @@ namespace NorthWindCore.Classes
         /// Get customer data including contact for editing
         /// </summary>
         /// <returns></returns>
-        public static async Task<List<CustomerEntity>> AllCustomersForDataGridViewAsync()
+        public static async Task<List<CustomerEntity>> AllCustomersAsync()
         {
-
+            
             return await Task.Run(async () =>
             {
                 List<CustomerEntity> customerItemsList = await Context.Customers
@@ -115,24 +116,25 @@ namespace NorthWindCore.Classes
 
         public static async Task MakeJson()
         {
-            List<CustomerEntity> cust = await AllCustomersForDataGridViewAsync();
-            File.WriteAllText("Customers.json", JsonHelpers.Serialize<CustomerEntity>(cust));
+            List<CustomerEntity> cust = await AllCustomersAsync();
+            await File.WriteAllTextAsync("Customers.json", JsonHelpers.Serialize<CustomerEntity>(cust));
 
             var contactTypes = Context.ContactType.ToList();
-            File.WriteAllText("ContactType.json", JsonHelpers.Serialize<Models.ContactType>(contactTypes));
+            await File.WriteAllTextAsync("ContactType.json", JsonHelpers.Serialize<Models.ContactType>(contactTypes));
 
             var contacts = Context.Contacts.ToList();
-            File.WriteAllText("Contacts.json", JsonHelpers.Serialize<Contacts>(contacts));
+            await File.WriteAllTextAsync("Contacts.json", JsonHelpers.Serialize<Contacts>(contacts));
 
             var countriesList = Context.Countries.ToList();
-            File.WriteAllText("Countries.json", JsonHelpers.Serialize<Countries>(countriesList));
+            await File.WriteAllTextAsync("Countries.json", JsonHelpers.Serialize<Countries>(countriesList));
 
         }
 
         public static CustomerEntity CustomerByIdentifier(int identifier)
         {
             using var context = new NorthwindContext();
-            return context.Customers.Select(North.Models.Customers.Projection).FirstOrDefault(custEntity => custEntity.CustomerIdentifier == identifier);
+            return context.Customers.Select(North.Models.Customers.Projection)
+                .FirstOrDefault(custEntity => custEntity.CustomerIdentifier == identifier);
         }
 
         public static List<Countries> CountryList()
