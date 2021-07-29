@@ -409,6 +409,7 @@
     <Content Include="SQL\Customers.sql" />
     <Content Include="SQL\EmployeeReportsToChange.sql" />
     <Content Include="SQL\EmployeesReportsToSelect.sql" />
+    <Content Include="SQL\North2020Script.sql" />
     <Content Include="SQL\OrderDetails.sql" />
     <Content Include="SQL\Orders.sql" />
     <Content Include="SQL\Products.sql" />

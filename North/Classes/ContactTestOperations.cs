@@ -44,6 +44,27 @@ namespace North.Classes
                 }
             });
         }
+
+        /// <summary>
+        /// Simple example for getting all contacts
+        /// </summary>
+        /// <returns></returns>
+        public static async Task<List<Contacts>> GetContactsList()
+        {
+            return await Task.Run(async () =>
+            {
+
+                using (var context = new NorthwindContext())
+                {
+                    return await context.Contacts
+                        .AsNoTracking()
+                        .Include(contact => contact.ContactTypeIdentifierNavigation)
+                        .Include(c => c.ContactDevices)
+                        .ThenInclude(contactDevices => contactDevices.PhoneTypeIdentifierNavigation)
+                        .Select(contact => contact).ToListAsync();
+                }
+            });
+        }
         /// <summary>
         /// Get a single contact
         /// </summary>

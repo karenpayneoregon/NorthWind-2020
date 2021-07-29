@@ -70,7 +70,7 @@ namespace North
         {
             var test = await CustomersTestOperations.GetCustomersAsync();
             var test1 = await CustomersTestOperations.GetCustomersWithProjectionAsync();
-            Console.WriteLine();
+            Console.WriteLine(@"Place breakpoint here");
 
         }
     }
