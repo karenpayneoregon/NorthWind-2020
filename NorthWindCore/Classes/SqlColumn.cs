@@ -27,6 +27,7 @@ namespace NorthWindCore.Classes
             Convert.ToString(IsNullable ? "Yes" : "")
         };
 
+        public Type ClrType { get; internal set; }
 
         public override string ToString() => Name;
 

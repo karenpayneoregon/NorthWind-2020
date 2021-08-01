@@ -20,23 +20,20 @@ namespace NorthWindCore.LanguageExtensions
     {
         public static IEnumerable<ModelComment> Comments<T>(this T sender) where T : IModelBaseEntity
         {
-            using (var context = new NorthwindContext())
+            using var context = new NorthwindContext();
+            IEntityType entityType = context.Model.FindRuntimeEntityType(typeof(T));
+
+            if (entityType != null)
             {
-                IEntityType entityType = context.Model.FindRuntimeEntityType(typeof(T));
-
-                if (entityType != null)
+                return entityType.GetProperties().Select(property => new ModelComment
                 {
-                    return entityType.GetProperties().Select(property => new ModelComment
-                    {
-                        Name = property.Name,
-                        Comment = string.IsNullOrWhiteSpace(property.GetComment()) ? property.Name : property.GetComment()
-                    });
-                }
-                else
-                {
-                    return Enumerable.Empty<ModelComment>();
-                }
-
+                    Name = property.Name,
+                    Comment = string.IsNullOrWhiteSpace(property.GetComment()) ? property.Name : property.GetComment()
+                });
+            }
+            else
+            {
+                return Enumerable.Empty<ModelComment>();
             }
         }
         public static void Remove1<TEntity>([NotNull] InternalEntityEntry entity) where TEntity : class
@@ -130,6 +127,8 @@ namespace NorthWindCore.LanguageExtensions
             foreach (IProperty itemProperty in properties)
             {
                 var sqlColumn = new SqlColumn() { Name = itemProperty.Name };
+
+                var test = itemProperty.ClrType;
                 var comment = context.Model.FindEntityType(entityType).FindProperty(itemProperty.Name).GetComment();
 
                 sqlColumn.Description = string.IsNullOrWhiteSpace(comment) ? itemProperty.Name : comment;
@@ -137,6 +136,8 @@ namespace NorthWindCore.LanguageExtensions
                 sqlColumn.IsPrimaryKey = itemProperty.IsKey();
                 sqlColumn.IsForeignKey = itemProperty.IsForeignKey();
                 sqlColumn.IsNullable = itemProperty.IsColumnNullable();
+                
+                sqlColumn.ClrType = itemProperty.ClrType;
 
                 sqlColumnsList.Add(sqlColumn);
 
@@ -144,6 +145,21 @@ namespace NorthWindCore.LanguageExtensions
 
             return sqlColumnsList;
         }
+
+        public static List<Type> ModelTypeInformation(this DbContext context)
+        {
+            return context.Model.GetEntityTypes().Select(entityType => entityType.ClrType).ToList();
+        }
+        /// <summary>
+        /// Get model names for a <see cref="DbContext"/>
+        /// </summary>
+        /// <param name="context"></param>
+        /// <returns></returns>
+        public static List<string> GetModelNames(this DbContext context) =>
+            context.ModelTypeInformation().Select(item => item.Name).ToList();
+
+        public static IOrderedEnumerable<string> GetModelNamesSorted(this DbContext context) => 
+            context.GetModelNames().OrderBy(name => name);
     }
 
 }

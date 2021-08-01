@@ -43,8 +43,8 @@ namespace NorthWindCore.Contexts
             if (!optionsBuilder.IsConfigured)
             {
                 var connectionString =
-                    $"Data Source={AppSettings["DatabaseServer"]};" +
-                    $"Initial Catalog={AppSettings["NorthWinCatalog"]};" +
+                    "Data Source=.\\SQLEXPRESS;" +
+                    "Initial Catalog=NorthWind2020;" +
                     "Integrated Security=True";
 
                 optionsBuilder.UseSqlServer(connectionString);
