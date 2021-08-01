@@ -22,7 +22,7 @@ namespace NorthCoreUnitTest
                 Console.WriteLine(name);
                 foreach (var column in context.GetEntityProperties(name))
                 {
-                    Console.WriteLine($"\t{column.Name} - {column.ClrType.CSharpName()} ");
+                    Console.WriteLine($"\t{column.Name} - {column.ClrType.CSharpName()} - {column.SqlType} ");
                 }
             }
         }

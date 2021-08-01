@@ -28,6 +28,7 @@ namespace NorthWindCore.Classes
         };
 
         public Type ClrType { get; internal set; }
+        public string SqlType { get; internal set; }
 
         public override string ToString() => Name;
 

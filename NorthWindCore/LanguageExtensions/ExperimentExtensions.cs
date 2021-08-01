@@ -114,7 +114,7 @@ namespace NorthWindCore.LanguageExtensions
 
             if (context == null) throw new ArgumentNullException(nameof(context));
 
-            var entityType = context.Model.GetEntityTypes()
+            Type entityType = context.Model.GetEntityTypes()
                 .Select(eType => eType.ClrType)
                 .FirstOrDefault(x => x.Name == modelName);
 
@@ -128,7 +128,7 @@ namespace NorthWindCore.LanguageExtensions
             {
                 var sqlColumn = new SqlColumn() { Name = itemProperty.Name };
 
-                var test = itemProperty.ClrType;
+                var test = itemProperty.GetColumnType();
                 var comment = context.Model.FindEntityType(entityType).FindProperty(itemProperty.Name).GetComment();
 
                 sqlColumn.Description = string.IsNullOrWhiteSpace(comment) ? itemProperty.Name : comment;
@@ -138,6 +138,7 @@ namespace NorthWindCore.LanguageExtensions
                 sqlColumn.IsNullable = itemProperty.IsColumnNullable();
                 
                 sqlColumn.ClrType = itemProperty.ClrType;
+                sqlColumn.SqlType = itemProperty.GetColumnType();
 
                 sqlColumnsList.Add(sqlColumn);
 
