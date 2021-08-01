@@ -3,12 +3,13 @@ using System.Linq;
 using System.Reflection;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.ChangeTracking;
+using Microsoft.Extensions.Configuration;
 using North.Models;
 using NorthWindCore.Contexts.Configuration;
 using NorthWindCore.Models;
 
 using Customers = NorthWindCore.Models.Customers;
-using static System.Configuration.ConfigurationManager;
+
 
 namespace NorthWindCore.Contexts
 {
@@ -42,16 +43,23 @@ namespace NorthWindCore.Contexts
         {
             if (!optionsBuilder.IsConfigured)
             {
-                var connectionString =
-                    "Data Source=.\\SQLEXPRESS;" +
-                    "Initial Catalog=NorthWind2020;" +
-                    "Integrated Security=True";
-
-                optionsBuilder.UseSqlServer(connectionString);
-
+                optionsBuilder.UseSqlServer(BuildConnection());
             }
         }
+        private static string BuildConnection()
+        {
+            var configuration = new ConfigurationBuilder()
+                .AddJsonFile("appsettings.json", true, true)
+                .Build();
 
+            var sections = configuration.GetSection("database").GetChildren().ToList();
+
+            return
+                $"Data Source={sections[1].Value};" +
+                $"Initial Catalog={sections[0].Value};" +
+                $"Integrated Security={sections[2].Value}";
+
+        }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
 

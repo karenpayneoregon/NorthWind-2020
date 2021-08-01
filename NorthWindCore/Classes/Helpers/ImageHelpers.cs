@@ -1,4 +1,6 @@
-﻿using System.Drawing;
+﻿using System;
+using System.Drawing;
+using System.IO;
 
 namespace NorthWindCore.Classes.Helpers
 {
@@ -11,6 +13,7 @@ namespace NorthWindCore.Classes.Helpers
         /// <returns>Image from byte array</returns>
         public static Image ByteArrayToImage(byte[] byteArray)
         {
+           
             var converter = new ImageConverter();
             var image = (Image)converter.ConvertFrom(byteArray);
 
