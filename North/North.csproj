@@ -203,6 +203,12 @@
     <Compile Include="Forms\BetweenPrimaryKeysExtensionExamples.Designer.cs">
       <DependentUpon>BetweenPrimaryKeysExtensionExamples.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\ContactAddForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\ContactAddForm.Designer.cs">
+      <DependentUpon>ContactAddForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="LanguageExtensions\BindingSourceExtensions.cs" />
     <Compile Include="Interfaces\IModelBaseEntity.cs" />
     <Compile Include="LanguageExtensions\ExperimentExtensions.cs" />
@@ -323,6 +329,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\CategoryImagesTestForm.resx">
       <DependentUpon>CategoryImagesTestForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\ContactAddForm.resx">
+      <DependentUpon>ContactAddForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\ContactsEditTestForm.resx">
       <DependentUpon>ContactsEditTestForm.cs</DependentUpon>

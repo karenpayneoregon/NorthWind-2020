@@ -48,6 +48,7 @@ namespace NorthWindCore.Contexts
         }
         private static string BuildConnection()
         {
+            
             var configuration = new ConfigurationBuilder()
                 .AddJsonFile("appsettings.json", true, true)
                 .Build();

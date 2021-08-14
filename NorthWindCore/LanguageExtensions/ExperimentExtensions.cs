@@ -38,10 +38,6 @@ namespace NorthWindCore.LanguageExtensions
         }
         public static void Remove1<TEntity>([NotNull] InternalEntityEntry entity) where TEntity : class
         {
-            
-            
-
-
 
         }
         /// <summary>
@@ -122,7 +118,6 @@ namespace NorthWindCore.LanguageExtensions
 
             // ReSharper disable once AssignNullToNotNullAttribute
             IEnumerable<IProperty> properties = context.Model.FindEntityType(entityType).GetProperties();
-            //var keys = context.Model.FindEntityType(entityType).GetKeys();
 
             foreach (IProperty itemProperty in properties)
             {
