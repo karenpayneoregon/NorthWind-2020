@@ -53,7 +53,7 @@ namespace North.Forms
 
         private void AddNewContactButton_Click(object sender, EventArgs e)
         {
-            // hard coded contact
+            // hard coded contact.
             var newContact = new Contacts()
             {
                 FirstName = "Karen",

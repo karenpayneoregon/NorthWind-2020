@@ -43,6 +43,7 @@
             this.Column12 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column13 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.TemplateButton = new System.Windows.Forms.Button();
             this.CurrentButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.CustomersDataGridView)).BeginInit();
             this.panel1.SuspendLayout();
@@ -155,12 +156,23 @@
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.TemplateButton);
             this.panel1.Controls.Add(this.CurrentButton);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.panel1.Location = new System.Drawing.Point(0, 386);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(747, 64);
             this.panel1.TabIndex = 1;
+            // 
+            // TemplateButton
+            // 
+            this.TemplateButton.Location = new System.Drawing.Point(120, 25);
+            this.TemplateButton.Name = "TemplateButton";
+            this.TemplateButton.Size = new System.Drawing.Size(139, 23);
+            this.TemplateButton.TabIndex = 1;
+            this.TemplateButton.Text = "Template";
+            this.TemplateButton.UseVisualStyleBackColor = true;
+            this.TemplateButton.Click += new System.EventHandler(this.button1_Click);
             // 
             // CurrentButton
             // 
@@ -207,5 +219,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Column13;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Button CurrentButton;
+        private System.Windows.Forms.Button TemplateButton;
     }
 }
