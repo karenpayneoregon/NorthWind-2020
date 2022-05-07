@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 using EntityCoreExtensions.Classes;
 using EntityCoreExtensions.Interfaces;
 using Microsoft.EntityFrameworkCore;
@@ -10,6 +11,21 @@ namespace EntityCoreExtensions
 {
     public static class DbContexts
     {
+
+        /// <summary>
+        /// List of model names
+        /// </summary>
+        /// <returns>Model name as a list</returns>
+        /// <remarks>
+        /// var names = await HelperOperations.ModelNameList();
+        /// </remarks>
+        public static async Task<List<string>> ModelNameList(DbContext context) =>
+            await Task.Run(() => context.Model
+                .GetEntityTypes()
+                .Select(entityType => entityType.ClrType)
+                .Select(type => type.Name)
+                .ToList());
+
         /// <summary>
         /// Get details for a model
         /// </summary>

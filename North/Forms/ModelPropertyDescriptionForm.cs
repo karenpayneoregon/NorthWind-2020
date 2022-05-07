@@ -37,6 +37,7 @@ namespace North.Forms
 
             var results = ContactTestOperations.Context.GetEntityProperties(ModelNamesListBox.Text);
 
+
             foreach (var sqlColumn in results)
             {
                 ColumnDescriptionsListView.Items.Add(new ListViewItem(sqlColumn.ItemArray));

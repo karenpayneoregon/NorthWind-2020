@@ -11,10 +11,19 @@ namespace Demo1
     {
         static async Task Main(string[] args)
         {
+            await Task.Delay(0);
+            var test = typeof(UInt64);
+            
+            Console.ReadLine();
+
+        }
+
+        private static async Task Run()
+        {
             await CustomersDuplicateFinder.GetCustomerEntities();
             var customers = await CustomersDuplicateFinder.GetDuplicates();
 
-            if (customers.Count >0)
+            if (customers.Count > 0)
             {
 #if DEBUG
                 var originalColor = Console.ForegroundColor;
@@ -27,8 +36,6 @@ namespace Demo1
                     Console.WriteLine($"{customerEntity.CustomerIdentifier,3}, {customerEntity.CompanyName}");
                 }
 #endif
-
-
             }
             else
             {

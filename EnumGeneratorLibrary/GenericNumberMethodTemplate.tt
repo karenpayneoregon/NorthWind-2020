@@ -1,0 +1,29 @@
+﻿<#@ template debug="true" hostSpecific="true" #>
+<#@ output extension=".cs" #>
+<#@ Assembly Name="EnvDTE.dll" #>
+<#@ Assembly Name="System.Data" #>
+<#@ import namespace="EnvDTE" #>
+<#@ import namespace="System.Data" #>
+<#@ import namespace="System.Data.SqlClient" #>
+<#@ import namespace="System.IO" #>
+<#@ import namespace="System.Text.RegularExpressions" #>
+<#
+    var path = Path.GetDirectoryName(Host.TemplateFile);
+	IServiceProvider serviceProvider = (IServiceProvider)Host;
+	DTE dte = (DTE)serviceProvider.GetService(typeof(DTE));
+	Project project = dte.Solution.FindProjectItem(Host.TemplateFile).ContainingProject;
+#>
+<# string[] types = new[] {
+    "short", "int", "long",
+    "ushort", "uint", "ulong"
+    };
+#>
+namespace <#= project.Properties.Item("DefaultNamespace").Value #><#= Path.GetDirectoryName(Host.TemplateFile).Remove(0, Path.GetDirectoryName(project.FileName).Length).Replace("\\", ".") #>
+{
+    public static class MathExtensions 
+    {
+<# foreach (var type in types) { #>
+        public static <#= type #> Max (this <#= type #> sender, <#= type #> other) => sender > other ? sender : other;
+<#} #>
+    }
+}
